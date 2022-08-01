@@ -20,6 +20,8 @@ get_benchling <- function(endpoint, org = Sys.getenv("BENCHLING_ORG"), ...) {
     cont[[ep]]
   } else if (utils::hasName(cont, camel_ep <- camel(ep))) {
     cont[[camel_ep]]
+  } else {
+    cont
   }
 }
 
