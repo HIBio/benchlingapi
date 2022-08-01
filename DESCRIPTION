@@ -22,3 +22,5 @@ Suggests:
     tibble,
     tidyr,
     yaml
+URL: https://github.com/HIBio/benchlingapi
+BugReports: https://github.com/HIBio/benchlingapi/issues
