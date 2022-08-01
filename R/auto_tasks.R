@@ -10,7 +10,7 @@
 #' @md
 #' @param task_id tasks id
 #' @param ... (ignored)
-#' 
+#'
 #' @return data from `tasks` endpoint
 #' @export
 #'
@@ -22,4 +22,3 @@ get_tasks <- function(task_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

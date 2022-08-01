@@ -13,7 +13,7 @@
 #'    \item{minCreatedTime}{minimum create time (unix seconds)}
 #'    \item{maxCreatedTime}{maximum create time (unix seconds)}
 #' }
-#' 
+#'
 #' @return data from `requests` endpoint
 #' @export
 #'
@@ -25,4 +25,3 @@ get_requests <- function(request_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

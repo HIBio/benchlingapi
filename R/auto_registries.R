@@ -15,7 +15,7 @@
 #'    \item{name}{Name of a registry. Restricts results to those with the specified name.}
 #'    \item{modifiedAt}{Datetime, in RFC 3339 format. Supports the > and < operators. Time zone defaults to UTC. Restricts results to those modified in the specified range. e.g. > 2017-04-30.}
 #' }
-#' 
+#'
 #' @return data from `registries` endpoint
 #' @export
 #'
@@ -27,4 +27,3 @@ get_registries <- function(registry_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

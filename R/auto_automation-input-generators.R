@@ -7,7 +7,7 @@
 #' @md
 #' @param input_generator_id automation_input_generators id
 #' @param ... (ignored)
-#' 
+#'
 #' @return data from `automation_input_generators` endpoint
 #' @export
 #'
@@ -19,4 +19,3 @@ get_automation_input_generators <- function(input_generator_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

@@ -11,4 +11,3 @@
 get_events <- function() {
   get_benchling(events)
 }
-

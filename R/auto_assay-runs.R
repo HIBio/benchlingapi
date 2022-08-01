@@ -17,7 +17,7 @@
 #'    \item{pageSize}{Number of results to return. Defaults to 50, maximum of 100.}
 #'    \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 #' }
-#' 
+#'
 #' @return data from `assay_runs` endpoint
 #' @export
 #'
@@ -29,4 +29,3 @@ get_assay_runs <- function(assay_run_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

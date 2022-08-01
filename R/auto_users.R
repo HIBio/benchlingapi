@@ -20,7 +20,7 @@
 #'    \item{handles}{Comma-separated list of handles. Restricts results to the users with the specified handles.}
 #'    \item{nextToken}{Token for pagination}
 #' }
-#' 
+#'
 #' @return data from `users` endpoint
 #' @export
 #'
@@ -32,4 +32,3 @@ get_users <- function(user_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

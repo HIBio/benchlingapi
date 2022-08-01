@@ -5,7 +5,7 @@
 #' @md
 #' @param stage_id legacy_workflow_stages id
 #' @param ... (ignored)
-#' 
+#'
 #' @return data from `legacy_workflow_stages` endpoint
 #' @export
 #'
@@ -17,4 +17,3 @@ get_legacy_workflow_stages <- function(stage_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

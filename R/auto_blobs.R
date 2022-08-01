@@ -8,7 +8,7 @@
 #' @md
 #' @param blob_id blobs id
 #' @param ... (ignored)
-#' 
+#'
 #' @return data from `blobs` endpoint
 #' @export
 #'
@@ -20,4 +20,3 @@ get_blobs <- function(blob_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

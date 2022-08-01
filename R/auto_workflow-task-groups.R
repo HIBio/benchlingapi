@@ -27,7 +27,7 @@
 #'    \item{displayIds}{Comma-separated list of Workflow Display IDs.}
 #'    \item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived workflow task groups. Use "ANY_ARCHIVED" to filter for archived workflow task groups regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}
 #' }
-#' 
+#'
 #' @return data from `workflow_task_groups` endpoint
 #' @export
 #'
@@ -39,4 +39,3 @@ get_workflow_task_groups <- function(workflow_task_group_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

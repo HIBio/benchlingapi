@@ -30,7 +30,7 @@
 #'    \item{ingredientComponentEntityIds.anyOf}{Comma-separated list of ingredient component entity ids. Matches all mixtures that contain ingredients whose component entities match any of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 #'    \item{authorIds.anyOf}{Comma separated list of user or app IDs}
 #' }
-#' 
+#'
 #' @return data from `mixtures` endpoint
 #' @export
 #'
@@ -42,4 +42,3 @@ get_mixtures <- function(mixture_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

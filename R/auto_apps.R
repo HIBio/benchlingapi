@@ -22,7 +22,7 @@
 #'    \item{memberOf}{Comma-separated list of organization and/or team API IDs. Restricts results to apps that are members of all given groups.}
 #'    \item{adminOf}{Comma-separated list of organization and/or team API IDs. Restricts results to apps that are admins of all given groups.}
 #' }
-#' 
+#'
 #' @return data from `apps` endpoint
 #' @export
 #'
@@ -34,4 +34,3 @@ get_apps <- function(app_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

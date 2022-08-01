@@ -17,7 +17,7 @@
 #'    \item{modifiedAt}{Datetime, in RFC 3339 format. Supports the > and < operators. Time zone defaults to UTC. Restricts results to those modified in the specified range. e.g. > 2017-04-30.}
 #'    \item{nextToken}{Token for pagination}
 #' }
-#' 
+#'
 #' @return data from `automation_output_processors` endpoint
 #' @export
 #'
@@ -29,4 +29,3 @@ get_automation_output_processors <- function(output_processor_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

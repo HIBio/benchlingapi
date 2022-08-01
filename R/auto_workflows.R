@@ -6,7 +6,7 @@
 #' @md
 #' @param workflow_id workflows id
 #' @param ... (ignored)
-#' 
+#'
 #' @return data from `workflows` endpoint
 #' @export
 #'
@@ -18,4 +18,3 @@ get_workflows <- function(workflow_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

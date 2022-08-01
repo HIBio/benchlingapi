@@ -18,7 +18,7 @@
 #'    \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 #'    \item{names.anyOf}{Comma-separated list of names. Restricts results to those that match any of the specified names.}
 #' }
-#' 
+#'
 #' @return data from `feature_libraries` endpoint
 #' @export
 #'
@@ -30,4 +30,3 @@ get_feature_libraries <- function(feature_library_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

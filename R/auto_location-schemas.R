@@ -11,9 +11,9 @@
 #' @details
 #' Available query parameters:
 #' \describe{
-#'    
+#'
 #' }
-#' 
+#'
 #' @return data from `location_schemas` endpoint
 #' @export
 #'
@@ -25,4 +25,3 @@ get_location_schemas <- function(schema_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-

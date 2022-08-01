@@ -30,7 +30,7 @@
 #'    \item{creatorIds}{Comma separated list of users IDs}
 #'    \item{authorIds.anyOf}{Comma separated list of user or app IDs}
 #' }
-#' 
+#'
 #' @return data from `custom_entities` endpoint
 #' @export
 #'
@@ -42,4 +42,3 @@ get_custom_entities <- function(custom_entity_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
-
