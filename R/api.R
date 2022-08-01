@@ -18,7 +18,11 @@ get_benchling <- function(endpoint, org = Sys.getenv("BENCHLING_ORG"), ...) {
   cont <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
   if (utils::hasName(cont, ep)) {
     cont[[ep]]
-  } else {
-    cont
+  } else if (utils::hasName(cont, camel_ep <- camel(ep))) {
+    cont[[camel_ep]]
   }
+}
+
+camel <- function(x) {
+  gsub('(\\w)-(\\w)', '\\1\\U\\2', x, perl=T)
 }
