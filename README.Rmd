@@ -187,6 +187,6 @@ get_users(nameIncludes = "david")
 ```
 ```{r, echo = FALSE}
 structure(list(email = c("david.old@example.com", "david.new@example.com"
-), handle = c("david.new", "david.old"), id = c("ent_U2gA6a41", "ent_AvA2sA2X"
-), name = c("David New", "David Old")), class = "data.frame", row.names = 1:2)
+), handle = c("david.old", "david.new"), id = c("ent_U2gA6a41", "ent_AvA2sA2X"
+), name = c("David Old", "David New")), class = "data.frame", row.names = 1:2)
 ```

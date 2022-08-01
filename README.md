@@ -310,5 +310,5 @@ get_users(nameIncludes = "david")
 ```
 
     #>                   email    handle           id      name
-    #> 1 david.old@example.com david.new ent_U2gA6a41 David New
-    #> 2 david.new@example.com david.old ent_AvA2sA2X David Old
+    #> 1 david.old@example.com david.old ent_U2gA6a41 David Old
+    #> 2 david.new@example.com david.new ent_AvA2sA2X David New

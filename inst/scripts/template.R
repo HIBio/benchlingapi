@@ -18,7 +18,6 @@ get_{ep} <- function({ep_id} = NULL, ...) {{
   get_benchling(endpoint, query = ...)
 }}
 
-
 "
 
 template_noparam <- "
@@ -34,7 +33,6 @@ template_noparam <- "
 get_{ep} <- function() {{
   get_benchling({ep})
 }}
-
 
 "
 
