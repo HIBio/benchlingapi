@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 
+library(benchlingapi)
+
 # mock for the sake of output
 get_users <- function() {
 structure(list(email = c("jamey@example.com", "peggy@example.com", 
@@ -117,3 +119,74 @@ structure(list(endpoint = c("aa_sequences", "apps", "assay_result_schemas",
 -58L), class = c("data.frame"))
 ```
 
+Many endpoints also include query parameters (see the [official reference](https://benchling.com/api/reference)).
+These can be specified via the `...` argument, and are detailed in the individual help for each function.
+
+```{r, eval = FALSE}
+?get_organizations
+```
+
+----
+
+```{r, echo = FALSE, results='asis'}
+help_console <- function(topic, package,
+                         format=c("text", "html", "latex", "Rd"),
+                         before=NULL, after=NULL) {
+  # topic - the command for which help is required
+  # package - the package name with the required topic
+  # format - output format
+  # before - place code before the output e.g. "<blockquote>"
+  # after - place code after the output e.g. "</blockquote>"
+
+  # based on code by Noam Ross
+  #  http://www.noamross.net/archives/2013-06-18-helpconsoleexample/
+  # Stéphane Laurent
+  #  https://stackoverflow.com/questions/60468080/
+  #   print-an-r-help-file-vignette-as-output-into-an-r-html-notebook
+  # and Michael Sumner (mdsumner)
+  #  https://stackoverflow.com/questions/7495685/
+  #   how-to-access-the-help-documentation-rd-source-files-in-r
+
+  format <- match.arg(format)
+  if (!is.character(topic)) topic <- deparse(substitute(topic))
+  db <- tools::Rd_db(package)
+  helpfile <- db[paste0(topic, ".Rd")][[1]]
+
+  hs <- capture.output(
+    switch(
+      format,
+      text = tools::Rd2txt(helpfile),
+      html = tools::Rd2HTML(
+        helpfile,
+        package = "",
+        stages = c("install", "render")
+      ),
+      latex = tools::Rd2latex(helpfile),
+      Rd = tools:::prepare_Rd(helpfile)
+    )
+  )
+  if (format == "html") {
+    i <- grep("<h2>", hs)
+    j <- grep("</body>", hs)
+    hs <- hs[(i-1):(j-1)]
+  }
+  hs <- c(before, hs, after)
+  hs <- cat(hs, sep = "\n")
+  invisible(hs)
+}
+
+help_console("users", "benchlingapi", format = "html")
+```
+
+----
+
+As an example, if your users list has several users with the name 'David'
+
+```{r, eval = FALSE}
+get_users(nameIncludes = "david")
+```
+```{r, echo = FALSE}
+structure(list(email = c("david.old@example.com", "david.new@example.com"
+), handle = c("david.new", "david.old"), id = c("ent_U2gA6a41", "ent_AvA2sA2X"
+), name = c("David New", "David Old")), class = "data.frame", row.names = 1:2)
+```

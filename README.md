@@ -143,3 +143,172 @@ supported for now)
     #> 56        workflow_task_schemas              {schema_id}
     #> 57               workflow_tasks       {workflow_task_id}
     #> 58                    workflows            {workflow_id}
+
+Many endpoints also include query parameters (see the [official
+reference](https://benchling.com/api/reference)). These can be specified
+via the `...` argument, and are detailed in the individual help for each
+function.
+
+``` r
+?get_organizations
+```
+
+------------------------------------------------------------------------
+
+<h2>
+List users
+</h2>
+<h3>
+Description
+</h3>
+<p>
+View user objects.
+</p>
+<h3>
+Usage
+</h3>
+<pre><code class='language-R'>get_users(user_id = NULL, ...)
+</code></pre>
+<h3>
+Arguments
+</h3>
+<table>
+<tr style="vertical-align: top;">
+<td>
+<code>user_id</code>
+</td>
+<td>
+<p>
+users id
+</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td>
+<code>…</code>
+</td>
+<td>
+<p>
+additional query parameters; see Details below
+</p>
+</td>
+</tr>
+</table>
+<h3>
+Details
+</h3>
+<p>
+Available query parameters:
+</p>
+<dl>
+<dt>
+ids
+</dt>
+<dd>
+<p>
+Comma-separated list of ids. Matches all of the provided IDs, or returns
+a 400 error that includes a list of which IDs are invalid.
+</p>
+</dd>
+<dt>
+name
+</dt>
+<dd>
+<p>
+Name of a user. Restricts results to those with the specified name.
+</p>
+</dd>
+<dt>
+nameIncludes
+</dt>
+<dd>
+<p>
+Name substring of a user. Restricts results to those with names that
+include the provided substring.
+</p>
+</dd>
+<dt>
+names.anyOf
+</dt>
+<dd>
+<p>
+Comma-separated list of names. Restricts results to those that match any
+of the specified names, case insensitive. Warning - this filter can be
+non-performant due to case insensitivity.
+</p>
+</dd>
+<dt>
+names.anyOf.caseSensitive
+</dt>
+<dd>
+<p>
+Comma-separated list of names. Restricts results to those that match any
+of the specified names, case sensitive.
+</p>
+</dd>
+<dt>
+modifiedAt
+</dt>
+<dd>
+<p>
+Datetime, in RFC 3339 format. Supports the \> and \< operators. Time
+zone defaults to UTC. Restricts results to those modified in the
+specified range. e.g. \> 2017-04-30.
+</p>
+</dd>
+<dt>
+memberOf
+</dt>
+<dd>
+<p>
+Comma-separated list of organization and/or team API IDs. Restricts
+results to users that are members of all given groups.
+</p>
+</dd>
+<dt>
+adminOf
+</dt>
+<dd>
+<p>
+Comma-separated list of organization and/or team API IDs. Restricts
+results to users that are admins of all given groups.
+</p>
+</dd>
+<dt>
+handles
+</dt>
+<dd>
+<p>
+Comma-separated list of handles. Restricts results to the users with the
+specified handles.
+</p>
+</dd>
+<dt>
+nextToken
+</dt>
+<dd>
+<p>
+Token for pagination
+</p>
+</dd>
+</dl>
+<h3>
+Value
+</h3>
+<p>
+data from <code>users</code> endpoint
+</p>
+</div>
+
+------------------------------------------------------------------------
+
+As an example, if your users list has several users with the name
+‘David’
+
+``` r
+get_users(nameIncludes = "david")
+```
+
+    #>                   email    handle           id      name
+    #> 1 david.old@example.com david.new ent_U2gA6a41 David New
+    #> 2 david.new@example.com david.old ent_AvA2sA2X David Old
