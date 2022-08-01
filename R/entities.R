@@ -1,7 +1,11 @@
 #' Batches
 #'
-#' Batches represent physical quantities of a sequence, protein, or other biological entity. A batch is identified by its biological entity's name (or Registry ID, if the entity is registered), its date of creation, and an optional inventory number.
+#' Batches represent physical quantities of a sequence, protein, or other
+#' biological entity. A batch is identified by its biological entity's name (or
+#' Registry ID, if the entity is registered), its date of creation, and an
+#' optional inventory number.
 #'
+#' @md
 #' @param entity_id entities id
 #'
 #' @return data from entities endpoint
@@ -15,4 +19,3 @@ get_entities <- function(entity_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

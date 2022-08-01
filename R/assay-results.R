@@ -1,7 +1,11 @@
 #' List results
 #'
-#' Results represent the output of assays that have been performed. You can customize the schemas of results to fit your needs. Results can link to runs, batches, and other types.To learn more about creating results, [click here](https://docs.benchling.com/docs/example-creating-results).
+#' Results represent the output of assays that have been performed. You can
+#' customize the schemas of results to fit your needs. Results can link to runs,
+#' batches, and other types.To learn more about creating results, [click
+#' here](https://docs.benchling.com/docs/example-creating-results).
 #'
+#' @md
 #' @param assay_result_id assay_results id
 #'
 #' @return data from assay_results endpoint
@@ -15,4 +19,3 @@ get_assay_results <- function(assay_result_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

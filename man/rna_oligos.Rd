@@ -13,5 +13,7 @@ get_rna_oligos(oligo_id = NULL)
 data from rna_oligos endpoint
 }
 \description{
-RNA Oligos are short linear RNA sequences that can be attached as primers to full DNA sequences. Just like other entities, they support schemas, tags, and aliases.
+RNA Oligos are short linear RNA sequences that can be attached as primers to
+full DNA sequences. Just like other entities, they support schemas, tags, and
+aliases.
 }

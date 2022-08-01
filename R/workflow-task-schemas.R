@@ -1,7 +1,10 @@
 #' List workflow task schemas
 #'
-#' Schemas represent custom configuration of objects in Benchling. See this [guide in our documentation](https://docs.benchling.com/docs/schemas) on how Schemas impact our developers
+#' Schemas represent custom configuration of objects in Benchling. See this [guide
+#' in our documentation](https://docs.benchling.com/docs/schemas) on how Schemas
+#' impact our developers
 #'
+#' @md
 #' @param schema_id workflow_task_schemas id
 #'
 #' @return data from workflow_task_schemas endpoint
@@ -15,4 +18,3 @@ get_workflow_task_schemas <- function(schema_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

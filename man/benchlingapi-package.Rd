@@ -8,6 +8,14 @@
 \description{
 Wraps the benchling API for access in R
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/HIBio/benchlingapi}
+  \item Report bugs at \url{https://github.com/HIBio/benchlingapi/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Jonathan Carroll \email{jonathan@hibio.com} (\href{https://orcid.org/0000-0002-1404-5264}{ORCID})
 

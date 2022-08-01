@@ -1,7 +1,11 @@
 #' List Oligos
 #'
-#' Oligos are short linear DNA sequences that can be attached as primers to full DNA sequences. Just like other entities, they support schemas, tags, and aliases.Please migrate to the corresponding DNA Oligos endpoints so that we can support RNA Oligos.
+#' Oligos are short linear DNA sequences that can be attached as primers to full
+#' DNA sequences. Just like other entities, they support schemas, tags, and
+#' aliases.Please migrate to the corresponding DNA Oligos endpoints so that we can
+#' support RNA Oligos.
 #'
+#' @md
 #' @param oligo_id oligos id
 #'
 #' @return data from oligos endpoint
@@ -15,4 +19,3 @@ get_oligos <- function(oligo_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

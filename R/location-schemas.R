@@ -1,7 +1,10 @@
 #' List location schemas
 #'
-#' Schemas represent custom configuration of objects in Benchling. See this [guide in our documentation](https://docs.benchling.com/docs/schemas) on how Schemas impact our developers
+#' Schemas represent custom configuration of objects in Benchling. See this [guide
+#' in our documentation](https://docs.benchling.com/docs/schemas) on how Schemas
+#' impact our developers
 #'
+#' @md
 #' @param schema_id location_schemas id
 #'
 #' @return data from location_schemas endpoint
@@ -15,4 +18,3 @@ get_location_schemas <- function(schema_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

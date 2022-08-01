@@ -13,5 +13,6 @@ get_locations(location_id = NULL)
 data from locations endpoint
 }
 \description{
-Manage locations objects.Like all storage, every Location has a barcode that is unique across the registry.
+Manage locations objects.Like all storage, every Location has a barcode that is
+unique across the registry.
 }

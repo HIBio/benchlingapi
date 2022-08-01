@@ -2,6 +2,7 @@
 #'
 #' Workflow tasks encapsulate a single unit of work
 #'
+#' @md
 #' @param workflow_task_id workflow_tasks id
 #'
 #' @return data from workflow_tasks endpoint
@@ -15,4 +16,3 @@ get_workflow_tasks <- function(workflow_task_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

@@ -1,7 +1,9 @@
 #' List runs
 #'
-#' Runs capture the details / parameters of a run that was performed. Results are usually nested under a run.
+#' Runs capture the details / parameters of a run that was performed. Results are
+#' usually nested under a run.
 #'
+#' @md
 #' @param assay_run_id assay_runs id
 #'
 #' @return data from assay_runs endpoint
@@ -15,4 +17,3 @@ get_assay_runs <- function(assay_run_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

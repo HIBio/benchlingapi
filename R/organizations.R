@@ -2,6 +2,7 @@
 #'
 #' View organization objects.
 #'
+#' @md
 #' @param organization_id organizations id
 #'
 #' @return data from organizations endpoint
@@ -15,4 +16,3 @@ get_organizations <- function(organization_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

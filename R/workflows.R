@@ -1,7 +1,9 @@
 #' List workflows
 #'
-#' Please use endpoints for Legacy Workflows. These deprecated endpoints will be removed once users are migrated onto Legacy Workflows endpoints.
+#' Please use endpoints for Legacy Workflows. These deprecated endpoints will be
+#' removed once users are migrated onto Legacy Workflows endpoints.
 #'
+#' @md
 #' @param workflow_id workflows id
 #'
 #' @return data from workflows endpoint
@@ -15,4 +17,3 @@ get_workflows <- function(workflow_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

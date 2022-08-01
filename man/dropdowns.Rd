@@ -5,25 +5,14 @@
 \title{List dropdowns}
 \usage{
 get_dropdowns(dropdown_id = NULL)
-
-get_dropdowns(dropdown_id = NULL)
-
-get_dropdowns(dropdown_id = NULL)
 }
 \arguments{
 \item{dropdown_id}{dropdowns id}
 }
 \value{
 data from dropdowns endpoint
-
-data from dropdowns endpoint
-
-data from dropdowns endpoint
 }
 \description{
-Dropdowns are registry-wide enums. Use dropdowns to standardize on spelling and naming conventions, especially for important metadata like resistance markers.
-
-Dropdowns are registry-wide enums. Use dropdowns to standardize on spelling and naming conventions, especially for important metadata like resistance markers.
-
-Dropdowns are registry-wide enums. Use dropdowns to standardize on spelling and naming conventions, especially for important metadata like resistance markers.
+Dropdowns are registry-wide enums. Use dropdowns to standardize on spelling and
+naming conventions, especially for important metadata like resistance markers.
 }

@@ -13,5 +13,7 @@ get_custom_entities(custom_entity_id = NULL)
 data from custom_entities endpoint
 }
 \description{
-Benchling supports custom entities for biological entities that are neither sequences or proteins. Custom entities must have an entity schema set and can have both schema fields and custom fields.
+Benchling supports custom entities for biological entities that are neither
+sequences or proteins. Custom entities must have an entity schema set and can
+have both schema fields and custom fields.
 }

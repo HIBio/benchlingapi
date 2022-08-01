@@ -1,7 +1,9 @@
 #' List requests
 #'
-#' Requests allow scientists and teams to collaborate around experimental assays and workflows.
+#' Requests allow scientists and teams to collaborate around experimental assays
+#' and workflows.
 #'
+#' @md
 #' @param request_id requests id
 #'
 #' @return data from requests endpoint
@@ -15,4 +17,3 @@ get_requests <- function(request_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

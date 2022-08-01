@@ -2,6 +2,7 @@
 #'
 #' Workflow outputs are outputs of a workflow task
 #'
+#' @md
 #' @param workflow_output_id workflow_outputs id
 #'
 #' @return data from workflow_outputs endpoint
@@ -15,4 +16,3 @@ get_workflow_outputs <- function(workflow_output_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

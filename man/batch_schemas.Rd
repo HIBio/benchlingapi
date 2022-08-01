@@ -13,5 +13,6 @@ get_batch_schemas(schema_id = NULL)
 data from batch_schemas endpoint
 }
 \description{
-Schemas represent custom configuration of objects in Benchling. See this \href{https://docs.benchling.com/docs/schemas}{guide in our documentation} on how Schemas impact our developers
+Schemas represent custom configuration of objects in Benchling. See this \href{https://docs.benchling.com/docs/schemas}{guide in our documentation} on how Schemas
+impact our developers
 }

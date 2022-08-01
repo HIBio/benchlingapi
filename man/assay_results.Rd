@@ -13,5 +13,7 @@ get_assay_results(assay_result_id = NULL)
 data from assay_results endpoint
 }
 \description{
-Results represent the output of assays that have been performed. You can customize the schemas of results to fit your needs. Results can link to runs, batches, and other types.To learn more about creating results, \href{https://docs.benchling.com/docs/example-creating-results}{click here}.
+Results represent the output of assays that have been performed. You can
+customize the schemas of results to fit your needs. Results can link to runs,
+batches, and other types.To learn more about creating results, \href{https://docs.benchling.com/docs/example-creating-results}{click here}.
 }

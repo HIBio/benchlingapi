@@ -2,6 +2,7 @@
 #'
 #' Create and manage Benchling apps on your tenant
 #'
+#' @md
 #' @param app_id apps id
 #'
 #' @return data from apps endpoint
@@ -15,4 +16,3 @@ get_apps <- function(app_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

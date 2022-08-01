@@ -5,19 +5,13 @@
 \title{List legacy workflows}
 \usage{
 get_legacy_workflows(legacy_workflow_id = NULL)
-
-get_legacy_workflows(legacy_workflow_id = NULL)
 }
 \arguments{
 \item{legacy_workflow_id}{legacy_workflows id}
 }
 \value{
 data from legacy_workflows endpoint
-
-data from legacy_workflows endpoint
 }
 \description{
-Legacy workflows allow orchestrating complex experiments.
-
 Legacy workflows allow orchestrating complex experiments.
 }

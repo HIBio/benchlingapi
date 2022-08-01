@@ -1,7 +1,11 @@
 #' List AA sequences
 #'
-#' AA Sequences are the working units of cells that make everything run (they help make structures, catalyze reactions and allow for signaling - a kind of internal cell communication). On Benchling, these are comprised of a string of amino acids and collections of other attributes, such as annotations.
+#' AA Sequences are the working units of cells that make everything run (they help
+#' make structures, catalyze reactions and allow for signaling - a kind of
+#' internal cell communication). On Benchling, these are comprised of a string of
+#' amino acids and collections of other attributes, such as annotations.
 #'
+#' @md
 #' @param aa_sequence_id aa_sequences id
 #'
 #' @return data from aa_sequences endpoint
@@ -15,4 +19,3 @@ get_aa_sequences <- function(aa_sequence_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

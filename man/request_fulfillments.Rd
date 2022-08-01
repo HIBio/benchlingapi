@@ -13,5 +13,6 @@ get_request_fulfillments(request_fulfillment_id = NULL)
 data from request_fulfillments endpoint
 }
 \description{
-Requests allow scientists and teams to collaborate around experimental assays and workflows.
+Requests allow scientists and teams to collaborate around experimental assays
+and workflows.
 }

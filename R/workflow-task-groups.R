@@ -2,6 +2,7 @@
 #'
 #' Workflow task groups are groups of workflow tasks of the same schema
 #'
+#' @md
 #' @param workflow_task_group_id workflow_task_groups id
 #'
 #' @return data from workflow_task_groups endpoint
@@ -15,4 +16,3 @@ get_workflow_task_groups <- function(workflow_task_group_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

@@ -1,7 +1,10 @@
 #' List assay result schemas
 #'
-#' Schemas represent custom configuration of objects in Benchling. See this [guide in our documentation](https://docs.benchling.com/docs/schemas) on how Schemas impact our developers
+#' Schemas represent custom configuration of objects in Benchling. See this [guide
+#' in our documentation](https://docs.benchling.com/docs/schemas) on how Schemas
+#' impact our developers
 #'
+#' @md
 #' @param schema_id assay_result_schemas id
 #'
 #' @return data from assay_result_schemas endpoint
@@ -15,4 +18,3 @@ get_assay_result_schemas <- function(schema_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

@@ -13,5 +13,7 @@ get_dna_sequences(dna_sequence_id = NULL)
 data from dna_sequences endpoint
 }
 \description{
-DNA sequences are the bread and butter of the Benchling Molecular Biology suite. On Benchling, these are comprised of a string of nucleotides and collections of other attributes, such as annotations and primers.
+DNA sequences are the bread and butter of the Benchling Molecular Biology
+suite. On Benchling, these are comprised of a string of nucleotides and
+collections of other attributes, such as annotations and primers.
 }

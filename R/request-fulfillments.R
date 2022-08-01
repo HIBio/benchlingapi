@@ -1,7 +1,9 @@
 #' List Request Fulfillments
 #'
-#' Requests allow scientists and teams to collaborate around experimental assays and workflows.
+#' Requests allow scientists and teams to collaborate around experimental assays
+#' and workflows.
 #'
+#' @md
 #' @param request_fulfillment_id request_fulfillments id
 #'
 #' @return data from request_fulfillments endpoint
@@ -15,4 +17,3 @@ get_request_fulfillments <- function(request_fulfillment_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

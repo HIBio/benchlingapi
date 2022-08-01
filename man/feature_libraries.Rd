@@ -13,5 +13,6 @@ get_feature_libraries(feature_library_id = NULL)
 data from feature_libraries endpoint
 }
 \description{
-Feature Libraries are collections of shared canonical patterns that can be used to generate annotations on matching regions of DNA Sequences or AA Sequences.
+Feature Libraries are collections of shared canonical patterns that can be used
+to generate annotations on matching regions of DNA Sequences or AA Sequences.
 }

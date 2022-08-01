@@ -1,7 +1,11 @@
 #' Blobs
 #'
-#' Blobs are opaque files that can be linked to other items in Benchling, like assay runs or results. For example, you can upload a blob, then upload an assay result that links to that blob by ID. The blob will then appear as part of the assay result in the Benchling web UI.
+#' Blobs are opaque files that can be linked to other items in Benchling, like
+#' assay runs or results. For example, you can upload a blob, then upload an assay
+#' result that links to that blob by ID. The blob will then appear as part of the
+#' assay result in the Benchling web UI.
 #'
+#' @md
 #' @param blob_id blobs id
 #'
 #' @return data from blobs endpoint
@@ -15,4 +19,3 @@ get_blobs <- function(blob_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

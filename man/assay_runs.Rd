@@ -5,25 +5,14 @@
 \title{List runs}
 \usage{
 get_assay_runs(assay_run_id = NULL)
-
-get_assay_runs(assay_run_id = NULL)
-
-get_assay_runs(assay_run_id = NULL)
 }
 \arguments{
 \item{assay_run_id}{assay_runs id}
 }
 \value{
 data from assay_runs endpoint
-
-data from assay_runs endpoint
-
-data from assay_runs endpoint
 }
 \description{
-Runs capture the details / parameters of a run that was performed. Results are usually nested under a run.
-
-Runs capture the details / parameters of a run that was performed. Results are usually nested under a run.
-
-Runs capture the details / parameters of a run that was performed. Results are usually nested under a run.
+Runs capture the details / parameters of a run that was performed. Results are
+usually nested under a run.
 }

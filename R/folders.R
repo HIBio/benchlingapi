@@ -2,6 +2,7 @@
 #'
 #' Manage folder objects.
 #'
+#' @md
 #' @param folder_id folders id
 #'
 #' @return data from folders endpoint
@@ -15,4 +16,3 @@ get_folders <- function(folder_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

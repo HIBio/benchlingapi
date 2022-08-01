@@ -13,5 +13,7 @@ get_mixtures(mixture_id = NULL)
 data from mixtures endpoint
 }
 \description{
-Mixtures are solutions comprised of multiple ingredients where the exact quantities of each ingredient are important to track. Each ingredient is uniquely identified by its component entity.
+Mixtures are solutions comprised of multiple ingredients where the exact
+quantities of each ingredient are important to track. Each ingredient is
+uniquely identified by its component entity.
 }

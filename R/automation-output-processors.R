@@ -1,7 +1,10 @@
 #' List non-empty Automation Output Processors
 #'
-#' Lab Automation endpoints support integration with lab instruments, and liquid handlers to create samples or results, and capture transfers between containers at scale.
+#' Lab Automation endpoints support integration with lab instruments, and liquid
+#' handlers to create samples or results, and capture transfers between containers
+#' at scale.
 #'
+#' @md
 #' @param output_processor_id automation_output_processors id
 #'
 #' @return data from automation_output_processors endpoint
@@ -15,4 +18,3 @@ get_automation_output_processors <- function(output_processor_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

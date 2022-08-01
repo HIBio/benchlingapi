@@ -13,5 +13,7 @@ get_automation_output_processors(output_processor_id = NULL)
 data from automation_output_processors endpoint
 }
 \description{
-Lab Automation endpoints support integration with lab instruments, and liquid handlers to create samples or results, and capture transfers between containers at scale.
+Lab Automation endpoints support integration with lab instruments, and liquid
+handlers to create samples or results, and capture transfers between containers
+at scale.
 }

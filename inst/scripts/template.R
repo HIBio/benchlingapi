@@ -3,6 +3,7 @@ template_param <- "
 #'
 #' {description}
 #'
+#' @md
 #' @param {ep_id} {ep} id
 #'
 #' @return data from {ep} endpoint
@@ -25,6 +26,7 @@ template_noparam <- "
 #'
 #' {description}
 #'
+#' @md
 #' @return data from {ep} endpoint
 #' @export
 #'
@@ -59,6 +61,7 @@ descriptions$description <- gsub("\\n", "", descriptions$description)
 get_template_data <- function(class) {
   title <- dplyr::filter(titles, name == class) |> dplyr::pull(value)
   description <- dplyr::filter(descriptions, name == class) |> dplyr::pull(description)
+  description <- paste(strwrap(description, width = 80), collapse = "\n#' ")
   if (length(title) == 0) title <- dplyr::filter(descriptions, name == class) |> dplyr::pull(value)
   args <- dplyr::filter(args, ep == class) |> tidyr::unnest(args)
   param <- dplyr::filter(args, !is.na(param1)) |> dplyr::pull(param1)
@@ -85,4 +88,5 @@ write_template <- function(class) {
 for (e in args$ep) {
   write_template(e)
 }
+
 styler::style_dir(here::here("R"))

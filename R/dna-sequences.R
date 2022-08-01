@@ -1,7 +1,10 @@
 #' List DNA sequences
 #'
-#' DNA sequences are the bread and butter of the Benchling Molecular Biology suite. On Benchling, these are comprised of a string of nucleotides and collections of other attributes, such as annotations and primers.
+#' DNA sequences are the bread and butter of the Benchling Molecular Biology
+#' suite. On Benchling, these are comprised of a string of nucleotides and
+#' collections of other attributes, such as annotations and primers.
 #'
+#' @md
 #' @param dna_sequence_id dna_sequences id
 #'
 #' @return data from dna_sequences endpoint
@@ -15,4 +18,3 @@ get_dna_sequences <- function(dna_sequence_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

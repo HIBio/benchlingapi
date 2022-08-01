@@ -2,6 +2,7 @@
 #'
 #' View team objects.
 #'
+#' @md
 #' @param team_id teams id
 #'
 #' @return data from teams endpoint
@@ -15,4 +16,3 @@ get_teams <- function(team_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

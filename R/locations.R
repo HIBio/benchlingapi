@@ -1,7 +1,9 @@
 #' List locations
 #'
-#' Manage locations objects.Like all storage, every Location has a barcode that is unique across the registry.
+#' Manage locations objects.Like all storage, every Location has a barcode that is
+#' unique across the registry.
 #'
+#' @md
 #' @param location_id locations id
 #'
 #' @return data from locations endpoint
@@ -15,4 +17,3 @@ get_locations <- function(location_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

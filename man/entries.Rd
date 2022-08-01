@@ -5,19 +5,14 @@
 \title{List entries}
 \usage{
 get_entries(entry_id = NULL)
-
-get_entries(entry_id = NULL)
 }
 \arguments{
 \item{entry_id}{entries id}
 }
 \value{
 data from entries endpoint
-
-data from entries endpoint
 }
 \description{
-Entries are rich text documents that allow you to capture all of your experimental data in one place.
-
-Entries are rich text documents that allow you to capture all of your experimental data in one place.
+Entries are rich text documents that allow you to capture all of your
+experimental data in one place.
 }

@@ -5,31 +5,14 @@
 \title{List requests}
 \usage{
 get_requests(request_id = NULL)
-
-get_requests(request_id = NULL)
-
-get_requests(request_id = NULL)
-
-get_requests(request_id = NULL)
 }
 \arguments{
 \item{request_id}{requests id}
 }
 \value{
 data from requests endpoint
-
-data from requests endpoint
-
-data from requests endpoint
-
-data from requests endpoint
 }
 \description{
-Requests allow scientists and teams to collaborate around experimental assays and workflows.
-
-Requests allow scientists and teams to collaborate around experimental assays and workflows.
-
-Requests allow scientists and teams to collaborate around experimental assays and workflows.
-
-Requests allow scientists and teams to collaborate around experimental assays and workflows.
+Requests allow scientists and teams to collaborate around experimental assays
+and workflows.
 }

@@ -1,7 +1,9 @@
 #' List entry templates
 #'
-#' Entries are rich text documents that allow you to capture all of your experimental data in one place.
+#' Entries are rich text documents that allow you to capture all of your
+#' experimental data in one place.
 #'
+#' @md
 #' @param entry_template_id entry_templates id
 #'
 #' @return data from entry_templates endpoint
@@ -15,4 +17,3 @@ get_entry_templates <- function(entry_template_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

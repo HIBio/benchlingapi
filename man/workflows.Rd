@@ -5,19 +5,14 @@
 \title{List workflows}
 \usage{
 get_workflows(workflow_id = NULL)
-
-get_workflows(workflow_id = NULL)
 }
 \arguments{
 \item{workflow_id}{workflows id}
 }
 \value{
 data from workflows endpoint
-
-data from workflows endpoint
 }
 \description{
-Please use endpoints for Legacy Workflows. These deprecated endpoints will be removed once users are migrated onto Legacy Workflows endpoints.
-
-Please use endpoints for Legacy Workflows. These deprecated endpoints will be removed once users are migrated onto Legacy Workflows endpoints.
+Please use endpoints for Legacy Workflows. These deprecated endpoints will be
+removed once users are migrated onto Legacy Workflows endpoints.
 }

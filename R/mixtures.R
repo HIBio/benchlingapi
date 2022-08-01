@@ -1,7 +1,10 @@
 #' List mixtures
 #'
-#' Mixtures are solutions comprised of multiple ingredients where the exact quantities of each ingredient are important to track. Each ingredient is uniquely identified by its component entity.
+#' Mixtures are solutions comprised of multiple ingredients where the exact
+#' quantities of each ingredient are important to track. Each ingredient is
+#' uniquely identified by its component entity.
 #'
+#' @md
 #' @param mixture_id mixtures id
 #'
 #' @return data from mixtures endpoint
@@ -15,4 +18,3 @@ get_mixtures <- function(mixture_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

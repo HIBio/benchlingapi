@@ -1,7 +1,9 @@
 #' List Features
 #'
-#' Feature Libraries are collections of shared canonical patterns that can be used to generate annotations on matching regions of DNA Sequences or AA Sequences.
+#' Feature Libraries are collections of shared canonical patterns that can be used
+#' to generate annotations on matching regions of DNA Sequences or AA Sequences.
 #'
+#' @md
 #' @param feature_id features id
 #'
 #' @return data from features endpoint
@@ -15,4 +17,3 @@ get_features <- function(feature_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

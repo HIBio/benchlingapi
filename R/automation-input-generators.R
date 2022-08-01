@@ -1,7 +1,10 @@
 #' Lab Automation
 #'
-#' Lab Automation endpoints support integration with lab instruments, and liquid handlers to create samples or results, and capture transfers between containers at scale.
+#' Lab Automation endpoints support integration with lab instruments, and liquid
+#' handlers to create samples or results, and capture transfers between containers
+#' at scale.
 #'
+#' @md
 #' @param input_generator_id automation_input_generators id
 #'
 #' @return data from automation_input_generators endpoint
@@ -15,4 +18,3 @@ get_automation_input_generators <- function(input_generator_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

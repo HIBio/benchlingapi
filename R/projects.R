@@ -2,6 +2,7 @@
 #'
 #' Manage project objects.
 #'
+#' @md
 #' @param project_id projects id
 #'
 #' @return data from projects endpoint
@@ -15,4 +16,3 @@ get_projects <- function(project_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

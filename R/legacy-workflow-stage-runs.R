@@ -2,6 +2,7 @@
 #'
 #' Legacy workflows allow orchestrating complex experiments.
 #'
+#' @md
 #' @param stage_run_id legacy_workflow_stage_runs id
 #'
 #' @return data from legacy_workflow_stage_runs endpoint
@@ -15,4 +16,3 @@ get_legacy_workflow_stage_runs <- function(stage_run_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

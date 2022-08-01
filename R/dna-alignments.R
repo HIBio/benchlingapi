@@ -1,7 +1,9 @@
 #' List DNA Alignments
 #'
-#' A DNA alignment is a Benchling object representing an alignment of multiple DNA sequences.
+#' A DNA alignment is a Benchling object representing an alignment of multiple DNA
+#' sequences.
 #'
+#' @md
 #' @param dna_alignment_id dna_alignments id
 #'
 #' @return data from dna_alignments endpoint
@@ -15,4 +17,3 @@ get_dna_alignments <- function(dna_alignment_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

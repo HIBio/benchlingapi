@@ -13,5 +13,6 @@ get_dna_alignments(dna_alignment_id = NULL)
 data from dna_alignments endpoint
 }
 \description{
-A DNA alignment is a Benchling object representing an alignment of multiple DNA sequences.
+A DNA alignment is a Benchling object representing an alignment of multiple DNA
+sequences.
 }

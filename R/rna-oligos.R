@@ -1,7 +1,10 @@
 #' List RNA Oligos
 #'
-#' RNA Oligos are short linear RNA sequences that can be attached as primers to full DNA sequences. Just like other entities, they support schemas, tags, and aliases.
+#' RNA Oligos are short linear RNA sequences that can be attached as primers to
+#' full DNA sequences. Just like other entities, they support schemas, tags, and
+#' aliases.
 #'
+#' @md
 #' @param oligo_id rna_oligos id
 #'
 #' @return data from rna_oligos endpoint
@@ -15,4 +18,3 @@ get_rna_oligos <- function(oligo_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

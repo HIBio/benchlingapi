@@ -1,7 +1,9 @@
 #' Legacy Workflows (deprecated)
 #'
-#' Please use endpoints for Legacy Workflows. These deprecated endpoints will be removed once users are migrated onto Legacy Workflows endpoints.
+#' Please use endpoints for Legacy Workflows. These deprecated endpoints will be
+#' removed once users are migrated onto Legacy Workflows endpoints.
 #'
+#' @md
 #' @param stage_run_id workflow_stage_runs id
 #'
 #' @return data from workflow_stage_runs endpoint
@@ -15,4 +17,3 @@ get_workflow_stage_runs <- function(stage_run_id = NULL) {
   }
   get_benchling(endpoint)
 }
-

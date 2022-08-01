@@ -5,73 +5,15 @@
 \title{List registries}
 \usage{
 get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
-
-get_registries(registry_id = NULL)
 }
 \arguments{
 \item{registry_id}{registries id}
 }
 \value{
 data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
-
-data from registries endpoint
 }
 \description{
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
-Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
-
+List label templates.
+List printers.
 Manage registry objects.See our documentation on \href{https://docs.benchling.com/docs/registering-entities}{how to register entities}.
 }

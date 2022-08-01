@@ -13,5 +13,6 @@ get_entry_templates(entry_template_id = NULL)
 data from entry_templates endpoint
 }
 \description{
-Entries are rich text documents that allow you to capture all of your experimental data in one place.
+Entries are rich text documents that allow you to capture all of your
+experimental data in one place.
 }

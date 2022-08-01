@@ -2,6 +2,7 @@
 #'
 #' View user objects.
 #'
+#' @md
 #' @param user_id users id
 #'
 #' @return data from users endpoint
@@ -15,4 +16,3 @@ get_users <- function(user_id = NULL) {
   }
   get_benchling(endpoint)
 }
-
