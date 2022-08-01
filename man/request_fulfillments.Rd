@@ -7,7 +7,7 @@
 get_request_fulfillments(request_fulfillment_id = NULL, ...)
 }
 \arguments{
-\item{request_fulfillment_id}{request_fulfillments id}
+\item{request_fulfillment_id}{request-fulfillments id}
 
 \item{...}{additional query parameters; see Details below}
 }

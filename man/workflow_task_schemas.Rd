@@ -7,7 +7,7 @@
 get_workflow_task_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{workflow_task_schemas id}
+\item{schema_id}{workflow-task-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

@@ -7,7 +7,7 @@
 get_automation_output_processors(output_processor_id = NULL, ...)
 }
 \arguments{
-\item{output_processor_id}{automation_output_processors id}
+\item{output_processor_id}{automation-output-processors id}
 
 \item{...}{additional query parameters; see Details below}
 }

@@ -5,7 +5,7 @@
 #' impact our developers
 #'
 #' @md
-#' @param schema_id location_schemas id
+#' @param schema_id location-schemas id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -19,9 +19,9 @@
 #'
 #' @rdname location_schemas
 get_location_schemas <- function(schema_id = NULL, ...) {
-  endpoint <- "location_schemas"
+  endpoint <- "location-schemas"
   if (!is.null(schema_id)) {
-    endpoint <- glue::glue("location_schemas/{schema_id}")
+    endpoint <- glue::glue("location-schemas/{schema_id}")
   }
   get_benchling(endpoint, query = ...)
 }

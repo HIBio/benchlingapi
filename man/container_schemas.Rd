@@ -7,7 +7,7 @@
 get_container_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{container_schemas id}
+\item{schema_id}{container-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

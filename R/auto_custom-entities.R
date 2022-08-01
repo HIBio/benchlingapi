@@ -5,7 +5,7 @@
 #' have both schema fields and custom fields.
 #'
 #' @md
-#' @param custom_entity_id custom_entities id
+#' @param custom_entity_id custom-entities id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -36,9 +36,9 @@
 #'
 #' @rdname custom_entities
 get_custom_entities <- function(custom_entity_id = NULL, ...) {
-  endpoint <- "custom_entities"
+  endpoint <- "custom-entities"
   if (!is.null(custom_entity_id)) {
-    endpoint <- glue::glue("custom_entities/{custom_entity_id}")
+    endpoint <- glue::glue("custom-entities/{custom_entity_id}")
   }
   get_benchling(endpoint, query = ...)
 }

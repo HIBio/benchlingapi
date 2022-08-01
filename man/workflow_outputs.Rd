@@ -7,7 +7,7 @@
 get_workflow_outputs(workflow_output_id = NULL, ...)
 }
 \arguments{
-\item{workflow_output_id}{workflow_outputs id}
+\item{workflow_output_id}{workflow-outputs id}
 
 \item{...}{additional query parameters; see Details below}
 }

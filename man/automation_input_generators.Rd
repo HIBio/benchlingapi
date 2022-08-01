@@ -7,7 +7,7 @@
 get_automation_input_generators(input_generator_id = NULL, ...)
 }
 \arguments{
-\item{input_generator_id}{automation_input_generators id}
+\item{input_generator_id}{automation-input-generators id}
 
 \item{...}{(ignored)}
 }

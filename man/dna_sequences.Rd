@@ -7,7 +7,7 @@
 get_dna_sequences(dna_sequence_id = NULL, ...)
 }
 \arguments{
-\item{dna_sequence_id}{dna_sequences id}
+\item{dna_sequence_id}{dna-sequences id}
 
 \item{...}{additional query parameters; see Details below}
 }

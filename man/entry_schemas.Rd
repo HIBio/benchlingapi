@@ -7,7 +7,7 @@
 get_entry_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{entry_schemas id}
+\item{schema_id}{entry-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

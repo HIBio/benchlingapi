@@ -5,7 +5,7 @@
 #' aliases.
 #'
 #' @md
-#' @param oligo_id dna_oligos id
+#' @param oligo_id dna-oligos id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -38,9 +38,9 @@
 #'
 #' @rdname dna_oligos
 get_dna_oligos <- function(oligo_id = NULL, ...) {
-  endpoint <- "dna_oligos"
+  endpoint <- "dna-oligos"
   if (!is.null(oligo_id)) {
-    endpoint <- glue::glue("dna_oligos/{oligo_id}")
+    endpoint <- glue::glue("dna-oligos/{oligo_id}")
   }
   get_benchling(endpoint, query = ...)
 }

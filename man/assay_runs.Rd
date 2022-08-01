@@ -7,7 +7,7 @@
 get_assay_runs(assay_run_id = NULL, ...)
 }
 \arguments{
-\item{assay_run_id}{assay_runs id}
+\item{assay_run_id}{assay-runs id}
 
 \item{...}{additional query parameters; see Details below}
 }

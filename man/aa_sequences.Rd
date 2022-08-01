@@ -7,7 +7,7 @@
 get_aa_sequences(aa_sequence_id = NULL, ...)
 }
 \arguments{
-\item{aa_sequence_id}{aa_sequences id}
+\item{aa_sequence_id}{aa-sequences id}
 
 \item{...}{additional query parameters; see Details below}
 }

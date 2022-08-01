@@ -5,7 +5,7 @@
 #' at scale.
 #'
 #' @md
-#' @param transform_id automation_file_transforms id
+#' @param transform_id automation-file-transforms id
 #' @param ... (ignored)
 #'
 #' @return data from `automation_file_transforms` endpoint
@@ -13,9 +13,9 @@
 #'
 #' @rdname automation_file_transforms
 get_automation_file_transforms <- function(transform_id = NULL, ...) {
-  endpoint <- "automation_file_transforms"
+  endpoint <- "automation-file-transforms"
   if (!is.null(transform_id)) {
-    endpoint <- glue::glue("automation_file_transforms/{transform_id}")
+    endpoint <- glue::glue("automation-file-transforms/{transform_id}")
   }
   get_benchling(endpoint, query = ...)
 }

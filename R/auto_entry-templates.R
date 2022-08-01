@@ -4,7 +4,7 @@
 #' experimental data in one place.
 #'
 #' @md
-#' @param entry_template_id entry_templates id
+#' @param entry_template_id entry-templates id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -24,9 +24,9 @@
 #'
 #' @rdname entry_templates
 get_entry_templates <- function(entry_template_id = NULL, ...) {
-  endpoint <- "entry_templates"
+  endpoint <- "entry-templates"
   if (!is.null(entry_template_id)) {
-    endpoint <- glue::glue("entry_templates/{entry_template_id}")
+    endpoint <- glue::glue("entry-templates/{entry_template_id}")
   }
   get_benchling(endpoint, query = ...)
 }

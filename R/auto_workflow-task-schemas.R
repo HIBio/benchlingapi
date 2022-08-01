@@ -5,7 +5,7 @@
 #' impact our developers
 #'
 #' @md
-#' @param schema_id workflow_task_schemas id
+#' @param schema_id workflow-task-schemas id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -19,9 +19,9 @@
 #'
 #' @rdname workflow_task_schemas
 get_workflow_task_schemas <- function(schema_id = NULL, ...) {
-  endpoint <- "workflow_task_schemas"
+  endpoint <- "workflow-task-schemas"
   if (!is.null(schema_id)) {
-    endpoint <- glue::glue("workflow_task_schemas/{schema_id}")
+    endpoint <- glue::glue("workflow-task-schemas/{schema_id}")
   }
   get_benchling(endpoint, query = ...)
 }

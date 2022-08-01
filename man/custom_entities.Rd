@@ -7,7 +7,7 @@
 get_custom_entities(custom_entity_id = NULL, ...)
 }
 \arguments{
-\item{custom_entity_id}{custom_entities id}
+\item{custom_entity_id}{custom-entities id}
 
 \item{...}{additional query parameters; see Details below}
 }

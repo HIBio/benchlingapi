@@ -4,7 +4,7 @@
 #' and workflows.
 #'
 #' @md
-#' @param request_fulfillment_id request_fulfillments id
+#' @param request_fulfillment_id request-fulfillments id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -18,9 +18,9 @@
 #'
 #' @rdname request_fulfillments
 get_request_fulfillments <- function(request_fulfillment_id = NULL, ...) {
-  endpoint <- "request_fulfillments"
+  endpoint <- "request-fulfillments"
   if (!is.null(request_fulfillment_id)) {
-    endpoint <- glue::glue("request_fulfillments/{request_fulfillment_id}")
+    endpoint <- glue::glue("request-fulfillments/{request_fulfillment_id}")
   }
   get_benchling(endpoint, query = ...)
 }

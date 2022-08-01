@@ -7,7 +7,7 @@
 get_legacy_workflows(legacy_workflow_id = NULL, ...)
 }
 \arguments{
-\item{legacy_workflow_id}{legacy_workflows id}
+\item{legacy_workflow_id}{legacy-workflows id}
 
 \item{...}{(ignored)}
 }

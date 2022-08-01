@@ -5,7 +5,7 @@
 #' collections of other attributes, such as annotations and primers.
 #'
 #' @md
-#' @param dna_sequence_id dna_sequences id
+#' @param dna_sequence_id dna-sequences id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -38,9 +38,9 @@
 #'
 #' @rdname dna_sequences
 get_dna_sequences <- function(dna_sequence_id = NULL, ...) {
-  endpoint <- "dna_sequences"
+  endpoint <- "dna-sequences"
   if (!is.null(dna_sequence_id)) {
-    endpoint <- glue::glue("dna_sequences/{dna_sequence_id}")
+    endpoint <- glue::glue("dna-sequences/{dna_sequence_id}")
   }
   get_benchling(endpoint, query = ...)
 }

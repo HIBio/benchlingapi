@@ -7,7 +7,7 @@
 get_request_task_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{request_task_schemas id}
+\item{schema_id}{request-task-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

@@ -7,7 +7,7 @@
 get_workflow_stages(stage_id = NULL, ...)
 }
 \arguments{
-\item{stage_id}{workflow_stages id}
+\item{stage_id}{workflow-stages id}
 
 \item{...}{(ignored)}
 }

@@ -6,7 +6,7 @@
 #' here](https://docs.benchling.com/docs/example-creating-results).
 #'
 #' @md
-#' @param assay_result_id assay_results id
+#' @param assay_result_id assay-results id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -29,9 +29,9 @@
 #'
 #' @rdname assay_results
 get_assay_results <- function(assay_result_id = NULL, ...) {
-  endpoint <- "assay_results"
+  endpoint <- "assay-results"
   if (!is.null(assay_result_id)) {
-    endpoint <- glue::glue("assay_results/{assay_result_id}")
+    endpoint <- glue::glue("assay-results/{assay_result_id}")
   }
   get_benchling(endpoint, query = ...)
 }

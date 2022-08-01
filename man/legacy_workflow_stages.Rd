@@ -7,7 +7,7 @@
 get_legacy_workflow_stages(stage_id = NULL, ...)
 }
 \arguments{
-\item{stage_id}{legacy_workflow_stages id}
+\item{stage_id}{legacy-workflow-stages id}
 
 \item{...}{(ignored)}
 }

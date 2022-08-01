@@ -7,7 +7,7 @@
 get_automation_file_transforms(transform_id = NULL, ...)
 }
 \arguments{
-\item{transform_id}{automation_file_transforms id}
+\item{transform_id}{automation-file-transforms id}
 
 \item{...}{(ignored)}
 }

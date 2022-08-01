@@ -7,7 +7,7 @@
 get_batch_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{batch_schemas id}
+\item{schema_id}{batch-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

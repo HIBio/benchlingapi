@@ -7,7 +7,7 @@
 get_entity_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{entity_schemas id}
+\item{schema_id}{entity-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

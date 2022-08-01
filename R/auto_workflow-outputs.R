@@ -3,7 +3,7 @@
 #' Workflow outputs are outputs of a workflow task
 #'
 #' @md
-#' @param workflow_output_id workflow_outputs id
+#' @param workflow_output_id workflow-outputs id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -33,9 +33,9 @@
 #'
 #' @rdname workflow_outputs
 get_workflow_outputs <- function(workflow_output_id = NULL, ...) {
-  endpoint <- "workflow_outputs"
+  endpoint <- "workflow-outputs"
   if (!is.null(workflow_output_id)) {
-    endpoint <- glue::glue("workflow_outputs/{workflow_output_id}")
+    endpoint <- glue::glue("workflow-outputs/{workflow_output_id}")
   }
   get_benchling(endpoint, query = ...)
 }

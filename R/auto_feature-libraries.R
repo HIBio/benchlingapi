@@ -4,7 +4,7 @@
 #' to generate annotations on matching regions of DNA Sequences or AA Sequences.
 #'
 #' @md
-#' @param feature_library_id feature_libraries id
+#' @param feature_library_id feature-libraries id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -24,9 +24,9 @@
 #'
 #' @rdname feature_libraries
 get_feature_libraries <- function(feature_library_id = NULL, ...) {
-  endpoint <- "feature_libraries"
+  endpoint <- "feature-libraries"
   if (!is.null(feature_library_id)) {
-    endpoint <- glue::glue("feature_libraries/{feature_library_id}")
+    endpoint <- glue::glue("feature-libraries/{feature_library_id}")
   }
   get_benchling(endpoint, query = ...)
 }

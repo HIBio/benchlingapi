@@ -7,7 +7,7 @@
 get_feature_libraries(feature_library_id = NULL, ...)
 }
 \arguments{
-\item{feature_library_id}{feature_libraries id}
+\item{feature_library_id}{feature-libraries id}
 
 \item{...}{additional query parameters; see Details below}
 }

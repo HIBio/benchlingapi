@@ -5,7 +5,7 @@
 #' impact our developers
 #'
 #' @md
-#' @param schema_id assay_result_schemas id
+#' @param schema_id assay-result-schemas id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -19,9 +19,9 @@
 #'
 #' @rdname assay_result_schemas
 get_assay_result_schemas <- function(schema_id = NULL, ...) {
-  endpoint <- "assay_result_schemas"
+  endpoint <- "assay-result-schemas"
   if (!is.null(schema_id)) {
-    endpoint <- glue::glue("assay_result_schemas/{schema_id}")
+    endpoint <- glue::glue("assay-result-schemas/{schema_id}")
   }
   get_benchling(endpoint, query = ...)
 }

@@ -4,7 +4,7 @@
 #' sequences.
 #'
 #' @md
-#' @param dna_alignment_id dna_alignments id
+#' @param dna_alignment_id dna-alignments id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -26,9 +26,9 @@
 #'
 #' @rdname dna_alignments
 get_dna_alignments <- function(dna_alignment_id = NULL, ...) {
-  endpoint <- "dna_alignments"
+  endpoint <- "dna-alignments"
   if (!is.null(dna_alignment_id)) {
-    endpoint <- glue::glue("dna_alignments/{dna_alignment_id}")
+    endpoint <- glue::glue("dna-alignments/{dna_alignment_id}")
   }
   get_benchling(endpoint, query = ...)
 }

@@ -4,7 +4,7 @@
 #' usually nested under a run.
 #'
 #' @md
-#' @param assay_run_id assay_runs id
+#' @param assay_run_id assay-runs id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -23,9 +23,9 @@
 #'
 #' @rdname assay_runs
 get_assay_runs <- function(assay_run_id = NULL, ...) {
-  endpoint <- "assay_runs"
+  endpoint <- "assay-runs"
   if (!is.null(assay_run_id)) {
-    endpoint <- glue::glue("assay_runs/{assay_run_id}")
+    endpoint <- glue::glue("assay-runs/{assay_run_id}")
   }
   get_benchling(endpoint, query = ...)
 }

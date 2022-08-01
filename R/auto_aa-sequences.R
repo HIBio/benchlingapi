@@ -6,7 +6,7 @@
 #' amino acids and collections of other attributes, such as annotations.
 #'
 #' @md
-#' @param aa_sequence_id aa_sequences id
+#' @param aa_sequence_id aa-sequences id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -39,9 +39,9 @@
 #'
 #' @rdname aa_sequences
 get_aa_sequences <- function(aa_sequence_id = NULL, ...) {
-  endpoint <- "aa_sequences"
+  endpoint <- "aa-sequences"
   if (!is.null(aa_sequence_id)) {
-    endpoint <- glue::glue("aa_sequences/{aa_sequence_id}")
+    endpoint <- glue::glue("aa-sequences/{aa_sequence_id}")
   }
   get_benchling(endpoint, query = ...)
 }

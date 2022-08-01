@@ -7,7 +7,7 @@
 get_workflow_tasks(workflow_task_id = NULL, ...)
 }
 \arguments{
-\item{workflow_task_id}{workflow_tasks id}
+\item{workflow_task_id}{workflow-tasks id}
 
 \item{...}{additional query parameters; see Details below}
 }

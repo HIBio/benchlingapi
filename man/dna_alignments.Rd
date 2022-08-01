@@ -7,7 +7,7 @@
 get_dna_alignments(dna_alignment_id = NULL, ...)
 }
 \arguments{
-\item{dna_alignment_id}{dna_alignments id}
+\item{dna_alignment_id}{dna-alignments id}
 
 \item{...}{additional query parameters; see Details below}
 }

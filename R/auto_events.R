@@ -4,7 +4,7 @@
 #' triggered in Benchling (e.g. plasmid registration, request submission, etc).
 #'
 #' @md
-#' @return data from events endpoint
+#' @return data from `events` endpoint
 #' @export
 #'
 #' @rdname events

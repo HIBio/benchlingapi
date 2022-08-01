@@ -3,7 +3,7 @@
 #' Workflow tasks encapsulate a single unit of work
 #'
 #' @md
-#' @param workflow_task_id workflow_tasks id
+#' @param workflow_task_id workflow-tasks id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -40,9 +40,9 @@
 #'
 #' @rdname workflow_tasks
 get_workflow_tasks <- function(workflow_task_id = NULL, ...) {
-  endpoint <- "workflow_tasks"
+  endpoint <- "workflow-tasks"
   if (!is.null(workflow_task_id)) {
-    endpoint <- glue::glue("workflow_tasks/{workflow_task_id}")
+    endpoint <- glue::glue("workflow-tasks/{workflow_task_id}")
   }
   get_benchling(endpoint, query = ...)
 }

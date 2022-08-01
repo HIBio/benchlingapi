@@ -7,7 +7,7 @@
 get_rna_oligos(oligo_id = NULL, ...)
 }
 \arguments{
-\item{oligo_id}{rna_oligos id}
+\item{oligo_id}{rna-oligos id}
 
 \item{...}{additional query parameters; see Details below}
 }

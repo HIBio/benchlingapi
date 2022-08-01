@@ -7,7 +7,7 @@
 get_entry_templates(entry_template_id = NULL, ...)
 }
 \arguments{
-\item{entry_template_id}{entry_templates id}
+\item{entry_template_id}{entry-templates id}
 
 \item{...}{additional query parameters; see Details below}
 }

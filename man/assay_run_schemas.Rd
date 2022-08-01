@@ -7,7 +7,7 @@
 get_assay_run_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{assay_run_schemas id}
+\item{schema_id}{assay-run-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

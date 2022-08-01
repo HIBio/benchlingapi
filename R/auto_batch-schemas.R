@@ -5,7 +5,7 @@
 #' impact our developers
 #'
 #' @md
-#' @param schema_id batch_schemas id
+#' @param schema_id batch-schemas id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -19,9 +19,9 @@
 #'
 #' @rdname batch_schemas
 get_batch_schemas <- function(schema_id = NULL, ...) {
-  endpoint <- "batch_schemas"
+  endpoint <- "batch-schemas"
   if (!is.null(schema_id)) {
-    endpoint <- glue::glue("batch_schemas/{schema_id}")
+    endpoint <- glue::glue("batch-schemas/{schema_id}")
   }
   get_benchling(endpoint, query = ...)
 }

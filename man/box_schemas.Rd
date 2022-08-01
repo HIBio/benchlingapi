@@ -7,7 +7,7 @@
 get_box_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{box_schemas id}
+\item{schema_id}{box-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

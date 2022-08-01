@@ -7,7 +7,7 @@
 get_plate_schemas(schema_id = NULL, ...)
 }
 \arguments{
-\item{schema_id}{plate_schemas id}
+\item{schema_id}{plate-schemas id}
 
 \item{...}{additional query parameters; see Details below}
 }

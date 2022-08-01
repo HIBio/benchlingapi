@@ -7,7 +7,7 @@
 get_workflow_task_groups(workflow_task_group_id = NULL, ...)
 }
 \arguments{
-\item{workflow_task_group_id}{workflow_task_groups id}
+\item{workflow_task_group_id}{workflow-task-groups id}
 
 \item{...}{additional query parameters; see Details below}
 }

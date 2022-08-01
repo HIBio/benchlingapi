@@ -5,7 +5,7 @@
 #' impact our developers
 #'
 #' @md
-#' @param schema_id plate_schemas id
+#' @param schema_id plate-schemas id
 #' @param ... additional query parameters; see Details below
 #'
 #' @details
@@ -19,9 +19,9 @@
 #'
 #' @rdname plate_schemas
 get_plate_schemas <- function(schema_id = NULL, ...) {
-  endpoint <- "plate_schemas"
+  endpoint <- "plate-schemas"
   if (!is.null(schema_id)) {
-    endpoint <- glue::glue("plate_schemas/{schema_id}")
+    endpoint <- glue::glue("plate-schemas/{schema_id}")
   }
   get_benchling(endpoint, query = ...)
 }

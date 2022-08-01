@@ -6,11 +6,11 @@ template_param <- "
 #' @md
 #' @param {ep_id} {ep} id
 #' {param_desc}
-#' @return data from `{ep}` endpoint
+#' @return data from `{fun}` endpoint
 #' @export
 #'
-#' @rdname {ep}
-get_{ep} <- function({ep_id} = NULL, ...) {{
+#' @rdname {fun}
+get_{fun} <- function({ep_id} = NULL, ...) {{
   endpoint <- \"{ep}\"
   if (!is.null({ep_id})) {{
     endpoint <- glue::glue(\"{ep}/{{{ep_id}}}\")
@@ -26,11 +26,11 @@ template_noparam <- "
 #' {description}
 #'
 #' @md
-#' @return data from {ep} endpoint
+#' @return data from `{fun}` endpoint
 #' @export
 #'
-#' @rdname {ep}
-get_{ep} <- function() {{
+#' @rdname {fun}
+get_{fun} <- function() {{
   get_benchling({ep})
 }}
 
@@ -69,9 +69,11 @@ get_template_data <- function(class) {
   param <- unique(param[!grepl("[:/]", param)])
   param <- gsub("-", "_", param)
 
-  class <- gsub("-", "_", class)
+  fun <- gsub("-", "_", class)
+  class <- gsub("_", "-", class)
 
   res <- list(
+    fun = fun,
     ep = class,
     title = title,
     description = description,
@@ -79,7 +81,7 @@ get_template_data <- function(class) {
     ep_id = param
   )
 
-  orig_class <- paste0("/", gsub("_", "-", class))
+  orig_class <- paste0("/", class)
   if (nrow(args) > 0L && any(args$direct) && !is.null(x <- api$paths[[orig_class]]$get$parameters)) {
     param_desc <- purrr::map_dfr(
       x,
