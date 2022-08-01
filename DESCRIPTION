@@ -1,0 +1,24 @@
+Package: benchlingapi
+Title: Connect To The Benchling API
+Version: 0.0.1
+Authors@R: c(
+ person("Jonathan", "Carroll", email = "jonathan@hibio.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1404-5264"))
+ )
+Description: Wraps the benchling API for access in R
+License: file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Imports: 
+    glue,
+    httr,
+    jsonlite,
+    utils
+Suggests: 
+    dplyr,
+    here,
+    purrr,
+    styler,
+    tibble,
+    tidyr,
+    yaml
