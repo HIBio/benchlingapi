@@ -18,7 +18,7 @@
 #'    \item{name}{Name of a folder. Restricts results to those with the specified name.}
 #'    \item{section}{INVENTORY or NOTEBOOK. Returns folders of inventory type or notebook type. Returns all folders if sections are merged.}
 #' }
-#'
+#' 
 #' @return data from `folders` endpoint
 #' @export
 #'
@@ -30,3 +30,4 @@ get_folders <- function(folder_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

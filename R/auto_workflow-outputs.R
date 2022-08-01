@@ -27,7 +27,7 @@
 #'    \item{displayIds}{Comma-separated list of Workflow Output Display IDs.}
 #'    \item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived workflow outputs. Use "ANY_ARCHIVED" to filter for archived workflow outputs regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}
 #' }
-#'
+#' 
 #' @return data from `workflow_outputs` endpoint
 #' @export
 #'
@@ -39,3 +39,4 @@ get_workflow_outputs <- function(workflow_output_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

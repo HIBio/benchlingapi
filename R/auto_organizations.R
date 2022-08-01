@@ -19,7 +19,7 @@
 #'    \item{hasAdmins}{Comma-separated list of user or Benchling app IDs. Restricts results to organizations that include all the given users/apps as admins.}
 #'    \item{nextToken}{Token for pagination}
 #' }
-#'
+#' 
 #' @return data from `organizations` endpoint
 #' @export
 #'
@@ -31,3 +31,4 @@ get_organizations <- function(organization_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

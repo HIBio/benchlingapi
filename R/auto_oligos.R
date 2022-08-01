@@ -31,7 +31,7 @@
 #'    \item{names.anyOf.caseSensitive}{Comma-separated list of names. Restricts results to those that match any of the specified names, aliases, or entity registry IDs, case sensitive.}
 #'    \item{creatorIds}{Comma separated list of users IDs}
 #' }
-#'
+#' 
 #' @return data from `oligos` endpoint
 #' @export
 #'
@@ -43,3 +43,4 @@ get_oligos <- function(oligo_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

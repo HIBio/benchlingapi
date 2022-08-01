@@ -35,7 +35,7 @@
 #'    \item{returning}{Comma-separated list of fields to return. Modifies the output shape. To return all keys at a given level, enumerate them or use the wildcard, '*'. For more information, [click here](https://docs.benchling.com/docs/getting-started-1#returning-query-parameter).}
 #'    \item{creatorIds}{Comma separated list of users IDs}
 #' }
-#'
+#' 
 #' @return data from `plates` endpoint
 #' @export
 #'
@@ -47,3 +47,4 @@ get_plates <- function(plate_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

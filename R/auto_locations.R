@@ -26,7 +26,7 @@
 #'    \item{names.anyOf.caseSensitive}{Comma-separated list of names. Restricts results to those that match any of the specified names, case sensitive.}
 #'    \item{creatorIds}{Comma separated list of users IDs}
 #' }
-#'
+#' 
 #' @return data from `locations` endpoint
 #' @export
 #'
@@ -38,3 +38,4 @@ get_locations <- function(location_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

@@ -19,7 +19,7 @@
 #'    \item{featureType}{The type of feature, like gene, promoter, etc. Note: This is an arbitrary string, not an enum}
 #'    \item{matchType}{The match type of the feature used to determine how auto-annotate matches are made.}
 #' }
-#'
+#' 
 #' @return data from `features` endpoint
 #' @export
 #'
@@ -31,3 +31,4 @@ get_features <- function(feature_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

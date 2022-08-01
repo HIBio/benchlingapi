@@ -7,7 +7,7 @@
 #' @md
 #' @param transform_id automation_file_transforms id
 #' @param ... (ignored)
-#'
+#' 
 #' @return data from `automation_file_transforms` endpoint
 #' @export
 #'
@@ -19,3 +19,4 @@ get_automation_file_transforms <- function(transform_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

@@ -14,7 +14,7 @@
 #'    \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 #'    \item{name}{Name of a project. Restricts results to those with the specified name.}
 #' }
-#'
+#' 
 #' @return data from `projects` endpoint
 #' @export
 #'
@@ -26,3 +26,4 @@ get_projects <- function(project_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

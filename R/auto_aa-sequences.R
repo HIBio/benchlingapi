@@ -33,7 +33,7 @@
 #'    \item{creatorIds}{Comma separated list of users IDs}
 #'    \item{authorIds.anyOf}{Comma separated list of user or app IDs}
 #' }
-#'
+#' 
 #' @return data from `aa_sequences` endpoint
 #' @export
 #'
@@ -45,3 +45,4 @@ get_aa_sequences <- function(aa_sequence_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

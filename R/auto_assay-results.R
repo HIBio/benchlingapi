@@ -23,7 +23,7 @@
 #'    \item{assayRunIds}{Filter by comma-separated list of associated AssayRun IDs.}
 #'    \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 #' }
-#'
+#' 
 #' @return data from `assay_results` endpoint
 #' @export
 #'
@@ -35,3 +35,4 @@ get_assay_results <- function(assay_result_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

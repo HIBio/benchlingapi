@@ -32,7 +32,7 @@
 #'    \item{creatorIds}{Comma separated list of users IDs}
 #'    \item{authorIds.anyOf}{Comma separated list of user or app IDs}
 #' }
-#'
+#' 
 #' @return data from `dna_oligos` endpoint
 #' @export
 #'
@@ -44,3 +44,4 @@ get_dna_oligos <- function(oligo_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

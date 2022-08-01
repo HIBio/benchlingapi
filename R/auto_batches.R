@@ -21,7 +21,7 @@
 #'    \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 #'    \item{creatorIds}{Comma separated list of users IDs}
 #' }
-#'
+#' 
 #' @return data from `batches` endpoint
 #' @export
 #'
@@ -33,3 +33,4 @@ get_batches <- function(batch_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

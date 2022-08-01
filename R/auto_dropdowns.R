@@ -10,9 +10,9 @@
 #' @details
 #' Available query parameters:
 #' \describe{
-#'
+#'    
 #' }
-#'
+#' 
 #' @return data from `dropdowns` endpoint
 #' @export
 #'
@@ -24,3 +24,4 @@ get_dropdowns <- function(dropdown_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

@@ -6,7 +6,7 @@
 #' @md
 #' @param stage_id workflow_stages id
 #' @param ... (ignored)
-#'
+#' 
 #' @return data from `workflow_stages` endpoint
 #' @export
 #'
@@ -18,3 +18,4 @@ get_workflow_stages <- function(stage_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

@@ -11,9 +11,9 @@
 #' @details
 #' Available query parameters:
 #' \describe{
-#'
+#'    
 #' }
-#'
+#' 
 #' @return data from `plate_schemas` endpoint
 #' @export
 #'
@@ -25,3 +25,4 @@ get_plate_schemas <- function(schema_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

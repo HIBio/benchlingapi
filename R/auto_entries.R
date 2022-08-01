@@ -29,7 +29,7 @@
 #'    \item{authorIds.anyOf}{Comma separated list of user or app IDs}
 #'    \item{displayIds}{Comma-separated list of Entry Display IDs.}
 #' }
-#'
+#' 
 #' @return data from `entries` endpoint
 #' @export
 #'
@@ -41,3 +41,4 @@ get_entries <- function(entry_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

@@ -8,7 +8,7 @@
 #' @md
 #' @param entity_id entities id
 #' @param ... (ignored)
-#'
+#' 
 #' @return data from `entities` endpoint
 #' @export
 #'
@@ -20,3 +20,4 @@ get_entities <- function(entity_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

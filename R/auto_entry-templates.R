@@ -18,7 +18,7 @@
 #'    \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 #'    \item{schemaId}{ID of a schema. Restricts results to those of the specified schema.}
 #' }
-#'
+#' 
 #' @return data from `entry_templates` endpoint
 #' @export
 #'
@@ -30,3 +30,4 @@ get_entry_templates <- function(entry_template_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

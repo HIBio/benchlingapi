@@ -5,7 +5,7 @@
 #' @md
 #' @param legacy_workflow_id legacy_workflows id
 #' @param ... (ignored)
-#'
+#' 
 #' @return data from `legacy_workflows` endpoint
 #' @export
 #'
@@ -17,3 +17,4 @@ get_legacy_workflows <- function(legacy_workflow_id = NULL, ...) {
   }
   get_benchling(endpoint, query = ...)
 }
+

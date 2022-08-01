@@ -103,7 +103,7 @@ get_template_data <- function(class) {
 
 fill_template <- function(class) {
   d <- get_template_data(class)
-  if (!is.null(d$ep_id)) {
+  if (length(d$ep_id) > 0 && !is.null(d$ep_id)) {
     glue::glue_data(d, template_param)
   } else {
     glue::glue_data(d, template_noparam)
