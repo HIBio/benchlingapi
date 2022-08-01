@@ -5,17 +5,17 @@ template_param <- "
 #'
 #' @md
 #' @param {ep_id} {ep} id
-#'
-#' @return data from {ep} endpoint
+#' {param_desc}
+#' @return data from `{ep}` endpoint
 #' @export
 #'
 #' @rdname {ep}
-get_{ep} <- function({ep_id} = NULL) {{
+get_{ep} <- function({ep_id} = NULL, ...) {{
   endpoint <- \"{ep}\"
   if (!is.null({ep_id})) {{
     endpoint <- glue::glue(\"{ep}/{{{ep_id}}}\")
   }}
-  get_benchling(endpoint)
+  get_benchling(endpoint, query = ...)
 }}
 
 
@@ -42,6 +42,7 @@ api <- yaml::read_yaml("https://benchling.com/api/v2/openapi.yaml")
 endpoints <- data.frame(endpoints = sub("^/", "", names(api$paths)))
 x <- tidyr::separate(endpoints, endpoints, into = c("ep", "param1", "param2", "param3"), sep = "/")
 x <- tidyr::separate(x, ep, into = c("ep", "action"), sep = ":")
+x <- dplyr::mutate(x, direct = is.na(param1))
 args <- tidyr::nest(x, args = -ep)
 
 titles <- purrr::discard(purrr::map(api$paths, c("get", "summary")), is.null)
@@ -64,12 +65,40 @@ get_template_data <- function(class) {
   description <- paste(strwrap(description, width = 80), collapse = "\n#' ")
   if (length(title) == 0) title <- dplyr::filter(descriptions, name == class) |> dplyr::pull(value)
   args <- dplyr::filter(args, ep == class) |> tidyr::unnest(args)
+
   param <- dplyr::filter(args, !is.na(param1)) |> dplyr::pull(param1)
   param <- gsub("[}{]", "", param)
   param <- unique(param[!grepl("[:/]", param)])
   param <- gsub("-", "_", param)
+
   class <- gsub("-", "_", class)
-  list(ep = class, title = title, description = description, args = args, ep_id = param)
+
+  res <- list(
+    ep = class,
+    title = title,
+    description = description,
+    args = args,
+    ep_id = param
+  )
+
+  orig_class <- paste0("/", gsub("_", "-", class))
+  if (nrow(args) > 0L && any(args$direct) && !is.null(x <- api$paths[[orig_class]]$get$parameters)) {
+    param_desc <- purrr::map_dfr(
+      x,
+      ~tibble::tibble(name = .$name, description = gsub("\\n", "", .$description))
+    )
+    param_desc <- paste0("@param ... additional query parameters; see Details below\n#'\n#' @details\n#' Available query parameters:\n#' \\describe{\n#'    ",
+                         paste(glue::glue_data(
+                           param_desc,
+                           "\\item{{{name}}}{{{description}}}\n"),
+                           collapse = "\n#'    "),
+                         "\n#' }\n#' ")
+  } else {
+    param_desc <- "@param ... (ignored)\n#' "
+  }
+  res <- c(res, param_desc = param_desc)
+
+  res
 }
 
 fill_template <- function(class) {
@@ -82,10 +111,11 @@ fill_template <- function(class) {
 }
 
 write_template <- function(class) {
-  cat(fill_template(class), file = here::here("R", paste0(class, ".R")))
+  cat(fill_template(class), file = here::here("R", paste0("auto_", class, ".R")))
 }
 
 for (e in args$ep) {
+  cat("*** processing ", e, "\n")
   write_template(e)
 }
 

@@ -1,0 +1,49 @@
+#' List plates
+#'
+#' Plates are a structured storage type, grids of wells that each function like
+#' containers. Plates come in two types: a traditional "fixed" type, where the
+#' wells cannot move, and a "matrix" type. A matrix plate has similar
+#' functionality to a box, where the containers inside can be moved around and
+#' removed altogether.Plates are all associated with schemas, which define the
+#' type of the plate (e.g. "96 Well Plate") along with the fields that are
+#' tracked, the dimensions of the plate, and whether or not the plate is a matrix
+#' plate or a traditional well plate.Like all storage, every Plate has a barcode
+#' that is unique across the registry.
+#'
+#' @md
+#' @param plate_id plates id
+#' @param ... additional query parameters; see Details below
+#'
+#' @details
+#' Available query parameters:
+#' \describe{
+#'    \item{pageSize}{Number of results to return. Defaults to 50, maximum of 100.}
+#'    \item{nextToken}{Token for pagination}
+#'    \item{schemaId}{ID of a schema. Restricts results to those of the specified schema.}
+#'    \item{schemaFields}{Schema field value. For Integer, Float, and Date type fields, supports the >= and <= operators. If present, the schemaId param must also be present. Restricts results to those with a field of whose value matches the filter.}
+#'    \item{modifiedAt}{Datetime, in RFC 3339 format. Supports the > and < operators. Time zone defaults to UTC. Restricts results to those modified in the specified range. e.g. > 2017-04-30.}
+#'    \item{name}{Name of a plate. Restricts results to those with the specified name.}
+#'    \item{nameIncludes}{Name substring of a plate. Restricts results to those with names that include the provided substring.}
+#'    \item{ancestorStorageId}{ID of a location. Restricts results to those located in the specified storage.}
+#'    \item{storageContentsId}{ID of a batch, entity, or entity schema. Restricts results to those that hold containers with entities or batches associated with the specified ID.}
+#'    \item{storageContentsIds}{Comma-separated list of IDs of batches or entities. Restricts results to those that hold containers with at least one of the specified batches, entities, or batches of the specified entities.}
+#'    \item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived plates. Use "ANY_ARCHIVED" to filter for archived plates regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}
+#'    \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
+#'    \item{barcodes}{Comma-separated list of barcodes. Matches all of the provided barcodes, or returns a 400 error that includes a list of which barcodes are invalid.}
+#'    \item{names.anyOf}{Comma-separated list of names. Restricts results to those that match any of the specified names, case insensitive.  Warning - this filter can be non-performant due to case insensitivity.}
+#'    \item{names.anyOf.caseSensitive}{Comma-separated list of names. Restricts results to those that match any of the specified names, case sensitive.}
+#'    \item{returning}{Comma-separated list of fields to return. Modifies the output shape. To return all keys at a given level, enumerate them or use the wildcard, '*'. For more information, [click here](https://docs.benchling.com/docs/getting-started-1#returning-query-parameter).}
+#'    \item{creatorIds}{Comma separated list of users IDs}
+#' }
+#'
+#' @return data from `plates` endpoint
+#' @export
+#'
+#' @rdname plates
+get_plates <- function(plate_id = NULL, ...) {
+  endpoint <- "plates"
+  if (!is.null(plate_id)) {
+    endpoint <- glue::glue("plates/{plate_id}")
+  }
+  get_benchling(endpoint, query = ...)
+}

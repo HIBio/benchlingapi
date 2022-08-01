@@ -1,7 +1,9 @@
-get_benchling <- function(endpoint, org = Sys.getenv("BENCHLING_ORG")) {
+get_benchling <- function(endpoint, org = Sys.getenv("BENCHLING_ORG"), ...) {
+  query <- list(...)
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- httr::GET(
-    glue::glue("{url}/{endpoint}"),
+    url = glue::glue("{url}/{endpoint}"),
+    query = query,
     httr::authenticate(Sys.getenv("BENCHLING_TOKEN"), "")
   )
   if (!(sc <- httr::status_code(resp)) == 200L) {
