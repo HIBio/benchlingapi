@@ -15,3 +15,4 @@ get_folders <- function(folder_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

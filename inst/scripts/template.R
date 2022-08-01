@@ -48,6 +48,8 @@ titles <- tibble::enframe(titles) |> tidyr::unnest(value)
 title_tags <- purrr::discard(purrr::map(api$paths, c("get", "tags")), is.null)
 names(title_tags) <- sub("^/", "", names(title_tags))
 title_tags <- tibble::enframe(title_tags) |> tidyr::unnest(value)
+title_tags$name <- sub("/.*$", "", title_tags$name)
+title_tags <- unique(title_tags)
 title_tags <- dplyr::filter(title_tags, !name %in% grep("[/:]", title_tags$name, value = TRUE))
 
 descriptions <- purrr::map_dfr(api$tags, ~tibble::tibble(value = .x[[2]], description = .x[[1]])) |>
@@ -57,10 +59,11 @@ descriptions$description <- gsub("\\n", "", descriptions$description)
 get_template_data <- function(class) {
   title <- dplyr::filter(titles, name == class) |> dplyr::pull(value)
   description <- dplyr::filter(descriptions, name == class) |> dplyr::pull(description)
+  if (length(title) == 0) title <- dplyr::filter(descriptions, name == class) |> dplyr::pull(value)
   args <- dplyr::filter(args, ep == class) |> tidyr::unnest(args)
   param <- dplyr::filter(args, !is.na(param1)) |> dplyr::pull(param1)
   param <- gsub("[}{]", "", param)
-  param <- param[!grepl("[:/]", param)]
+  param <- unique(param[!grepl("[:/]", param)])
   param <- gsub("-", "_", param)
   class <- gsub("-", "_", class)
   list(ep = class, title = title, description = description, args = args, ep_id = param)
@@ -82,5 +85,4 @@ write_template <- function(class) {
 for (e in args$ep) {
   write_template(e)
 }
-
 styler::style_dir(here::here("R"))

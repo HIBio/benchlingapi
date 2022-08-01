@@ -15,3 +15,4 @@ get_batches <- function(batch_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

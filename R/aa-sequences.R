@@ -15,3 +15,4 @@ get_aa_sequences <- function(aa_sequence_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

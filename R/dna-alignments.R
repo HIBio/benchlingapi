@@ -15,3 +15,4 @@ get_dna_alignments <- function(dna_alignment_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

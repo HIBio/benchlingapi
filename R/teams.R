@@ -15,3 +15,4 @@ get_teams <- function(team_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

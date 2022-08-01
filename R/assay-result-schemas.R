@@ -15,3 +15,4 @@ get_assay_result_schemas <- function(schema_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

@@ -15,3 +15,4 @@ get_assay_results <- function(assay_result_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

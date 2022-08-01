@@ -15,3 +15,4 @@ get_entry_templates <- function(entry_template_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

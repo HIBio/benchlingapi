@@ -15,3 +15,4 @@ get_dna_sequences <- function(dna_sequence_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

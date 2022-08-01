@@ -15,3 +15,4 @@ get_custom_entities <- function(custom_entity_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

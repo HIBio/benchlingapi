@@ -15,3 +15,4 @@ get_workflow_outputs <- function(workflow_output_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

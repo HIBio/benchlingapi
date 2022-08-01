@@ -15,3 +15,4 @@ get_locations <- function(location_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

@@ -15,3 +15,4 @@ get_entity_schemas <- function(schema_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

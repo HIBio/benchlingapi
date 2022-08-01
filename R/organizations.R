@@ -15,3 +15,4 @@ get_organizations <- function(organization_id = NULL) {
   }
   get_benchling(endpoint)
 }
+

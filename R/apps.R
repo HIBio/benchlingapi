@@ -15,3 +15,4 @@ get_apps <- function(app_id = NULL) {
   }
   get_benchling(endpoint)
 }
+
