@@ -36,7 +36,8 @@ get_{fun} <- function() {{
 
 "
 
-api <- yaml::read_yaml("https://benchling.com/api/v2/openapi.yaml")
+
+api <- get_api_yaml()
 endpoints <- data.frame(endpoints = sub("^/", "", names(api$paths)))
 x <- tidyr::separate(endpoints, endpoints, into = c("ep", "param1", "param2", "param3"), sep = "/")
 x <- tidyr::separate(x, ep, into = c("ep", "action"), sep = ":")

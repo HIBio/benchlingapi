@@ -28,3 +28,27 @@ get_benchling <- function(endpoint, org = Sys.getenv("BENCHLING_ORG"), ...) {
 camel <- function(x) {
   gsub('(\\w)-(\\w)', '\\1\\U\\2', x, perl=T)
 }
+
+#' Fetch API Specification
+#'
+#' @md
+#' @param org benchling tenant. Use empty string (`org = ""`) to use the public
+#'   API spec \url{https://benchling.com/api/v2/openapi.yaml}
+#'
+#' @return API spec as a nested list
+#' @export
+get_api_yaml <- function(org = Sys.getenv("BENCHLING_ORG", "")) {
+  org <- ifelse(org == "", "", paste0(org, "."))
+  if (org == "") {
+    return(yaml::read_yaml("https://benchling.com/api/v2/openapi.yaml"))
+  }
+  url <- glue::glue("https://{org}benchling.com/api/v2/openapi.yaml")
+  message("Fetching API spec from ", url)
+  resp <- httr::GET(url, httr::authenticate(Sys.getenv("BENCHLING_TOKEN"), ""))
+  if (!(sc <- httr::status_code(resp)) == 200L) {
+    warning("** Request returned status ", sc, call. = FALSE)
+    return(invisible(resp))
+  }
+  yaml <- httr::content(resp, as = "text", encoding = "UTF-8")
+  yaml::read_yaml(text = yaml)
+}
