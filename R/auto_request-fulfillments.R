@@ -3,7 +3,6 @@
 #' Requests allow scientists and teams to collaborate around experimental assays
 #' and workflows.
 #'
-#' @md
 #' @param request_fulfillment_id request-fulfillments id
 #' @param ... additional query parameters; see Details below
 #'

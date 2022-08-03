@@ -3,7 +3,6 @@
 #' Entries are rich text documents that allow you to capture all of your
 #' experimental data in one place.
 #'
-#' @md
 #' @param entry_id entries id
 #' @param ... additional query parameters; see Details below
 #'

@@ -4,7 +4,6 @@
 #' handlers to create samples or results, and capture transfers between containers
 #' at scale.
 #'
-#' @md
 #' @param transform_id automation-file-transforms id
 #' @param ... (ignored)
 #'

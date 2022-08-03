@@ -5,7 +5,6 @@
 #' aliases.Please migrate to the corresponding DNA Oligos endpoints so that we can
 #' support RNA Oligos.
 #'
-#' @md
 #' @param oligo_id oligos id
 #' @param ... additional query parameters; see Details below
 #'

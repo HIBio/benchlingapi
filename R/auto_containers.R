@@ -8,7 +8,6 @@
 #' container (e.g. "Tube") along with the fields that are tracked.Like all
 #' storage, every container has a barcode that is unique across the registry.
 #'
-#' @md
 #' @param container_id containers id
 #' @param ... additional query parameters; see Details below
 #'

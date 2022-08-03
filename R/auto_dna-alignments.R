@@ -3,7 +3,6 @@
 #' A DNA alignment is a Benchling object representing an alignment of multiple DNA
 #' sequences.
 #'
-#' @md
 #' @param dna_alignment_id dna-alignments id
 #' @param ... additional query parameters; see Details below
 #'

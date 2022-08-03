@@ -2,7 +2,6 @@
 #'
 #' Workflow tasks encapsulate a single unit of work
 #'
-#' @md
 #' @param workflow_task_id workflow-tasks id
 #' @param ... additional query parameters; see Details below
 #'

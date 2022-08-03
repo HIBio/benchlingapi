@@ -5,7 +5,6 @@
 #' Registry ID, if the entity is registered), its date of creation, and an
 #' optional inventory number.
 #'
-#' @md
 #' @param batch_id batches id
 #' @param ... additional query parameters; see Details below
 #'

@@ -2,7 +2,6 @@
 #'
 #' View user objects.
 #'
-#' @md
 #' @param user_id users id
 #' @param ... additional query parameters; see Details below
 #'

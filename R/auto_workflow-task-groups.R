@@ -2,7 +2,6 @@
 #'
 #' Workflow task groups are groups of workflow tasks of the same schema
 #'
-#' @md
 #' @param workflow_task_group_id workflow-task-groups id
 #' @param ... additional query parameters; see Details below
 #'

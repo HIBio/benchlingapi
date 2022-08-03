@@ -3,7 +3,6 @@ template_param <- "
 #'
 #' {description}
 #'
-#' @md
 #' @param {ep_id} {ep} id
 #' {param_desc}
 #' @return data from `{fun}` endpoint
@@ -25,7 +24,6 @@ template_noparam <- "
 #'
 #' {description}
 #'
-#' @md
 #' @return data from `{fun}` endpoint
 #' @export
 #'

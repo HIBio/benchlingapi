@@ -10,7 +10,6 @@
 #' plate or a traditional well plate.Like all storage, every Plate has a barcode
 #' that is unique across the registry.
 #'
-#' @md
 #' @param plate_id plates id
 #' @param ... additional query parameters; see Details below
 #'

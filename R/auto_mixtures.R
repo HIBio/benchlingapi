@@ -4,7 +4,6 @@
 #' quantities of each ingredient are important to track. Each ingredient is
 #' uniquely identified by its component entity.
 #'
-#' @md
 #' @param mixture_id mixtures id
 #' @param ... additional query parameters; see Details below
 #'

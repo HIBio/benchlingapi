@@ -3,7 +3,6 @@
 #' Dropdowns are registry-wide enums. Use dropdowns to standardize on spelling and
 #' naming conventions, especially for important metadata like resistance markers.
 #'
-#' @md
 #' @param dropdown_id dropdowns id
 #' @param ... additional query parameters; see Details below
 #'

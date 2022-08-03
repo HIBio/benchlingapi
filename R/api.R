@@ -26,7 +26,7 @@ get_benchling <- function(endpoint, org = Sys.getenv("BENCHLING_ORG"), ...) {
 }
 
 camel <- function(x) {
-  gsub('(\\w)-(\\w)', '\\1\\U\\2', x, perl=T)
+  gsub("(\\w)-(\\w)", "\\1\\U\\2", x, perl = T)
 }
 
 #' Fetch API Specification

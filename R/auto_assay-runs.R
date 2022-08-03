@@ -3,7 +3,6 @@
 #' Runs capture the details / parameters of a run that was performed. Results are
 #' usually nested under a run.
 #'
-#' @md
 #' @param assay_run_id assay-runs id
 #' @param ... additional query parameters; see Details below
 #'

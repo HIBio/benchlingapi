@@ -5,7 +5,6 @@
 #' Manage registry objects.See our documentation on [how to register
 #' entities](https://docs.benchling.com/docs/registering-entities).
 #'
-#' @md
 #' @param registry_id registries id
 #' @param ... additional query parameters; see Details below
 #'

@@ -7,7 +7,6 @@
 #' can access a task for up to 30 minutes after its completion, after which its
 #' data will no longer be available.
 #'
-#' @md
 #' @param task_id tasks id
 #' @param ... (ignored)
 #'

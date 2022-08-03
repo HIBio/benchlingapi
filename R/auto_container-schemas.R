@@ -4,7 +4,6 @@
 #' in our documentation](https://docs.benchling.com/docs/schemas) on how Schemas
 #' impact our developers
 #'
-#' @md
 #' @param schema_id container-schemas id
 #' @param ... additional query parameters; see Details below
 #'

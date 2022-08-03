@@ -4,7 +4,6 @@
 #' handlers to create samples or results, and capture transfers between containers
 #' at scale.
 #'
-#' @md
 #' @param output_processor_id automation-output-processors id
 #' @param ... additional query parameters; see Details below
 #'

@@ -2,7 +2,6 @@
 #'
 #' View team objects.
 #'
-#' @md
 #' @param team_id teams id
 #' @param ... additional query parameters; see Details below
 #'

@@ -7,7 +7,6 @@
 #' the fields that are tracked and the dimensions of the box.Like all storage,
 #' every Box has a barcode that is unique across the registry.
 #'
-#' @md
 #' @param box_id boxes id
 #' @param ... additional query parameters; see Details below
 #'

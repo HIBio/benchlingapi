@@ -4,7 +4,6 @@
 #' suite. On Benchling, these are comprised of a string of nucleotides and
 #' collections of other attributes, such as annotations and primers.
 #'
-#' @md
 #' @param dna_sequence_id dna-sequences id
 #' @param ... additional query parameters; see Details below
 #'

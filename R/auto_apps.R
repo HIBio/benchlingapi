@@ -2,7 +2,6 @@
 #'
 #' Create and manage Benchling apps on your tenant
 #'
-#' @md
 #' @param app_id apps id
 #' @param ... additional query parameters; see Details below
 #'

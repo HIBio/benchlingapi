@@ -2,7 +2,6 @@
 #'
 #' Manage project objects.
 #'
-#' @md
 #' @param project_id projects id
 #' @param ... additional query parameters; see Details below
 #'

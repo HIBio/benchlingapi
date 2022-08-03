@@ -4,7 +4,6 @@
 #' handlers to create samples or results, and capture transfers between containers
 #' at scale.
 #'
-#' @md
 #' @param input_generator_id automation-input-generators id
 #' @param ... (ignored)
 #'

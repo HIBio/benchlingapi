@@ -5,7 +5,6 @@
 #' Registry ID, if the entity is registered), its date of creation, and an
 #' optional inventory number.
 #'
-#' @md
 #' @param entity_id entities id
 #' @param ... (ignored)
 #'

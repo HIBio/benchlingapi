@@ -4,7 +4,6 @@
 #' sequences or proteins. Custom entities must have an entity schema set and can
 #' have both schema fields and custom fields.
 #'
-#' @md
 #' @param custom_entity_id custom-entities id
 #' @param ... additional query parameters; see Details below
 #'

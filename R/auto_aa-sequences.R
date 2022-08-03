@@ -5,7 +5,6 @@
 #' internal cell communication). On Benchling, these are comprised of a string of
 #' amino acids and collections of other attributes, such as annotations.
 #'
-#' @md
 #' @param aa_sequence_id aa-sequences id
 #' @param ... additional query parameters; see Details below
 #'

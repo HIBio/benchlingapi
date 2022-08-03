@@ -5,7 +5,6 @@
 #' result that links to that blob by ID. The blob will then appear as part of the
 #' assay result in the Benchling web UI.
 #'
-#' @md
 #' @param blob_id blobs id
 #' @param ... (ignored)
 #'

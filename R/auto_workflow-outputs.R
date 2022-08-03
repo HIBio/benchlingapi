@@ -2,7 +2,6 @@
 #'
 #' Workflow outputs are outputs of a workflow task
 #'
-#' @md
 #' @param workflow_output_id workflow-outputs id
 #' @param ... additional query parameters; see Details below
 #'

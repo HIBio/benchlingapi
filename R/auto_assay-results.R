@@ -5,7 +5,6 @@
 #' batches, and other types.To learn more about creating results, [click
 #' here](https://docs.benchling.com/docs/example-creating-results).
 #'
-#' @md
 #' @param assay_result_id assay-results id
 #' @param ... additional query parameters; see Details below
 #'

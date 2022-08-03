@@ -3,7 +3,6 @@
 #' Manage locations objects.Like all storage, every Location has a barcode that is
 #' unique across the registry.
 #'
-#' @md
 #' @param location_id locations id
 #' @param ... additional query parameters; see Details below
 #'

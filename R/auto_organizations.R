@@ -2,7 +2,6 @@
 #'
 #' View organization objects.
 #'
-#' @md
 #' @param organization_id organizations id
 #' @param ... additional query parameters; see Details below
 #'

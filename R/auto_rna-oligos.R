@@ -4,7 +4,6 @@
 #' full DNA sequences. Just like other entities, they support schemas, tags, and
 #' aliases.
 #'
-#' @md
 #' @param oligo_id rna-oligos id
 #' @param ... additional query parameters; see Details below
 #'

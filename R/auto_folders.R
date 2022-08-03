@@ -2,7 +2,6 @@
 #'
 #' Manage folder objects.
 #'
-#' @md
 #' @param folder_id folders id
 #' @param ... additional query parameters; see Details below
 #'

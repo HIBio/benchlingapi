@@ -3,7 +3,6 @@
 #' Please use endpoints for Legacy Workflows. These deprecated endpoints will be
 #' removed once users are migrated onto Legacy Workflows endpoints.
 #'
-#' @md
 #' @param workflow_id workflows id
 #' @param ... (ignored)
 #'

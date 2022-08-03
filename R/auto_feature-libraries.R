@@ -3,7 +3,6 @@
 #' Feature Libraries are collections of shared canonical patterns that can be used
 #' to generate annotations on matching regions of DNA Sequences or AA Sequences.
 #'
-#' @md
 #' @param feature_library_id feature-libraries id
 #' @param ... additional query parameters; see Details below
 #'

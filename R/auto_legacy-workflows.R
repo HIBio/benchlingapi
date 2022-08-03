@@ -2,7 +2,6 @@
 #'
 #' Legacy workflows allow orchestrating complex experiments.
 #'
-#' @md
 #' @param legacy_workflow_id legacy-workflows id
 #' @param ... (ignored)
 #'
