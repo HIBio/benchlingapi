@@ -1,4 +1,4 @@
-template_param <- "
+get_template_param <- "
 #' {title}
 #'
 #' {description}
@@ -19,7 +19,7 @@ get_{fun} <- function({ep_id} = NULL, ...) {{
 
 "
 
-template_noparam <- "
+get_template_noparam <- "
 #' {title}
 #'
 #' {description}
@@ -100,22 +100,22 @@ get_template_data <- function(class) {
   res
 }
 
-fill_template <- function(class) {
+fill_get_template <- function(class) {
   d <- get_template_data(class)
   if (length(d$ep_id) > 0 && !is.null(d$ep_id)) {
-    glue::glue_data(d, template_param)
+    glue::glue_data(d, get_template_param)
   } else {
-    glue::glue_data(d, template_noparam)
+    glue::glue_data(d, get_template_noparam)
   }
 }
 
-write_template <- function(class) {
-  cat(fill_template(class), file = here::here("R", paste0("auto_", class, ".R")))
+write_get_template <- function(class) {
+  cat(fill_get_template(class), file = here::here("R", paste0("auto_", class, ".R")))
 }
 
 for (e in args$ep) {
   cat("*** processing ", e, "\n")
-  write_template(e)
+  write_get_template(e)
 }
 
 styler::style_dir(here::here("R"))

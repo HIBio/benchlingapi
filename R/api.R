@@ -52,3 +52,19 @@ get_api_yaml <- function(org = Sys.getenv("BENCHLING_ORG", "")) {
   yaml <- httr::content(resp, as = "text", encoding = "UTF-8")
   yaml::read_yaml(text = yaml)
 }
+
+post_benchling <- function(endpoint, body = NULL, org = Sys.getenv("BENCHLING_ORG"), ...) {
+  stopifnot(!is.null(body))
+  url <- glue::glue("https://{org}.benchling.com/api/v2/")
+  resp <- httr::POST(
+    url = glue::glue("{url}/{endpoint}"),
+    body = jsonlite::toJSON(body, auto_unbox = TRUE),
+    encode = "json",
+    httr::authenticate(Sys.getenv("BENCHLING_TOKEN"), "")
+  )
+  if (!(sc <- httr::status_code(resp)) == 200L) {
+    warning("** Request returned status ", sc, call. = FALSE)
+    return(invisible(resp))
+  }
+  jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
+}
