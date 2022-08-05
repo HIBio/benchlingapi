@@ -62,7 +62,7 @@ post_benchling <- function(endpoint, body = NULL, org = Sys.getenv("BENCHLING_OR
     encode = "json",
     httr::authenticate(Sys.getenv("BENCHLING_TOKEN"), "")
   )
-  if (!(sc <- httr::status_code(resp)) == 200L) {
+  if (!(sc <- httr::status_code(resp)) == 201L) {
     warning("** Request returned status ", sc, call. = FALSE)
     return(invisible(resp))
   }
