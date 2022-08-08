@@ -85,13 +85,14 @@ extract_entity_fields <- function(entity_id) {
 #' @param type schema name of custom entities
 #' @param print_fields fields to print (all data is returned, invisibly). Set to
 #'   `NULL` to skip printing
+#' @param ... additional conditions to pass to [get_custom_entities()]
 #'
 #' @return (invisibly) custom entity data as a nested `data.frame`. The fields
 #'   `print_fields` are printed to the console for simplicity (unless overridden)
 #' @export
-list_custom_entities <- function(type, print_fields = c("id", "name")) {
+list_custom_entities <- function(type, print_fields = c("id", "name"), ...) {
   schema <- get_schema_id_by_name(type)
-  entities <- get_custom_entities(schemaId = schema$id)
+  entities <- get_custom_entities(schemaId = schema$id, ...)
   if (!is.null(print_fields)) {
     print(entities[, print_fields])
   }

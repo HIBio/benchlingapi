@@ -4,13 +4,15 @@
 \alias{list_custom_entities}
 \title{List custom entities}
 \usage{
-list_custom_entities(type, print_fields = c("id", "name"))
+list_custom_entities(type, print_fields = c("id", "name"), ...)
 }
 \arguments{
 \item{type}{schema name of custom entities}
 
 \item{print_fields}{fields to print (all data is returned, invisibly). Set to
 \code{NULL} to skip printing}
+
+\item{...}{additional conditions to pass to \code{\link[=get_custom_entities]{get_custom_entities()}}}
 }
 \value{
 (invisibly) custom entity data as a nested \code{data.frame}. The fields
