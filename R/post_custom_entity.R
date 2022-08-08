@@ -26,7 +26,8 @@ new_custom_entity <- function(type = NULL, name = NULL, dry_run = TRUE, ...) {
   res <- if (!dry_run) {
     post_benchling("custom-entities", entry_data)
   } else {
-    FALSE
+    message("Dry run only. Constructed data:")
+    jsonlite::toJSON(entry_data, auto_unbox = TRUE)
   }
 
   res
@@ -50,7 +51,11 @@ build_fields <- function(entry, schema_id) {
              "] but is ",
              entry[[f]])
       }
-      list(value = list(new_val))
+      if (schema[schema$name == field_names[f], "isMulti"]) {
+        list(value = list(new_val))
+      } else {
+        list(value = new_val)
+      }
     } else {
       list(value = entry[[f]])
     }
@@ -60,10 +65,15 @@ build_fields <- function(entry, schema_id) {
 
 validate_against_schema <- function(args, schema_id) {
   schema <- extract_schema_definition(schema_id)
-  active_schema <- schema[is.na(schema$archiveRecord$reason), ]
+  has_archives <- is.data.frame(schema$archiveRecord)
+  active_schema <- if (has_archives) {
+    schema[is.na(schema$archiveRecord$reason), ]
+  } else {
+    schema
+  }
   arg_names <- active_schema$name
   req_names <- arg_names[active_schema$isRequired]
-  if (! setequal(names(args$fields), req_names)) {
+  if (! all(req_names %in% names(args$fields))) {
    stop(
      "Required fields are: [",
      toString(req_names),
