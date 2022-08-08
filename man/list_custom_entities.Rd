@@ -9,11 +9,12 @@ list_custom_entities(type, print_fields = c("id", "name"))
 \arguments{
 \item{type}{schema name of custom entities}
 
-\item{print_fields}{fields to print (all data is returned, invisibly)}
+\item{print_fields}{fields to print (all data is returned, invisibly). Set to
+\code{NULL} to skip printing}
 }
 \value{
 (invisibly) custom entity data as a nested \code{data.frame}. The fields
-\code{print_fields} are printed to the console for simplicity.
+\code{print_fields} are printed to the console for simplicity (unless overridden)
 }
 \description{
 List custom entities
