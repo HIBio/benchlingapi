@@ -80,7 +80,18 @@ extract_entity_fields <- function(entity_id) {
   dplyr::arrange(match(name, schema$name))
 }
 
-
-
-
+#' List custom entities
+#'
+#' @param type schema name of custom entities
+#' @param print_fields fields to print (all data is returned, invisibly)
+#'
+#' @return (invisibly) custom entity data as a nested `data.frame`. The fields
+#'   `print_fields` are printed to the console for simplicity.
+#' @export
+list_custom_entities <- function(type, print_fields = c("id", "name")) {
+  schema <- get_schema_id_by_name(type)
+  entities <- get_custom_entities(schemaId = schema$id)
+  print(entities[, print_fields])
+  invisible(entities)
+}
 
