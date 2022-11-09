@@ -54,13 +54,24 @@ get_tables <- function(entry_id) {
 
 #' Extract Contents of an Entry Table
 #'
-#' @param tbl_contents one row from [get_tables()] containing the nested data
+#' @param tbl_contents either a `[tibble::tibble()]` or one row of one from
+#'   [get_tables()] containing the nested data
+#' @param name name of table to extract (when more than one available)
 #'
 #' @return a [tibble::tibble()] of the table contents
 #' @export
-extract_table <- function(tbl_contents) {
-  if (nrow(tbl_contents) > 1) stop("Only process one table at a time")
+extract_table <- function(tbl_contents, name = NULL) {
   nm <- tbl_contents$name
+  if (length(nm) > 1) {
+    if (is.null(name)) {
+      msg <- paste("Provide the `name` of the table you wish to extract.",
+                   paste0("  Options are: ", toString(nm)),
+                   sep = "\n"
+      )
+      stop(msg)
+    }
+    tbl_contents <- tbl_contents[tbl_contents$name == name, , drop = FALSE]
+  }
   cl <- unlist(tbl_contents$columnLabels)
   tb_rows <- tbl_contents$rows[[1]]
   tb <- purrr::map_dfr(tb_rows[[1]], unlist)

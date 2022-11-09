@@ -4,10 +4,13 @@
 \alias{extract_table}
 \title{Extract Contents of an Entry Table}
 \usage{
-extract_table(tbl_contents)
+extract_table(tbl_contents, name = NULL)
 }
 \arguments{
-\item{tbl_contents}{one row from \code{\link[=get_tables]{get_tables()}} containing the nested data}
+\item{tbl_contents}{either a \verb{[tibble::tibble()]} or one row of one from
+\code{\link[=get_tables]{get_tables()}} containing the nested data}
+
+\item{name}{name of table to extract (when more than one available)}
 }
 \value{
 a \code{\link[tibble:tibble]{tibble::tibble()}} of the table contents
