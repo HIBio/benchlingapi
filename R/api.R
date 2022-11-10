@@ -1,10 +1,10 @@
-get_benchling <- function(endpoint, org = Sys.getenv("BENCHLING_ORG"), ...) {
+get_benchling <- function(endpoint, org = get_org(), ...) {
   query <- list(...)
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- httr::GET(
     url = glue::glue("{url}/{endpoint}"),
     query = query,
-    httr::authenticate(Sys.getenv("BENCHLING_TOKEN"), "")
+    httr::authenticate(get_token(), "")
   )
   if (!(sc <- httr::status_code(resp)) == 200L) {
     warning("** Request returned status ", sc, call. = FALSE)
@@ -37,14 +37,14 @@ camel <- function(x) {
 #'
 #' @return API spec as a nested list
 #' @export
-get_api_yaml <- function(org = Sys.getenv("BENCHLING_ORG", "")) {
+get_api_yaml <- function(org = get_org()) {
   org <- ifelse(org == "", "", paste0(org, "."))
   if (org == "") {
     return(yaml::read_yaml("https://benchling.com/api/v2/openapi.yaml"))
   }
   url <- glue::glue("https://{org}benchling.com/api/v2/openapi.yaml")
   message("Fetching API spec from ", url)
-  resp <- httr::GET(url, httr::authenticate(Sys.getenv("BENCHLING_TOKEN"), ""))
+  resp <- httr::GET(url, httr::authenticate(get_token(), ""))
   if (!(sc <- httr::status_code(resp)) == 200L) {
     warning("** Request returned status ", sc, call. = FALSE)
     return(invisible(resp))
@@ -53,14 +53,14 @@ get_api_yaml <- function(org = Sys.getenv("BENCHLING_ORG", "")) {
   yaml::read_yaml(text = yaml)
 }
 
-post_benchling <- function(endpoint, body = NULL, org = Sys.getenv("BENCHLING_ORG"), ...) {
+post_benchling <- function(endpoint, body = NULL, org = get_org(), ...) {
   stopifnot(!is.null(body))
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- httr::POST(
     url = glue::glue("{url}/{endpoint}"),
     body = jsonlite::toJSON(body, auto_unbox = TRUE),
     encode = "json",
-    httr::authenticate(Sys.getenv("BENCHLING_TOKEN"), "")
+    httr::authenticate(get_token(), "")
   )
   if (!(sc <- httr::status_code(resp)) == 201L) {
     warning("** Request returned status ", sc, call. = FALSE)

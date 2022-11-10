@@ -23,11 +23,12 @@ structure_or_id <- function(x) {
 #' @return a [tibble::tibble()] representing the schema
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
 #' ent_id <- get_custom_entities()$id[1]
 #' extract_entity_schema_definition(ent_id)
 #' get_custom_entities(ent_id) |>
 #'    extract_entity_schema_definition()
+#' }
 extract_entity_schema_definition <- function(entity, quiet = FALSE) {
   entity_id <- structure_or_id(entity)
   schema_id <- get_custom_entities(entity_id)$schema$id
@@ -42,11 +43,12 @@ extract_entity_schema_definition <- function(entity, quiet = FALSE) {
 #' @return a [tibble::tibble()] representing the schema
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
 #' sch_id <- get_entity_schemas()$id[1]
 #' extract_schema_definition(sch_id)
 #' get_entity_schemas(sch_id) |>
 #'    extract_schema_definition()
+#' }
 extract_schema_definition <- function(schema_id) {
   schema_id <- structure_or_id(schema_id)
   get_entity_schemas(schema_id)$fieldDefinition
@@ -59,11 +61,12 @@ extract_schema_definition <- function(schema_id) {
 #' @return a [tibble::tibble()] representing the entity data and relevant classes
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
 #' ent_id <- get_custom_entities()$id[1]
 #' extract_entity_fields(ent_id)
 #' get_custom_entities(ent_id) |>
-#"    extract_entity_fields()
+#'    extract_entity_fields()
+#' }
 extract_entity_fields <- function(entity_id) {
   entity_id <- structure_or_id(entity_id)
   tidy_fields <- get_custom_entities(entity_id) |>

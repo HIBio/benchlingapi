@@ -16,8 +16,10 @@ a \code{\link[tibble:tibble]{tibble::tibble()}} representing the schema
 Extract schema definition
 }
 \examples{
+\dontrun{
 sch_id <- get_entity_schemas()$id[1]
 extract_schema_definition(sch_id)
 get_entity_schemas(sch_id) |>
    extract_schema_definition()
+}
 }

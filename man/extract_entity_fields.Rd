@@ -16,7 +16,10 @@ a \code{\link[tibble:tibble]{tibble::tibble()}} representing the entity data and
 Extract entity data fields
 }
 \examples{
+\dontrun{
 ent_id <- get_custom_entities()$id[1]
 extract_entity_fields(ent_id)
 get_custom_entities(ent_id) |>
+   extract_entity_fields()
+}
 }

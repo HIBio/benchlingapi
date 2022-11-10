@@ -18,8 +18,10 @@ a \code{\link[tibble:tibble]{tibble::tibble()}} representing the schema
 Extract entity schema definition
 }
 \examples{
+\dontrun{
 ent_id <- get_custom_entities()$id[1]
 extract_entity_schema_definition(ent_id)
 get_custom_entities(ent_id) |>
    extract_entity_schema_definition()
+}
 }

@@ -4,7 +4,7 @@
 \alias{get_api_yaml}
 \title{Fetch API Specification}
 \usage{
-get_api_yaml(org = Sys.getenv("BENCHLING_ORG", ""))
+get_api_yaml(org = get_org())
 }
 \arguments{
 \item{org}{benchling tenant. Use empty string (\code{org = ""}) to use the public

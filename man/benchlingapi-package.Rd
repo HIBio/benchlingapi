@@ -6,7 +6,7 @@
 \alias{benchlingapi-package}
 \title{benchlingapi: Connect To The Benchling API}
 \description{
-Wraps the benchling API for access in R
+Wraps the benchling API for access in R.
 }
 \seealso{
 Useful links:
