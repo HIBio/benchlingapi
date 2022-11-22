@@ -1,5 +1,9 @@
 get_benchling <- function(endpoint, org = get_org(), ...) {
+  endpoint <- utils::URLencode(endpoint)
   query <- list(...)
+  if (length(query)) {
+    query <- utils::URLencode(query)
+  }
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- httr::GET(
     url = glue::glue("{url}/{endpoint}"),
