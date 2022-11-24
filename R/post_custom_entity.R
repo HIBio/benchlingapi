@@ -52,7 +52,7 @@ build_fields <- function(entry, schema_id) {
              entry[[f]])
       }
       if (schema[schema$name == field_names[f], "isMulti"]) {
-        list(value = list(new_val))
+        list(value = unlist(new_val))
       } else {
         list(value = new_val)
       }
@@ -87,7 +87,7 @@ validate_against_schema <- function(args, schema_id) {
     arg_value <- unlist(args$fields[[dd_name]]$value)
     dd_options <- get_dropdowns(dropdowns$dropdownId[item])$options
     dd_ids <- dd_options$id
-    if(!length(arg_value) || ! arg_value %in% dd_ids) {
+    if(!length(arg_value) || ! all(arg_value %in% dd_ids)) {
       stop("'", dd_name, "' should be one of [", toString(dd_options$name), "] but is ", arg_value)
     }
   }

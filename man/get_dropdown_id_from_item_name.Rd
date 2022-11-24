@@ -4,12 +4,12 @@
 \alias{get_dropdown_id_from_item_name}
 \title{Get a dropdown id from an item}
 \usage{
-get_dropdown_id_from_item_name(dropdown, item)
+get_dropdown_id_from_item_name(dropdown, itemname)
 }
 \arguments{
 \item{dropdown}{id or name of a dropdown}
 
-\item{item}{name of an item in \code{dropdown}}
+\item{itemname}{name of an item in \code{dropdown}}
 }
 \value{
 id of the \code{item} entry in \code{dropdown}

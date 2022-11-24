@@ -20,13 +20,13 @@ get_dropdown_listing <- function(dropdown) {
 #' Get a dropdown id from an item
 #'
 #' @param dropdown id or name of a dropdown
-#' @param item name of an item in `dropdown`
+#' @param itemname name of an item in `dropdown`
 #'
 #' @return id of the `item` entry in `dropdown`
 #' @export
-get_dropdown_id_from_item_name <- function(dropdown, item) {
+get_dropdown_id_from_item_name <- function(dropdown, itemname) {
   dd_items <- get_dropdown_listing(dropdown)
-  dd_items[dd_items$name == item, "id"]
+  dd_items[dd_items$name %in% itemname, "id"]
 }
 
 #' Get schema id using schema name
