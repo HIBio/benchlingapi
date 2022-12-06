@@ -1,3 +1,7 @@
+# benchlingapi 0.0.5
+
+* `new_custom_entity()` now accepts an `id` rather than relying on a `namingStrategy`
+
 # benchlingapi 0.0.4
 
 * URLencode endpoint and query to ensure the GET will succeed

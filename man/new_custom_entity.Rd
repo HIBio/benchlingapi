@@ -4,12 +4,15 @@
 \alias{new_custom_entity}
 \title{Add a new custom-entity to the registry}
 \usage{
-new_custom_entity(type = NULL, name = NULL, dry_run = TRUE, ...)
+new_custom_entity(type = NULL, name = NULL, id = NULL, dry_run = TRUE, ...)
 }
 \arguments{
 \item{type}{type of custom-entity}
 
 \item{name}{name of the custom-entity}
+
+\item{id}{id of the custom-entity. If provided, this will be used as the
+\code{entityRegistryId}, otherwise the \code{namingStrategy} used will be \code{"NEW_IDS"}}
 
 \item{dry_run}{set to \code{TRUE} to actually push to benchling}
 

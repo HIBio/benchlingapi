@@ -2,15 +2,18 @@
 #'
 #' @param type type of custom-entity
 #' @param name name of the custom-entity
+#' @param id id of the custom-entity. If provided, this will be used as the
+#'   `entityRegistryId`, otherwise the `namingStrategy` used will be `"NEW_IDS"`
 #' @param dry_run set to `TRUE` to actually push to benchling
 #' @param ... field entries. See [get_schema_data_by_name()] for details of
 #'   which fields the schema requires, with the appropriate `type`
 #'
 #' @return if `dry_run == TRUE` the response from the server, otherwise `FALSE`
 #' @export
-new_custom_entity <- function(type = NULL, name = NULL, dry_run = TRUE, ...) {
+new_custom_entity <- function(type = NULL, name = NULL, id = NULL, dry_run = TRUE, ...) {
 
   schema <- get_schema_id_by_name(type)
+
 
   entry_data <- list(...)
   fields_data <- build_fields(entry_data, schema)
@@ -18,9 +21,17 @@ new_custom_entity <- function(type = NULL, name = NULL, dry_run = TRUE, ...) {
     name = name,
     schemaId = schema$id,
     fields = fields_data,
-    registryId = schema$registryID,
-    namingStrategy = "NEW_IDS"
+    registryId = schema$registryID
   )
+
+  if (!is.null(id)) {
+    entry_data <- c(entry_data,
+                    entityRegistryId = id)
+  } else {
+    entry_data <- c(entry_data,
+                    namingStrategy = "NEW_IDS")
+  }
+
   validate_against_schema(entry_data, schema)
 
   res <- if (!dry_run) {
@@ -88,7 +99,11 @@ validate_against_schema <- function(args, schema_id) {
     dd_options <- get_dropdowns(dropdowns$dropdownId[item])$options
     dd_ids <- dd_options$id
     if(!length(arg_value) || ! all(arg_value %in% dd_ids)) {
-      stop("'", dd_name, "' should be one of [", toString(dd_options$name), "] but is ", arg_value)
+      if (dd_name %in% req_names) {
+        stop("'", dd_name, "' should be one of [", toString(dd_options$name), "] but is ", arg_value)
+      } else {
+        warning("'", dd_name, "' is not required, but should be one of [", toString(dd_options$name), "] but is ", arg_value)
+      }
     }
   }
   TRUE
