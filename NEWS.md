@@ -1,3 +1,7 @@
+# benchlingapi 0.0.6
+
+* drop empty entries when creating a new entity
+
 # benchlingapi 0.0.5
 
 * `new_custom_entity()` now accepts an `id` rather than relying on a `namingStrategy`

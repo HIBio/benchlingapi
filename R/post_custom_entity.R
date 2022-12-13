@@ -38,13 +38,15 @@ new_custom_entity <- function(type = NULL, name = NULL, id = NULL, dry_run = TRU
     post_benchling("custom-entities", entry_data)
   } else {
     message("Dry run only. Constructed data:")
-    jsonlite::toJSON(entry_data, auto_unbox = TRUE)
+    print(jsonlite::toJSON(entry_data, auto_unbox = TRUE))
   }
 
   res
 }
 
 build_fields <- function(entry, schema_id) {
+  ## drop any already missing fields
+  entry <- entry[sapply(entry, Negate(is.null))]
   field_names <- names(entry)
   fields <- vector(mode = "list", length = length(field_names))
   names(fields) <- field_names
