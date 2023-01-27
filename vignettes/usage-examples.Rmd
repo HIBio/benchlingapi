@@ -1,0 +1,55 @@
+---
+title: "Usage Examples"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Installation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE,
+  purl = FALSE
+)
+```
+
+## Overview
+
+This vignette provides some more detailed examples of how to use the Benchling
+API using this package.
+
+Currently you must have two environment variables set to enable API access, you
+can choose what to name them but the default names are:
+
+1. `BENCHLING_ORG`: The is the subdomain in the `subdomain.benchling.com` that
+   you are using to access your benchling tenant.
+2. `BENCHLING_TOKEN`: This is the API key you will use to query Benchling. This
+   is generated on a per-user basis within benchling by an admin.
+
+Whatever they are, provide the appropriate variable names to the `set_creds`
+function to set them internally. I have two pairs of environment variables set,
+a pair to keep the auth credentials for our test tenant, and another pair for
+the production tenant, so my call to `set_creds()` will look like:
+
+```{r}
+# library(benchlingapi)
+devtools::load_all(".")
+set_creds("BENCHLING_PROD_ORG", "BENCHLING_PROD_TOKEN")
+```
+
+After the usual R package installation, `torch` requires installing other 2 libraries: LibTorch and LibLantern. They are automatically installed by detecting information about you OS if you are using `torch` in interactive mode. If you are running `torch` in non-interactive environments you need to set the `TORCH_INSTALL` env var to 1, so it's automatically installed or manually call `torch::install_torch()`.
+
+We have provide pre-compiled binaries for all major platforms and you can find specific installation instructions below.
+
+## Windows
+
+### CPU
+
+If you don't have a GPU or want to install the CPU version of `torch`, you can install with:
+
+```{r, eval = FALSE}
+install.packages("torch")
+```
