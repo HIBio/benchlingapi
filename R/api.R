@@ -1,4 +1,4 @@
-get_benchling <- function(endpoint, org = get_org(), ...) {
+get_benchling <- function(endpoint, org = get_org(), json = FALSE,...) {
   endpoint <- utils::URLencode(endpoint)
   query <- list(...)
   if (length(query)) {
@@ -19,14 +19,22 @@ get_benchling <- function(endpoint, org = get_org(), ...) {
   } else {
     endpoint
   }
-  cont <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
-  if (utils::hasName(cont, ep)) {
-    cont[[ep]]
-  } else if (utils::hasName(cont, camel_ep <- camel(ep))) {
-    cont[[camel_ep]]
+
+  contents <- httr::content(resp, as = "text", encoding = "UTF-8")
+
+  if (!json) {
+    contents <- jsonlite::fromJSON(contents)
+    if (utils::hasName(contents, ep)) {
+      contents[[ep]]
+    } else if (utils::hasName(contents, camel_ep <- camel(ep))) {
+      contents[[camel_ep]]
+    } else {
+      contents
+    }
   } else {
-    cont
+    contents
   }
+
 }
 
 camel <- function(x) {
