@@ -1,3 +1,14 @@
+
+#' Get Note Entry Using ID
+#'
+#' @param displayId displayId of note entry (starting with `EXP`)
+#'
+#' @return data from `entries` endpoint. For more flexibility, use [get_entries()]
+#' @export
+get_entry_by_id <- function(displayId = NULL) {
+  get_entries(displayIds = displayId)
+}
+
 #' Get Note Entry Attachments
 #'
 #' @param entry_id entries id
