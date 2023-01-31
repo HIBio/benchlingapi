@@ -37,19 +37,10 @@ the production tenant, so my call to `set_creds()` will look like:
 ```{r}
 # library(benchlingapi)
 devtools::load_all(".")
-set_creds("BENCHLING_PROD_ORG", "BENCHLING_PROD_TOKEN")
+set_creds("BENCHLING_PROD_ORG", "BENCHLING_PROD_TOKEN", validate = TRUE)
 ```
 
-After the usual R package installation, `torch` requires installing other 2 libraries: LibTorch and LibLantern. They are automatically installed by detecting information about you OS if you are using `torch` in interactive mode. If you are running `torch` in non-interactive environments you need to set the `TORCH_INSTALL` env var to 1, so it's automatically installed or manually call `torch::install_torch()`.
+The `validate = TRUE` argument above makes a quick call to the benchling tenant
+to ensure that the credentials work -- if they don't, the function will throw
+an error.
 
-We have provide pre-compiled binaries for all major platforms and you can find specific installation instructions below.
-
-## Windows
-
-### CPU
-
-If you don't have a GPU or want to install the CPU version of `torch`, you can install with:
-
-```{r, eval = FALSE}
-install.packages("torch")
-```
