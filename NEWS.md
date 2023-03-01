@@ -1,3 +1,7 @@
+# benchlingapi 0.0.7
+
+* `get_box_contents` endpoint
+
 # benchlingapi 0.0.6
 
 * drop empty entries when creating a new entity
