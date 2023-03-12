@@ -14,7 +14,6 @@ new_custom_entity <- function(type = NULL, name = NULL, id = NULL, dry_run = TRU
 
   schema <- get_schema_id_by_name(type)
 
-
   entry_data <- list(...)
   fields_data <- build_fields(entry_data, schema)
   entry_data <- list(
@@ -43,6 +42,53 @@ new_custom_entity <- function(type = NULL, name = NULL, id = NULL, dry_run = TRU
 
   res
 }
+
+#' Update custom-entity
+#'
+#' @param custom_entity_id registry ID of entity to update
+#' @param name name of entity to be set
+#' @param aliases alias of entity to be set
+#' @param authorIds author ID(s) of entity to be set
+#' @param customFields custom Fields of entity to be set (as a named list)
+#' @param fields fields of entity to be set (as a named list)
+#' @param folderId folder of entity to be set
+#' @param entityRegistryId registry ID of entity to be set
+#'
+#' @return if `dry_run == TRUE` the response from the server, otherwise `FALSE`
+#' @export
+update_custom_entity <- function(custom_entity_id = NULL,
+                                 name = NULL,
+                                 aliases = NULL,
+                                 authorIds = NULL,
+                                 customFields = NULL,
+                                 fields = NULL,
+                                 folderId = NULL,
+                                 entityRegistryId = NULL,
+                                 dry_run = TRUE,
+                                 ...) {
+
+  stopifnot(!is.null(custom_entity_id))
+  this_entity <- get_custom_entities(custom_entity_id)
+
+  entry_data <- list()
+  if (!is.null(name)) entry_data <- c(entry_data, name = name)
+  if (!is.null(aliases)) entry_data <- c(entry_data, aliases = aliases)
+  if (!is.null(authorIds)) entry_data <- c(entry_data, authorIds = authorIds)
+  if (!is.null(customFields)) entry_data <- c(entry_data, customFields = customFields)
+  if (!is.null(fields)) entry_data <- c(entry_data, fields = list(build_fields(fields, this_entity$schema$id)))
+  if (!is.null(folderId)) entry_data <- c(entry_data, folderId = folderId)
+  if (!is.null(entityRegistryId)) entry_data <- c(entry_data, entityRegistryId = entityRegistryId)
+
+  res <- if (!dry_run) {
+    post_benchling(glue::glue("custom-entities/{custom_entity_id}"), entry_data, f = "PATCH")
+  } else {
+    message("Dry run only. Constructed data;")
+    print(jsonlite::toJSON(entry_data, auto_unbox = TRUE))
+  }
+
+  res
+}
+
 
 build_fields <- function(entry, schema_id) {
   ## drop any already missing fields

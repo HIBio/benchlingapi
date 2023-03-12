@@ -1,4 +1,4 @@
-get_benchling <- function(endpoint, org = get_org(), ...) {
+get_benchling <- function(endpoint, org = get_org(), json = FALSE,...) {
   endpoint <- utils::URLencode(endpoint)
   query <- list(...)
   if (length(query)) {
@@ -19,14 +19,22 @@ get_benchling <- function(endpoint, org = get_org(), ...) {
   } else {
     endpoint
   }
-  cont <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
-  if (utils::hasName(cont, ep)) {
-    cont[[ep]]
-  } else if (utils::hasName(cont, camel_ep <- camel(ep))) {
-    cont[[camel_ep]]
+
+  contents <- httr::content(resp, as = "text", encoding = "UTF-8")
+
+  if (!json) {
+    contents <- jsonlite::fromJSON(contents)
+    if (utils::hasName(contents, ep)) {
+      contents[[ep]]
+    } else if (utils::hasName(contents, camel_ep <- camel(ep))) {
+      contents[[camel_ep]]
+    } else {
+      contents
+    }
   } else {
-    cont
+    contents
   }
+
 }
 
 camel <- function(x) {
@@ -57,18 +65,23 @@ get_api_yaml <- function(org = get_org()) {
   yaml::read_yaml(text = yaml)
 }
 
-post_benchling <- function(endpoint, body = NULL, org = get_org(), ...) {
+post_benchling <- function(endpoint, body = NULL, org = get_org(), f = c("POST", "PATCH"),...) {
   stopifnot(!is.null(body))
+  f <- match.arg(f)
+  f <- switch(f,
+              POST = httr::POST,
+              PATCH = httr::PATCH)
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
-  resp <- httr::POST(
+  resp <- f(
     url = glue::glue("{url}/{endpoint}"),
     body = jsonlite::toJSON(body, auto_unbox = TRUE),
     encode = "json",
     httr::authenticate(get_token(), "")
   )
-  if (!(sc <- httr::status_code(resp)) == 201L) {
+  if (!(sc <- httr::status_code(resp)) %in% 200:299) {
     warning("** Request returned status ", sc, call. = FALSE)
     return(invisible(resp))
   }
   jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
 }
+

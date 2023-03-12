@@ -2,6 +2,7 @@
 
 * Added usage vignette
 * Validates credentials
+* `get_box_contents` endpoint
 
 # benchlingapi 0.0.6
 
