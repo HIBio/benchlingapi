@@ -1,6 +1,11 @@
+# benchlingapi 0.0.7
+
+* Added usage vignette
+* Validates credentials
+
 # benchlingapi 0.0.6
 
-* drop empty entries when creating a new entity
+* Drop empty entries when creating a new entity
 
 # benchlingapi 0.0.5
 

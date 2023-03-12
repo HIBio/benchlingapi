@@ -16,7 +16,7 @@ set_creds(
 \item{token_var}{environment variable containing the user API token}
 
 \item{validate}{When \code{TRUE} (default: \code{FALSE}), performs a check to see that
-credentials are valid.}
+credentials are valid and throws an error if they fail.}
 }
 \value{
 nothing; sets an internal environment variable
