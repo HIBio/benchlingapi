@@ -1,0 +1,63 @@
+---
+title: "Usage Examples"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Installation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE,
+  purl = FALSE
+)
+```
+
+## Configuration
+
+This vignette provides some more detailed examples of how to use the Benchling
+API using this package.
+
+Currently you must have two environment variables set to enable API access, you
+can choose what to name them but the default names are:
+
+1. `BENCHLING_ORG`: The is the subdomain in the `subdomain.benchling.com` that
+   you are using to access your Benchling tenant. Some configurations include a 
+   'test' tenant and a 'production' tenant.
+2. `BENCHLING_TOKEN`: This is the API key you will use to query Benchling. This
+   is generated on a per-user basis within Benchling by an admin.
+
+Whatever they are, provide the appropriate variable names to the `set_creds()`
+function to set them internally. I have two pairs of environment variables set,
+a pair to keep the auth credentials for our test tenant, and another pair for
+the production tenant, so my call to `set_creds()` will look like:
+
+```{r}
+library(benchlingapi)
+set_creds("BENCHLING_PROD_ORG", "BENCHLING_PROD_TOKEN", validate = TRUE)
+```
+
+The `validate = TRUE` argument above makes a quick call to the Benchling tenant
+to ensure that the credentials work -- if they don't, the function will throw
+an error.
+
+With this set up, queries to the Benchling API should not require passing around tokens.
+
+## Query the API
+
+The [API reference](https://benchling.com/api/reference) details the endpoints, 
+query parameters, and expected response schema. A similar reference is typically 
+available for each specific installation/tenant as 
+\url{https://TENANT.benchling.com/api/reference#/}. 
+
+{benchlingapi} wraps most of the direct `GET` endpoints with a similar `get_x()` 
+function, exposing the optional query parameters via the `...` argument. When such 
+a query offers specific fetching of an entity via an ID this is exposed as a named
+argument, e.g. `get_aa_sequences(aa_sequence_id)`. The help pages are auto-generated
+from the API reference and detail the optional query parameters. Use e.g. `?get_aa_sequences` 
+to see such documentation.
+
+Some `POST` and `PATCH` functions are also wrapped. 
