@@ -124,9 +124,9 @@ build_fields <- function(entry, schema_id) {
 
 validate_against_schema <- function(args, schema_id) {
   schema <- extract_schema_definition(schema_id)
-  has_archives <- is.data.frame(schema$archiveRecord)
+  has_archives <- utils::hasName(schema, "archiveRecord.reason")
   active_schema <- if (has_archives) {
-    schema[is.na(schema$archiveRecord$reason), ]
+    schema[is.na(schema$archiveRecord.reason), ]
   } else {
     schema
   }
