@@ -61,3 +61,10 @@ from the API reference and detail the optional query parameters. Use e.g. `?get_
 to see such documentation.
 
 Some `POST` and `PATCH` functions are also wrapped. 
+
+## Pagination
+
+By default, the query parameter `pageSize` is set to 50 with a maximum of 100. If you require 
+more results then set the `pageSize` argument to your desired upper limit. The query 
+will be sent and a `nextToken` will be retrieved. A new search will be performed 
+until the desired number of results is either collected or the search is exhausted.

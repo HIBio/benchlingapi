@@ -21,20 +21,56 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE,...) {
   }
 
   contents <- httr::content(resp, as = "text", encoding = "UTF-8")
+  headers <- httr::headers(resp)
 
   if (!json) {
+    # convert from json
     contents <- jsonlite::fromJSON(contents)
-    if (utils::hasName(contents, ep)) {
-      contents[[ep]]
-    } else if (utils::hasName(contents, camel_ep <- camel(ep))) {
-      contents[[camel_ep]]
-    } else {
-      contents
+
+    res <- extract_named_endpoint(contents, ep)
+
+    # if we're in a pagination loop, return the contents
+    if (!is.null(query[["nextToken"]])) {
+      attr(res, "nextToken") <- contents[["nextToken"]]
+      return(res)
     }
+
+    total_ps <- query[["pageSize"]]
+
+    if (!is.null(total_ps) &&
+        nrow(res) < as.integer(total_ps) &&
+        utils::hasName(contents, "nextToken")) {
+      message("Pagination in process. Results available: ", headers[["result-count"]])
+      nextToken <- contents$nextToken
+      total_ps <- as.integer(total_ps)
+      ps <- total_ps
+      while (nextToken != "" && nrow(res) < total_ps) {
+        ps <- total_ps - nrow(res)
+        message("\rStill looking for ", ps, " results", strrep(" ", 10), appendLF = FALSE)
+        new_contents <- Recall(endpoint = endpoint, org = org, nextToken = nextToken, pageSize = ps)
+        nextToken <- attr(new_contents, "nextToken")
+        newres <- extract_named_endpoint(new_contents, ep)
+        res <- dplyr::add_row(res, newres)
+      }
+      message("\rResult contains ", nrow(res), " rows", strrep(" ", 10))
+    }
+    res
+
   } else {
+    # return json directly
     contents
   }
 
+}
+
+extract_named_endpoint <- function(d, ep) {
+  if (utils::hasName(d, ep)) {
+    d[[ep]]
+  } else if (utils::hasName(d, camel_ep <- camel(ep))) {
+    d[[camel_ep]]
+  } else {
+    d
+  }
 }
 
 camel <- function(x) {
