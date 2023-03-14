@@ -37,6 +37,12 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
 
     total_ps <- query[["pageSize"]]
 
+    if (is.null(total_ps) && nrow(res) == 50L && !quiet) {
+      message("Exactly 50 results returned; did you mean to request more?")
+      message(" add query parameter `pageSize = n` to fetch more results")
+      message(" Results available: ", headers[["result-count"]])
+    }
+
     if (!is.null(total_ps) &&
         nrow(res) < as.integer(total_ps) &&
         utils::hasName(contents, "nextToken")) {
