@@ -1,3 +1,7 @@
+# benchlingapi 0.0.8
+
+* Support pagination
+
 # benchlingapi 0.0.7
 
 * Added usage vignette

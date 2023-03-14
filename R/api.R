@@ -1,4 +1,4 @@
-get_benchling <- function(endpoint, org = get_org(), json = FALSE,...) {
+get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE, ...) {
   endpoint <- utils::URLencode(endpoint)
   query <- list(...)
   if (length(query)) {
@@ -25,7 +25,7 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE,...) {
 
   if (!json) {
     # convert from json
-    contents <- jsonlite::fromJSON(contents)
+    contents <- jsonlite::fromJSON(contents, flatten = TRUE)
 
     res <- extract_named_endpoint(contents, ep)
 
@@ -37,22 +37,31 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE,...) {
 
     total_ps <- query[["pageSize"]]
 
+    if (is.null(total_ps) && nrow(res) == 50L && !quiet) {
+      message("Exactly 50 results returned; did you mean to request more?")
+      message(" add query parameter `pageSize = n` to fetch more results")
+      message(" Results available: ", headers[["result-count"]])
+    }
+
     if (!is.null(total_ps) &&
         nrow(res) < as.integer(total_ps) &&
         utils::hasName(contents, "nextToken")) {
-      message("Pagination in process. Results available: ", headers[["result-count"]])
+      if (!quiet) message("Pagination in process. Results available: ", headers[["result-count"]])
       nextToken <- contents$nextToken
       total_ps <- as.integer(total_ps)
       ps <- total_ps
+      query <- append(query, list(endpoint = endpoint, org = org))
       while (nextToken != "" && nrow(res) < total_ps) {
         ps <- total_ps - nrow(res)
-        message("\rStill looking for ", ps, " results", strrep(" ", 10), appendLF = FALSE)
-        new_contents <- Recall(endpoint = endpoint, org = org, nextToken = nextToken, pageSize = ps)
+        if (!quiet) message("\rStill looking for ", ps, " results", strrep(" ", 10), appendLF = FALSE)
+        query$nextToken <- nextToken
+        query$pageSize <- ps
+        new_contents <- do.call(Recall, query)
         nextToken <- attr(new_contents, "nextToken")
         newres <- extract_named_endpoint(new_contents, ep)
-        res <- dplyr::add_row(res, newres)
+        res <- dplyr::bind_rows(res, newres)
       }
-      message("\rResult contains ", nrow(res), " rows", strrep(" ", 10))
+      if (!quiet) message("\rResult contains ", nrow(res), " rows", strrep(" ", 10))
     }
     res
 
