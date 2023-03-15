@@ -37,8 +37,8 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
 
     total_ps <- query[["pageSize"]]
 
-    if (is.null(total_ps) && nrow(res) == 50L && !quiet) {
-      message("Exactly 50 results returned; did you mean to request more?")
+    if (is.null(total_ps) && is.data.frame(res) && nrow(res) == 50L && !quiet) {
+      message("Exactly 50 results returned for endpoint ", endpoint, "; did you mean to request more?")
       message(" add query parameter `pageSize = n` to fetch more results")
       message(" Results available: ", headers[["result-count"]])
     }
@@ -77,6 +77,12 @@ extract_named_endpoint <- function(d, ep) {
     d[[ep]]
   } else if (utils::hasName(d, camel_ep <- camel(ep))) {
     d[[camel_ep]]
+  } else if (utils::hasName(d, "options")) {
+    # dropdowns
+    d[["options"]]
+  } else if (utils::hasName(d, "fieldDefinitions")) {
+    # schema definitions
+    d[["fieldDefinitions"]]
   } else {
     d
   }

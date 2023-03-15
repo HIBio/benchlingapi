@@ -58,9 +58,13 @@ get_attachments <- function(entry_id, annotateURL = TRUE) {
 #' @export
 get_tables <- function(entry_id) {
   entry <- get_entries(entry_id)
-  tibble::as_tibble(
-    dplyr::filter(entry$entry$days$notes[[1]], type == "table")$table
-  )
+  if (inherits(entry, "response")) {
+    stop(httr::content(entry)$error$message)
+  }
+  dplyr::filter(entry$entry$days$notes[[1]], type == "table") |>
+    dplyr::select(tidyselect::starts_with("table")) |>
+    tibble::as_tibble() |>
+    dplyr::rename_with(~sub("table.", "", .x, fixed = TRUE))
 }
 
 #' Extract Contents of an Entry Table

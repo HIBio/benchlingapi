@@ -51,7 +51,7 @@ extract_entity_schema_definition <- function(entity, quiet = FALSE) {
 #' }
 extract_schema_definition <- function(schema_id) {
   schema_id <- structure_or_id(schema_id)
-  get_entity_schemas(schema_id)$fieldDefinition
+  get_entity_schemas(schema_id)
 }
 
 #' Extract entity data fields

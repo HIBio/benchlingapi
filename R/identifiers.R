@@ -8,12 +8,12 @@
 get_dropdown_listing <- function(dropdown) {
   # try dropdown as ID
   dd_items <- suppressWarnings(get_dropdowns(dropdown))
-  if (!is.null(dd_items$options)) {
-    dd_items$options[, c("id", "name")]
+  if (!inherits(dd_items, "response")) {
+    dd_items[, c("id", "name")]
   } else {
-    all_dropdowns <- get_dropdowns()
+    all_dropdowns <- get_dropdowns(pageSize = 500, quiet = TRUE)
     chosen_dd <- all_dropdowns[all_dropdowns$name == dropdown, "id"]
-    get_dropdowns(chosen_dd)$options[, c("id", "name")]
+    get_dropdowns(chosen_dd)[, c("id", "name")]
   }
 }
 
