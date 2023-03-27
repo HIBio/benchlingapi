@@ -21,7 +21,7 @@ samples (represented by the batches inside the container). The container itself
 tracks its total volume, and the concentration of every batch inside of
 it.Containers are all associated with schemas, which define the type of the
 container (e.g. "Tube") along with the fields that are tracked.Like all
-storage, every container has a barcode that is unique across the registry.
+inventory, every container has a barcode that is unique across the registry.
 }
 \details{
 Available query parameters:
@@ -34,11 +34,19 @@ Available query parameters:
 \item{modifiedAt}{Datetime, in RFC 3339 format. Supports the > and < operators. Time zone defaults to UTC. Restricts results to those modified in the specified range. e.g. > 2017-04-30.}
 \item{name}{Name of a container. Restricts results to those with the specified name.}
 \item{nameIncludes}{Name substring of a container. Restricts results to those with names that include the provided substring.}
-\item{ancestorStorageId}{ID of a plate, box, or location. Restricts results to those located in the specified storage.}
+\item{ancestorStorageId}{ID of a plate, box, or location. Restricts results to those located in the specified inventory.}
 \item{storageContentsId}{ID of a batch, entity, or entity schema. Restricts results to those that contain the specified batches, batches of the specified entities, or batches of entities of the specified schema.}
 \item{storageContentsIds}{Comma-separated list of IDs of batches or entities. Restricts results to those that hold containers with at least one of the specified batches, entities, or batches of the specified entities.}
 \item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived containers. Use "ANY_ARCHIVED" to filter for archived containers regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}
 \item{checkoutStatus}{Comma-separated list of check-out statuses. Restricts results to those that match one of the specified statuses. Valid statuses are AVAILABLE, RESERVED, and CHECKED_OUT.}
+\item{checkoutAssigneeIds.anyOf}{Comma-separated list of user or team IDs. Restricts results to those that are reserved or checked out for a user or team who matches any of the specified IDs or returns a 400 error with a list of invalid IDs.}
+\item{restrictionStatus}{Comma-separated list of restriction statuses. Restricts results to those that match one of the specified statuses. Valid statuses are RESTRICTED, UNRESTRICTED, and NOT_APPLICABLE.}
+\item{sampleOwnerIds.allOf}{Comma-separated list of user or team IDs. Restricts results to those that match all of the specified IDs or returns a 400 error with a list of invalid IDs.}
+\item{sampleOwnerIds.anyOf}{Comma-separated list of user or team IDs. Restricts results to those that match any of the specified IDs or returns a 400 error with a list of invalid IDs.}
+\item{sampleOwnerIds.noneOf}{Comma-separated list of user or team IDs. Restricts results to those that do not match any of the specified IDs or returns a 400 error with a list of invalid IDs.}
+\item{restrictedSamplePartyIds.allOf}{Comma-separated list of user, team, or app IDs. Restricts results to those that match all of the specified IDs or returns a 400 error with a list of invalid IDs.}
+\item{restrictedSamplePartyIds.anyOf}{Comma-separated list of user, team, or app IDs. Restricts results to those that match any of the specified IDs or returns a 400 error with a list of invalid IDs.}
+\item{restrictedSamplePartyIds.noneOf}{Comma-separated list of user, team, or app IDs. Restricts results to those that do not match any of the specified IDs or returns a 400 error with a list of invalid IDs.}
 \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 \item{barcodes}{Comma-separated list of barcodes. Matches all of the provided barcodes, or returns a 400 error that includes a list of which barcodes are invalid.}
 \item{names.anyOf}{Comma-separated list of names. Restricts results to those that match any of the specified names, case insensitive.  Warning - this filter can be non-performant due to case insensitivity.}

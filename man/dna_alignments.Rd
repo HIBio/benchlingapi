@@ -16,7 +16,8 @@ data from \code{dna_alignments} endpoint
 }
 \description{
 A DNA alignment is a Benchling object representing an alignment of multiple DNA
-sequences.
+sequences. This endpoint is deprecated, please migrate to the existing
+\href{#/Nucleotide\%20Alignments}{Nucleotide Alignments endpoints.}
 }
 \details{
 Available query parameters:

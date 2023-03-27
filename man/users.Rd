@@ -15,7 +15,7 @@ get_users(user_id = NULL, ...)
 data from \code{users} endpoint
 }
 \description{
-View user objects.
+Manage user objects.
 }
 \details{
 Available query parameters:
@@ -29,6 +29,7 @@ Available query parameters:
 \item{memberOf}{Comma-separated list of organization and/or team API IDs. Restricts results to users that are members of all given groups.}
 \item{adminOf}{Comma-separated list of organization and/or team API IDs. Restricts results to users that are admins of all given groups.}
 \item{handles}{Comma-separated list of handles. Restricts results to the users with the specified handles.}
+\item{passwordLastChangedAt}{Datetime, in RFC 3339 format. Supports the >, >=, <, <=, operators. Time zone defaults to UTC. Restricts results to users who have last changed their password in the specified range. e.g. > 2017-04-30. If "null" is provided returns users that have no password set (SAML).}
 \item{nextToken}{Token for pagination}
 }
 }

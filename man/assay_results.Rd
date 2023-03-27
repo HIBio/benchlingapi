@@ -23,14 +23,23 @@ batches, and other types.To learn more about creating results, \href{https://doc
 Available query parameters:
 \describe{
 \item{schemaId}{ID of the assay result schema to filter by}
+\item{createdAt.lt}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those created before the specified time. e.g. < 2017-04-30.}
+\item{createdAt.gt}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those created after the specified time. e.g. > 2017-04-30.}
+\item{createdAt.lte}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those created on or before the specified time. e.g. <= 2017-04-30.}
+\item{createdAt.gte}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those created on or after the specified time. e.g. >= 2017-04-30.}
 \item{minCreatedTime}{Filter by results created after this unix timestamp}
 \item{maxCreatedTime}{Filter by results created before this unix timestamp}
 \item{sort}{Method by which to order search results. Valid sorts are createdAt (created time, oldest first). Use :asc or :desc to specify ascending or descending order. Default is createdAt:asc.}
 \item{nextToken}{Token for pagination}
 \item{pageSize}{Number of results to return. Defaults to 50, maximum of 100.}
 \item{entityIds}{Filter by comma-separated list of related Entity IDs, maximum of 20.}
-\item{storageIds}{Filter by comma-separated list of related storage (container, box, plate, or location) IDs, maximum of 20.}
+\item{storageIds}{Filter by comma-separated list of related inventory (container, box, plate, or location) IDs, maximum of 20.}
 \item{assayRunIds}{Filter by comma-separated list of associated AssayRun IDs.}
 \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
+\item{modifiedAt.lt}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those modified before the specified time. e.g. < 2017-04-30.}
+\item{modifiedAt.gt}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those modified after the specified time. e.g. > 2017-04-30.}
+\item{modifiedAt.lte}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those modified on or before the specified time. e.g. <= 2017-04-30.}
+\item{modifiedAt.gte}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those modified on or after the specified time. e.g. >= 2017-04-30.}
+\item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived Assay Results. Use "ANY_ARCHIVED" to filter for archived Assay Results regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}
 }
 }
