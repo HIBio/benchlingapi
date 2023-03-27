@@ -29,6 +29,31 @@ BENCHLING_ORG=yourorgname
 BENCHLING_TOKEN=sk_dMAQaaa9AaAAwwADRAzAs2AAz4Aaa
 ```
 
+## Configuration
+
+`set_creds()` can be used to validate and set the credentials for a
+given tenant (itself set via `BENCHLING_ORG`). To switch between a fixed
+list of tenants, one could write a helper
+
+``` r
+use_tenant <- function(tenant = c("test", "prod")) {
+  tenant <- match.arg(tenant)
+  message("switching to ", tenant)
+  switch(tenant,
+         prod = benchlingapi::set_creds(
+           org_var = "PROD_BENCHLING_ORG",
+           token_var = "PROD_BENCHLING_TOKEN"
+         ),
+         # default
+         test = benchlingapi::set_creds()
+  )
+  invisible()
+}
+```
+
+This has *not* been included in {benchlingapi} as organisations may have
+their own list of tenants to configure.
+
 ## Example
 
 ``` r
@@ -43,111 +68,65 @@ get_users()
 
 ## Supported Endpoints
 
-Most of the endpoints have been automatically wrapped, but there is no
-guarantee that they work.
+Most of the endpoints have been automatically wrapped[^1] but there is
+no guarantee that they work.
 
-The endpoints which should be wrapped are
+The endpoints which should be wrapped with a `get_*` function are
 
-    #>  [1] "aa_sequences"                 "apps"                        
-    #>  [3] "assay_result_schemas"         "assay_results"               
-    #>  [5] "assay_run_schemas"            "assay_runs"                  
-    #>  [7] "automation_file_transforms"   "automation_input_generators" 
-    #>  [9] "automation_output_processors" "batch_schemas"               
-    #> [11] "batches"                      "blobs"                       
-    #> [13] "box_schemas"                  "boxes"                       
-    #> [15] "container_schemas"            "containers"                  
-    #> [17] "custom_entities"              "dna_alignments"              
-    #> [19] "dna_oligos"                   "dna_sequences"               
-    #> [21] "dropdowns"                    "entities"                    
-    #> [23] "entity_schemas"               "entries"                     
-    #> [25] "entry_schemas"                "entry_templates"             
-    #> [27] "events"                       "exports"                     
-    #> [29] "feature_libraries"            "features"                    
-    #> [31] "folders"                      "legacy_workflow_stage_runs"  
-    #> [33] "legacy_workflow_stages"       "legacy_workflows"            
-    #> [35] "location_schemas"             "locations"                   
-    #> [37] "mixtures"                     "molecules"                   
-    #> [39] "oligos"                       "organizations"               
-    #> [41] "plate_schemas"                "plates"                      
-    #> [43] "projects"                     "registries"                  
-    #> [45] "request_fulfillments"         "request_schemas"             
-    #> [47] "request_task_schemas"         "requests"                    
-    #> [49] "result_transactions"          "rna_oligos"                  
-    #> [51] "tasks"                        "teams"                       
-    #> [53] "token"                        "transfers"                   
-    #> [55] "users"                        "warehouse_credentials"       
-    #> [57] "workflow_outputs"             "workflow_stage_runs"         
-    #> [59] "workflow_stages"              "workflow_task_groups"        
-    #> [61] "workflow_task_schemas"        "workflow_tasks"              
-    #> [63] "workflows"
+    #>  [1] "aa-sequences"                 "app-configuration-items"     
+    #>  [3] "apps"                         "assay-result-schemas"        
+    #>  [5] "assay-results"                "assay-run-schemas"           
+    #>  [7] "assay-runs"                   "automation-file-transforms"  
+    #>  [9] "automation-input-generators"  "automation-output-processors"
+    #> [11] "batch-schemas"                "batches"                     
+    #> [13] "blobs"                        "box-schemas"                 
+    #> [15] "boxes"                        "container-schemas"           
+    #> [17] "containers"                   "custom-entities"             
+    #> [19] "dna-alignments"               "dna-oligos"                  
+    #> [21] "dna-sequences"                "dropdowns"                   
+    #> [23] "entities"                     "entity-schemas"              
+    #> [25] "entries"                      "entry-schemas"               
+    #> [27] "entry-templates"              "events"                      
+    #> [29] "exports"                      "feature-libraries"           
+    #> [31] "features"                     "folders"                     
+    #> [33] "legacy-workflow-stage-runs"   "legacy-workflow-stages"      
+    #> [35] "legacy-workflows"             "location-schemas"            
+    #> [37] "locations"                    "mixtures"                    
+    #> [39] "molecules"                    "nucleotide-alignments"       
+    #> [41] "oligos"                       "organizations"               
+    #> [43] "plate-schemas"                "plates"                      
+    #> [45] "projects"                     "registries"                  
+    #> [47] "request-fulfillments"         "request-schemas"             
+    #> [49] "request-task-schemas"         "requests"                    
+    #> [51] "result-transactions"          "rna-oligos"                  
+    #> [53] "rna-sequences"                "tasks"                       
+    #> [55] "teams"                        "token"                       
+    #> [57] "transfers"                    "users"                       
+    #> [59] "warehouse-credentials"        "workflow-outputs"            
+    #> [61] "workflow-stage-runs"          "workflow-stages"             
+    #> [63] "workflow-task-groups"         "workflow-task-schemas"       
+    #> [65] "workflow-tasks"               "workflows"
 
 Some of these take an additional (optional) parameter (only one
-supported for now)
+supported for now), e.g.
 
-    #>                        endpoint                parameter
-    #> 1                  aa_sequences         {aa_sequence_id}
-    #> 2                          apps                 {app_id}
-    #> 3          assay_result_schemas              {schema_id}
-    #> 4                 assay_results        {assay_result_id}
-    #> 5             assay_run_schemas              {schema_id}
-    #> 6                    assay_runs           {assay_run_id}
-    #> 7    automation_file_transforms           {transform_id}
-    #> 8   automation_input_generators     {input_generator_id}
-    #> 9  automation_output_processors    {output_processor_id}
-    #> 10                batch_schemas              {schema_id}
-    #> 11                      batches               {batch_id}
-    #> 12                        blobs                {blob_id}
-    #> 13                  box_schemas              {schema_id}
-    #> 14                        boxes                 {box_id}
-    #> 15            container_schemas              {schema_id}
-    #> 16                   containers           {container_id}
-    #> 17              custom_entities       {custom_entity_id}
-    #> 18               dna_alignments       {dna_alignment_id}
-    #> 19                   dna_oligos               {oligo_id}
-    #> 20                dna_sequences        {dna_sequence_id}
-    #> 21                    dropdowns            {dropdown_id}
-    #> 22                     entities              {entity_id}
-    #> 23               entity_schemas              {schema_id}
-    #> 24                      entries               {entry_id}
-    #> 25                entry_schemas              {schema_id}
-    #> 26              entry_templates      {entry_template_id}
-    #> 27            feature_libraries     {feature_library_id}
-    #> 28                     features             {feature_id}
-    #> 29                      folders              {folder_id}
-    #> 30   legacy_workflow_stage_runs           {stage_run_id}
-    #> 31       legacy_workflow_stages               {stage_id}
-    #> 32             legacy_workflows     {legacy_workflow_id}
-    #> 33             location_schemas              {schema_id}
-    #> 34                    locations            {location_id}
-    #> 35                     mixtures             {mixture_id}
-    #> 36                    molecules            {molecule_id}
-    #> 37                       oligos               {oligo_id}
-    #> 38                organizations        {organization_id}
-    #> 39                plate_schemas              {schema_id}
-    #> 40                       plates               {plate_id}
-    #> 41                     projects             {project_id}
-    #> 42                   registries            {registry_id}
-    #> 43         request_fulfillments {request_fulfillment_id}
-    #> 44              request_schemas              {schema_id}
-    #> 45         request_task_schemas              {schema_id}
-    #> 46                     requests             {request_id}
-    #> 47          result_transactions         {transaction_id}
-    #> 48                   rna_oligos               {oligo_id}
-    #> 49                        tasks                {task_id}
-    #> 50                        teams                {team_id}
-    #> 51                        users                {user_id}
-    #> 52             workflow_outputs     {workflow_output_id}
-    #> 53          workflow_stage_runs           {stage_run_id}
-    #> 54              workflow_stages               {stage_id}
-    #> 55         workflow_task_groups {workflow_task_group_id}
-    #> 56        workflow_task_schemas              {schema_id}
-    #> 57               workflow_tasks       {workflow_task_id}
-    #> 58                    workflows            {workflow_id}
+``` r
+benchlingapi::get_users
+#> function(user_id = NULL, ...) {
+#>   endpoint <- "users"
+#>   if (!is.null(user_id)) {
+#>     endpoint <- glue::glue("users/{user_id}")
+#>   }
+#>   get_benchling(endpoint, ...)
+#> }
+#> <bytecode: 0x105e5d770>
+#> <environment: namespace:benchlingapi>
+```
 
 Many endpoints also include query parameters (see the [official
 reference](https://benchling.com/api/reference)). These can be specified
 via the `...` argument, and are detailed in the individual help for each
-function.
+function, e.g.
 
 ``` r
 ?get_organizations
@@ -162,7 +141,7 @@ List users
 Description
 </h3>
 <p>
-View user objects.
+Manage user objects.
 </p>
 <h3>
 Usage
@@ -284,6 +263,17 @@ specified handles.
 </p>
 </dd>
 <dt>
+passwordLastChangedAt
+</dt>
+<dd>
+<p>
+Datetime, in RFC 3339 format. Supports the \>, \>=, \<, \<=, operators.
+Time zone defaults to UTC. Restricts results to users who have last
+changed their password in the specified range. e.g. \> 2017-04-30. If
+"null" is provided returns users that have no password set (SAML).
+</p>
+</dd>
+<dt>
 nextToken
 </dt>
 <dd>
@@ -312,3 +302,6 @@ get_users(nameIncludes = "david")
     #>                   email    handle           id      name
     #> 1 david.old@example.com david.old ent_U2gA6a41 David Old
     #> 2 david.new@example.com david.new ent_AvA2sA2X David New
+
+[^1]: See `inst/scripts/template.R` for how these `auto_*.R` files are
+    generated

@@ -54,6 +54,31 @@ BENCHLING_ORG=yourorgname
 BENCHLING_TOKEN=sk_dMAQaaa9AaAAwwADRAzAs2AAz4Aaa
 ```
 
+## Configuration
+
+`set_creds()` can be used to validate and set the credentials for a given tenant 
+(itself set via `BENCHLING_ORG`). To switch between a fixed list of tenants, one 
+could write a helper 
+
+```{r, eval = FALSE}
+use_tenant <- function(tenant = c("test", "prod")) {
+  tenant <- match.arg(tenant)
+  message("switching to ", tenant)
+  switch(tenant,
+         prod = benchlingapi::set_creds(
+           org_var = "PROD_BENCHLING_ORG",
+           token_var = "PROD_BENCHLING_TOKEN"
+         ),
+         # default
+         test = benchlingapi::set_creds()
+  )
+  invisible()
+}
+```
+
+This has *not* been included in {benchlingapi} as organisations may have their own list of tenants to 
+configure.
+
 ## Example
 
 ```{r}
@@ -62,65 +87,21 @@ get_users()
 
 ## Supported Endpoints
 
-Most of the endpoints have been automatically wrapped, but there is no guarantee that they work.
+Most of the endpoints have been automatically wrapped[^inst] but there is no guarantee that they work.
 
-The endpoints which should be wrapped are
+The endpoints which should be wrapped with a `get_*` function are
 ```{r, echo = FALSE}
-c("aa_sequences", "apps", "assay_result_schemas", "assay_results", 
-"assay_run_schemas", "assay_runs", "automation_file_transforms", 
-"automation_input_generators", "automation_output_processors", 
-"batch_schemas", "batches", "blobs", "box_schemas", "boxes", 
-"container_schemas", "containers", "custom_entities", "dna_alignments", 
-"dna_oligos", "dna_sequences", "dropdowns", "entities", "entity_schemas", 
-"entries", "entry_schemas", "entry_templates", "events", "exports", 
-"feature_libraries", "features", "folders", "legacy_workflow_stage_runs", 
-"legacy_workflow_stages", "legacy_workflows", "location_schemas", 
-"locations", "mixtures", "molecules", "oligos", "organizations", 
-"plate_schemas", "plates", "projects", "registries", "request_fulfillments", 
-"request_schemas", "request_task_schemas", "requests", "result_transactions", 
-"rna_oligos", "tasks", "teams", "token", "transfers", "users", 
-"warehouse_credentials", "workflow_outputs", "workflow_stage_runs", 
-"workflow_stages", "workflow_task_groups", "workflow_task_schemas", 
-"workflow_tasks", "workflows")
+sub(".R$", "", sub("^auto_", "", dir("R", pattern = "auto_*")))
 ```
 
-Some of these take an additional (optional) parameter (only one supported for now)
+Some of these take an additional (optional) parameter (only one supported for now), e.g.
 
-```{r, echo = FALSE}
-structure(list(endpoint = c("aa_sequences", "apps", "assay_result_schemas", 
-"assay_results", "assay_run_schemas", "assay_runs", "automation_file_transforms", 
-"automation_input_generators", "automation_output_processors", 
-"batch_schemas", "batches", "blobs", "box_schemas", "boxes", 
-"container_schemas", "containers", "custom_entities", "dna_alignments", 
-"dna_oligos", "dna_sequences", "dropdowns", "entities", "entity_schemas", 
-"entries", "entry_schemas", "entry_templates", "feature_libraries", 
-"features", "folders", "legacy_workflow_stage_runs", "legacy_workflow_stages", 
-"legacy_workflows", "location_schemas", "locations", "mixtures", 
-"molecules", "oligos", "organizations", "plate_schemas", "plates", 
-"projects", "registries", "request_fulfillments", "request_schemas", 
-"request_task_schemas", "requests", "result_transactions", "rna_oligos", 
-"tasks", "teams", "users", "workflow_outputs", "workflow_stage_runs", 
-"workflow_stages", "workflow_task_groups", "workflow_task_schemas", 
-"workflow_tasks", "workflows"), parameter = c("{aa_sequence_id}", 
-"{app_id}", "{schema_id}", "{assay_result_id}", "{schema_id}", 
-"{assay_run_id}", "{transform_id}", "{input_generator_id}", "{output_processor_id}", 
-"{schema_id}", "{batch_id}", "{blob_id}", "{schema_id}", "{box_id}", 
-"{schema_id}", "{container_id}", "{custom_entity_id}", "{dna_alignment_id}", 
-"{oligo_id}", "{dna_sequence_id}", "{dropdown_id}", "{entity_id}", 
-"{schema_id}", "{entry_id}", "{schema_id}", "{entry_template_id}", 
-"{feature_library_id}", "{feature_id}", "{folder_id}", "{stage_run_id}", 
-"{stage_id}", "{legacy_workflow_id}", "{schema_id}", "{location_id}", 
-"{mixture_id}", "{molecule_id}", "{oligo_id}", "{organization_id}", 
-"{schema_id}", "{plate_id}", "{project_id}", "{registry_id}", 
-"{request_fulfillment_id}", "{schema_id}", "{schema_id}", "{request_id}", 
-"{transaction_id}", "{oligo_id}", "{task_id}", "{team_id}", "{user_id}", 
-"{workflow_output_id}", "{stage_run_id}", "{stage_id}", "{workflow_task_group_id}", 
-"{schema_id}", "{workflow_task_id}", "{workflow_id}")), row.names = c(NA, 
--58L), class = c("data.frame"))
+```{r}
+benchlingapi::get_users
 ```
 
 Many endpoints also include query parameters (see the [official reference](https://benchling.com/api/reference)).
-These can be specified via the `...` argument, and are detailed in the individual help for each function.
+These can be specified via the `...` argument, and are detailed in the individual help for each function, e.g.
 
 ```{r, eval = FALSE}
 ?get_organizations
@@ -190,3 +171,5 @@ structure(list(email = c("david.old@example.com", "david.new@example.com"
 ), handle = c("david.old", "david.new"), id = c("ent_U2gA6a41", "ent_AvA2sA2X"
 ), name = c("David Old", "David New")), class = "data.frame", row.names = 1:2)
 ```
+
+[^inst]: See `inst/scripts/template.R` for how these `auto_*.R` files are generated
