@@ -104,7 +104,7 @@ Many endpoints also include query parameters (see the [official reference](https
 These can be specified via the `...` argument, and are detailed in the individual help for each function, e.g.
 
 ```{r, eval = FALSE}
-?get_organizations
+?get_users
 ```
 
 ----

@@ -119,7 +119,7 @@ benchlingapi::get_users
 #>   }
 #>   get_benchling(endpoint, ...)
 #> }
-#> <bytecode: 0x120d042f0>
+#> <bytecode: 0x107e514f0>
 #> <environment: namespace:benchlingapi>
 ```
 
@@ -129,7 +129,7 @@ via the `...` argument, and are detailed in the individual help for each
 function, e.g.
 
 ``` r
-?get_organizations
+?get_users
 ```
 
 ------------------------------------------------------------------------
