@@ -23,5 +23,5 @@ get_box_contents <- function(box_id = NULL, ...) {
   if (!is.null(box_id)) {
     endpoint <- glue::glue("boxes/{box_id}/contents")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }
