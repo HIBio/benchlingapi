@@ -1,6 +1,6 @@
 Package: benchlingapi
 Title: Connect To The Benchling API
-Version: 0.0.8
+Version: 0.0.9
 Authors@R: c(
  person("Jonathan", "Carroll", email = "jonathan@hibio.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1404-5264"))
  )
@@ -15,13 +15,19 @@ Imports:
     glue,
     httr,
     jsonlite,
+    logger,
+    rlang (>= 0.4.11),
     tibble,
     tidyr,
     utils
 Suggests: 
     here,
+    knitr,
     purrr,
+    rmarkdown,
+    roxygen2,
     styler,
     yaml
 URL: https://github.com/HIBio/benchlingapi
 BugReports: https://github.com/HIBio/benchlingapi/issues
+VignetteBuilder: knitr

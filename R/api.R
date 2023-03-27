@@ -1,8 +1,11 @@
 get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE, ...) {
   endpoint <- utils::URLencode(endpoint)
+  logger::log_debug("GET ", org, " with endpoint: ", endpoint)
   query <- list(...)
   if (length(query)) {
+    logger::log_debug("Building query from `...` arguments")
     query <- as.list(stats::setNames(utils::URLencode(as.character(query)), names(query)))
+    logger::log_debug("query to be sent: ", query)
   }
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- httr::GET(
@@ -11,9 +14,10 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
     httr::authenticate(get_token(), "")
   )
   if (!(sc <- httr::status_code(resp)) == 200L) {
-    warning("** Request returned status ", sc, call. = FALSE)
+    logger::log_error("** Request returned status ", sc)
     return(invisible(resp))
   }
+  logger::log_success("Returned status code: ", sc)
   ep <- if (grepl("/", endpoint)) {
     sub("/.*", "", endpoint)
   } else {
@@ -31,6 +35,7 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
 
     # if we're in a pagination loop, return the contents
     if (!is.null(query[["nextToken"]])) {
+      logger::log_debug("Pagination loop detected. Setting `nextToken`")
       attr(res, "nextToken") <- contents[["nextToken"]]
       return(res)
     }
@@ -104,10 +109,10 @@ get_api_yaml <- function(org = get_org()) {
     return(yaml::read_yaml("https://benchling.com/api/v2/openapi.yaml"))
   }
   url <- glue::glue("https://{org}benchling.com/api/v2/openapi.yaml")
-  message("Fetching API spec from ", url)
+  logger::log_info("Fetching API spec from ", url)
   resp <- httr::GET(url, httr::authenticate(get_token(), ""))
   if (!(sc <- httr::status_code(resp)) == 200L) {
-    warning("** Request returned status ", sc, call. = FALSE)
+    logger::log_warn("** Request returned status ", sc)
     return(invisible(resp))
   }
   yaml <- httr::content(resp, as = "text", encoding = "UTF-8")
@@ -116,6 +121,7 @@ get_api_yaml <- function(org = get_org()) {
 
 post_benchling <- function(endpoint, body = NULL, org = get_org(), f = c("POST", "PATCH"), ...) {
   stopifnot(!is.null(body))
+  logger::log_debug(f, " ", org, " with endpoint: ", endpoint)
   f <- match.arg(f)
   f <- switch(f,
     POST = httr::POST,
@@ -129,9 +135,8 @@ post_benchling <- function(endpoint, body = NULL, org = get_org(), f = c("POST",
     httr::authenticate(get_token(), "")
   )
   if (!(sc <- httr::status_code(resp)) %in% 200:299) {
-    warning("** Request returned status ", sc, call. = FALSE)
+    logger::log_error("** Request returned status ", sc)
     return(invisible(resp))
   }
   jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
 }
-

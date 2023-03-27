@@ -61,7 +61,7 @@ get_tables <- function(entry_id) {
     stop(httr::content(entry)$error$message)
   }
   dplyr::filter(entry$entry$days$notes[[1]], type == "table") |>
-    dplyr::select(tidyselect::starts_with("table")) |>
+    dplyr::select(dplyr::starts_with("table")) |>
     tibble::as_tibble() |>
     dplyr::rename_with(~ sub("table.", "", .x, fixed = TRUE))
 }

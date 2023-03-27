@@ -24,12 +24,13 @@ get_template_noparam <- "
 #'
 #' {description}
 #'
+#' {param_desc}
 #' @return data from `{fun}` endpoint
 #' @export
 #'
 #' @rdname {fun}
-get_{fun} <- function() {{
-  get_benchling({ep})
+get_{fun} <- function(...) {{
+  get_benchling(\"{ep}\", ...)
 }}
 
 "

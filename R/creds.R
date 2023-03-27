@@ -24,7 +24,7 @@ set_creds <- function(org_var = "BENCHLING_ORG",
 #' @export
 valid_creds <- function() {
   result <- suppressWarnings(get_users())
-  isFALSE(is(result, "response"))
+  isFALSE(inherits(result, "response"))
 }
 
 #' Get the Configured Benchling Organisation
