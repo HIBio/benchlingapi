@@ -80,7 +80,7 @@ extract_entity_fields <- function(entity_id) {
       id = .data$value,
       class = .data$type
     ) |>
-    dplyr::arrange(match(name, schema$name))
+    dplyr::arrange(match(.data$name, schema$name))
 }
 
 #' List custom entities

@@ -13,8 +13,7 @@ update_custom_entity(
   fields = NULL,
   folderId = NULL,
   entityRegistryId = NULL,
-  dry_run = TRUE,
-  ...
+  dry_run = TRUE
 )
 }
 \arguments{
@@ -33,6 +32,8 @@ update_custom_entity(
 \item{folderId}{folder of entity to be set}
 
 \item{entityRegistryId}{registry ID of entity to be set}
+
+\item{dry_run}{if \code{TRUE}, only perform a dry run (not sent to server)}
 }
 \value{
 if \code{dry_run == TRUE} the response from the server, otherwise \code{FALSE}

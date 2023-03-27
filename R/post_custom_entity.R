@@ -54,6 +54,7 @@ new_custom_entity <- function(type = NULL, name = NULL, id = NULL, dry_run = TRU
 #' @param fields fields of entity to be set (as a named list)
 #' @param folderId folder of entity to be set
 #' @param entityRegistryId registry ID of entity to be set
+#' @param dry_run if `TRUE`, only perform a dry run (not sent to server)
 #'
 #' @return if `dry_run == TRUE` the response from the server, otherwise `FALSE`
 #' @export
@@ -65,8 +66,7 @@ update_custom_entity <- function(custom_entity_id = NULL,
                                  fields = NULL,
                                  folderId = NULL,
                                  entityRegistryId = NULL,
-                                 dry_run = TRUE,
-                                 ...) {
+                                 dry_run = TRUE) {
   stopifnot(!is.null(custom_entity_id))
   this_entity <- get_custom_entities(custom_entity_id)
 
