@@ -1,7 +1,8 @@
 #' List DNA Alignments
 #'
 #' A DNA alignment is a Benchling object representing an alignment of multiple DNA
-#' sequences.
+#' sequences. This endpoint is deprecated, please migrate to the existing
+#' [Nucleotide Alignments endpoints.](#/Nucleotide%20Alignments)
 #'
 #' @param dna_alignment_id dna-alignments id
 #' @param ... additional query parameters; see Details below
@@ -29,5 +30,5 @@ get_dna_alignments <- function(dna_alignment_id = NULL, ...) {
   if (!is.null(dna_alignment_id)) {
     endpoint <- glue::glue("dna-alignments/{dna_alignment_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

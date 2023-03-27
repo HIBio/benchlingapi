@@ -11,7 +11,6 @@
 #' @return if `dry_run == TRUE` the response from the server, otherwise `FALSE`
 #' @export
 new_custom_entity <- function(type = NULL, name = NULL, id = NULL, dry_run = TRUE, ...) {
-
   schema <- get_schema_id_by_name(type)
 
   entry_data <- list(...)
@@ -25,10 +24,12 @@ new_custom_entity <- function(type = NULL, name = NULL, id = NULL, dry_run = TRU
 
   if (!is.null(id)) {
     entry_data <- c(entry_data,
-                    entityRegistryId = id)
+      entityRegistryId = id
+    )
   } else {
     entry_data <- c(entry_data,
-                    namingStrategy = "NEW_IDS")
+      namingStrategy = "NEW_IDS"
+    )
   }
 
   validate_against_schema(entry_data, schema)
@@ -66,7 +67,6 @@ update_custom_entity <- function(custom_entity_id = NULL,
                                  entityRegistryId = NULL,
                                  dry_run = TRUE,
                                  ...) {
-
   stopifnot(!is.null(custom_entity_id))
   this_entity <- get_custom_entities(custom_entity_id)
 
@@ -103,12 +103,14 @@ build_fields <- function(entry, schema_id) {
       dropdown_id <- schema[schema$name == field_names[f], "dropdownId"]
       new_val <- get_dropdown_id_from_item_name(dropdown_id, entry[[f]])
       if (!length(new_val)) {
-        stop("'",
-             field_names[f],
-             "' should be one of [",
-             toString(get_dropdown_listing(dropdown_id)$name),
-             "] but is ",
-             entry[[f]])
+        stop(
+          "'",
+          field_names[f],
+          "' should be one of [",
+          toString(get_dropdown_listing(dropdown_id)$name),
+          "] but is ",
+          entry[[f]]
+        )
       }
       if (schema[schema$name == field_names[f], "isMulti"]) {
         list(value = unlist(new_val))
@@ -132,13 +134,14 @@ validate_against_schema <- function(args, schema_id) {
   }
   arg_names <- active_schema$name
   req_names <- arg_names[active_schema$isRequired]
-  if (! all(req_names %in% names(args$fields))) {
-   stop(
-     "Required fields are: [",
-     toString(req_names),
-     "]; missing '",
-     toString(setdiff(req_names, names(args$fields))),
-     "'")
+  if (!all(req_names %in% names(args$fields))) {
+    stop(
+      "Required fields are: [",
+      toString(req_names),
+      "]; missing '",
+      toString(setdiff(req_names, names(args$fields))),
+      "'"
+    )
   }
   dropdowns <- active_schema[active_schema$type == "dropdown", ]
   for (item in seq_len(nrow(dropdowns))) {
@@ -146,7 +149,7 @@ validate_against_schema <- function(args, schema_id) {
     arg_value <- unlist(args$fields[[dd_name]]$value)
     dd_options <- get_dropdowns(dropdowns$dropdownId[item])$options
     dd_ids <- dd_options$id
-    if(!length(arg_value) || ! all(arg_value %in% dd_ids)) {
+    if (!length(arg_value) || !all(arg_value %in% dd_ids)) {
       if (dd_name %in% req_names) {
         stop("'", dd_name, "' should be one of [", toString(dd_options$name), "] but is ", arg_value)
       } else {

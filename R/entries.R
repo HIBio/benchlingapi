@@ -1,4 +1,3 @@
-
 #' Get Note Entry Using ID
 #'
 #' @param displayId displayId of note entry (starting with `EXP`)
@@ -64,7 +63,7 @@ get_tables <- function(entry_id) {
   dplyr::filter(entry$entry$days$notes[[1]], type == "table") |>
     dplyr::select(tidyselect::starts_with("table")) |>
     tibble::as_tibble() |>
-    dplyr::rename_with(~sub("table.", "", .x, fixed = TRUE))
+    dplyr::rename_with(~ sub("table.", "", .x, fixed = TRUE))
 }
 
 #' Extract Contents of an Entry Table
@@ -80,8 +79,8 @@ extract_table <- function(tbl_contents, name = NULL) {
   if (length(nm) > 1) {
     if (is.null(name)) {
       msg <- paste("Provide the `name` of the table you wish to extract.",
-                   paste0("  Options are: ", toString(nm)),
-                   sep = "\n"
+        paste0("  Options are: ", toString(nm)),
+        sep = "\n"
       )
       stop(msg)
     }

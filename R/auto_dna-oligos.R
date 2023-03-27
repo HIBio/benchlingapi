@@ -41,5 +41,5 @@ get_dna_oligos <- function(oligo_id = NULL, ...) {
   if (!is.null(oligo_id)) {
     endpoint <- glue::glue("dna-oligos/{oligo_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

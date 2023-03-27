@@ -19,5 +19,5 @@ get_tasks <- function(task_id = NULL, ...) {
   if (!is.null(task_id)) {
     endpoint <- glue::glue("tasks/{task_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

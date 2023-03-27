@@ -39,5 +39,5 @@ get_custom_entities <- function(custom_entity_id = NULL, ...) {
   if (!is.null(custom_entity_id)) {
     endpoint <- glue::glue("custom-entities/{custom_entity_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

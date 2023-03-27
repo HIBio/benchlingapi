@@ -41,5 +41,5 @@ get_dna_sequences <- function(dna_sequence_id = NULL, ...) {
   if (!is.null(dna_sequence_id)) {
     endpoint <- glue::glue("dna-sequences/{dna_sequence_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

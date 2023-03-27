@@ -30,5 +30,5 @@ get_teams <- function(team_id = NULL, ...) {
   if (!is.null(team_id)) {
     endpoint <- glue::glue("teams/{team_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

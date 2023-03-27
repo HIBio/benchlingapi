@@ -23,5 +23,5 @@ get_projects <- function(project_id = NULL, ...) {
   if (!is.null(project_id)) {
     endpoint <- glue::glue("projects/{project_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

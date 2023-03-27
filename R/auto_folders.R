@@ -27,5 +27,5 @@ get_folders <- function(folder_id = NULL, ...) {
   if (!is.null(folder_id)) {
     endpoint <- glue::glue("folders/{folder_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

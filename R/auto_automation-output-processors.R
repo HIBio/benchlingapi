@@ -26,5 +26,5 @@ get_automation_output_processors <- function(output_processor_id = NULL, ...) {
   if (!is.null(output_processor_id)) {
     endpoint <- glue::glue("automation-output-processors/{output_processor_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

@@ -27,5 +27,5 @@ get_entry_templates <- function(entry_template_id = NULL, ...) {
   if (!is.null(entry_template_id)) {
     endpoint <- glue::glue("entry-templates/{entry_template_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

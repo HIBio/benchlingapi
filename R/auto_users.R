@@ -1,6 +1,6 @@
 #' List users
 #'
-#' View user objects.
+#' Manage user objects.
 #'
 #' @param user_id users id
 #' @param ... additional query parameters; see Details below
@@ -17,6 +17,7 @@
 #'    \item{memberOf}{Comma-separated list of organization and/or team API IDs. Restricts results to users that are members of all given groups.}
 #'    \item{adminOf}{Comma-separated list of organization and/or team API IDs. Restricts results to users that are admins of all given groups.}
 #'    \item{handles}{Comma-separated list of handles. Restricts results to the users with the specified handles.}
+#'    \item{passwordLastChangedAt}{Datetime, in RFC 3339 format. Supports the >, >=, <, <=, operators. Time zone defaults to UTC. Restricts results to users who have last changed their password in the specified range. e.g. > 2017-04-30. If "null" is provided returns users that have no password set (SAML).}
 #'    \item{nextToken}{Token for pagination}
 #' }
 #'
@@ -29,5 +30,5 @@ get_users <- function(user_id = NULL, ...) {
   if (!is.null(user_id)) {
     endpoint <- glue::glue("users/{user_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

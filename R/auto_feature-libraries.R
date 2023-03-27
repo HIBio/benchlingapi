@@ -27,5 +27,5 @@ get_feature_libraries <- function(feature_library_id = NULL, ...) {
   if (!is.null(feature_library_id)) {
     endpoint <- glue::glue("feature-libraries/{feature_library_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

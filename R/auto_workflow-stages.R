@@ -15,5 +15,5 @@ get_workflow_stages <- function(stage_id = NULL, ...) {
   if (!is.null(stage_id)) {
     endpoint <- glue::glue("workflow-stages/{stage_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

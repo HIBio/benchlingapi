@@ -26,5 +26,5 @@ get_assay_runs <- function(assay_run_id = NULL, ...) {
   if (!is.null(assay_run_id)) {
     endpoint <- glue::glue("assay-runs/{assay_run_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

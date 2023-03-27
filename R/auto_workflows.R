@@ -15,5 +15,5 @@ get_workflows <- function(workflow_id = NULL, ...) {
   if (!is.null(workflow_id)) {
     endpoint <- glue::glue("workflows/{workflow_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

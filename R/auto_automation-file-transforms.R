@@ -16,5 +16,5 @@ get_automation_file_transforms <- function(transform_id = NULL, ...) {
   if (!is.null(transform_id)) {
     endpoint <- glue::glue("automation-file-transforms/{transform_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

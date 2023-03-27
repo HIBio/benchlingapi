@@ -22,5 +22,5 @@ get_requests <- function(request_id = NULL, ...) {
   if (!is.null(request_id)) {
     endpoint <- glue::glue("requests/{request_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

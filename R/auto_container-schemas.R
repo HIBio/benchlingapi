@@ -22,5 +22,5 @@ get_container_schemas <- function(schema_id = NULL, ...) {
   if (!is.null(schema_id)) {
     endpoint <- glue::glue("container-schemas/{schema_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

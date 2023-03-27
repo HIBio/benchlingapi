@@ -16,5 +16,5 @@ get_automation_input_generators <- function(input_generator_id = NULL, ...) {
   if (!is.null(input_generator_id)) {
     endpoint <- glue::glue("automation-input-generators/{input_generator_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

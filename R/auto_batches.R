@@ -30,5 +30,5 @@ get_batches <- function(batch_id = NULL, ...) {
   if (!is.null(batch_id)) {
     endpoint <- glue::glue("batches/{batch_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }
