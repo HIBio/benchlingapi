@@ -119,7 +119,7 @@ benchlingapi::get_users
 #>   }
 #>   get_benchling(endpoint, ...)
 #> }
-#> <bytecode: 0x12b6200e0>
+#> <bytecode: 0x120d042f0>
 #> <environment: namespace:benchlingapi>
 ```
 
@@ -305,9 +305,11 @@ get_users(nameIncludes = "david")
 
 # Logging
 
-{benchlingapi} uses \[logger\]\[logger\] for logging messages, warnings,
-errors, and debug info. A default of `logger::log_threshold(ERROR)` is
-set on package load, but can be overridden, e.g.
+{benchlingapi} uses
+[{logger}](https://daroczig.github.io/logger/index.html) for logging
+messages, warnings, errors, and debug info. A default of
+`logger::log_threshold(ERROR)` is set on package load, but can be
+overridden, e.g.
 
 ``` r
 logger::log_threshold(DEBUG)
@@ -323,5 +325,8 @@ get_users(nameIncludes = "david")
     #> 1 david.old@example.com david.old ent_U2gA6a41 David Old
     #> 2 david.new@example.com david.new ent_AvA2sA2X David New
 
+Errors and messages can be injected with `logger::log_errors()` and
+`logger::log_messages()`.
+
 [^1]: See `inst/scripts/template.R` for how these `auto_*.R` files are
-    generated \[logger\]: <https://daroczig.github.io/logger/index.html>
+    generated
