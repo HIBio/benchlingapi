@@ -1,3 +1,8 @@
+# benchlingapi 0.0.9
+
+* Dropped named `query` argument passing `...`
+* Added logging
+
 # benchlingapi 0.0.8
 
 * Support pagination

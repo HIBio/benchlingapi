@@ -4,7 +4,10 @@
 \alias{get_events}
 \title{List Events}
 \usage{
-get_events()
+get_events(...)
+}
+\arguments{
+\item{...}{additional query parameters; see Details below}
 }
 \value{
 data from \code{events} endpoint
@@ -12,4 +15,15 @@ data from \code{events} endpoint
 \description{
 The Events system allows external services to subscribe to events that are
 triggered in Benchling (e.g. plasmid registration, request submission, etc).
+}
+\details{
+Available query parameters:
+\describe{
+\item{pageSize}{Number of results to return. Defaults to 50, maximum of 100.}
+\item{nextToken}{Token for pagination}
+\item{createdAt.gte}{Datetime, in RFC 3339 format. Time zone defaults to UTC. Restricts results to those modified in the specified range. e.g. "2020-05-23".}
+\item{startingAfter}{Event ID after which events will be returned.}
+\item{eventTypes}{Comma-separated list of event types to return.}
+\item{poll}{When True, the API will always return a nextToken to enable polling events indefinitely.}
+}
 }

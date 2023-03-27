@@ -20,7 +20,7 @@ get_entry_by_id <- function(displayId = NULL) {
 #' @export
 get_attachments <- function(entry_id, annotateURL = TRUE) {
   entry <- get_entries(entry_id)
-  att <- dplyr::filter(entry$entry$days$notes[[1]], type == "external_file")
+  att <- dplyr::filter(entry$entry$days$notes[[1]], .data$type == "external_file")
   att <- att[, c("text", "externalFileId")]
   if (annotateURL && nrow(att) > 0) {
     att$downloadURL <- NA
@@ -60,8 +60,8 @@ get_tables <- function(entry_id) {
   if (inherits(entry, "response")) {
     stop(httr::content(entry)$error$message)
   }
-  dplyr::filter(entry$entry$days$notes[[1]], type == "table") |>
-    dplyr::select(tidyselect::starts_with("table")) |>
+  dplyr::filter(entry$entry$days$notes[[1]], .data$type == "table") |>
+    dplyr::select(dplyr::starts_with("table")) |>
     tibble::as_tibble() |>
     dplyr::rename_with(~ sub("table.", "", .x, fixed = TRUE))
 }
@@ -111,7 +111,7 @@ extract_table <- function(tbl_contents, name = NULL) {
 #' @export
 get_lookup_tables <- function(entry_id) {
   entry <- get_entries(entry_id)
-  res <- dplyr::filter(entry$entry$days$notes[[1]], type == "lookup_table")
+  res <- dplyr::filter(entry$entry$days$notes[[1]], .data$type == "lookup_table")
   tibble::as_tibble(
     res[, c("apiId", "columns")]
   )

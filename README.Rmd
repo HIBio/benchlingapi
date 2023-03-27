@@ -172,4 +172,29 @@ structure(list(email = c("david.old@example.com", "david.new@example.com"
 ), name = c("David Old", "David New")), class = "data.frame", row.names = 1:2)
 ```
 
+# Logging
+
+{benchlingapi} uses [logger][logger] for logging messages, warnings, errors, and 
+debug info. A default of `logger::log_threshold(ERROR)` is set on package load, but 
+can be overridden, e.g.
+
+```{r, eval = FALSE}
+logger::log_threshold(DEBUG)
+get_users(nameIncludes = "david")
+```
+```
+DEBUG [2023-03-27 16:53:25] GET prod with endpoint: users
+DEBUG [2023-03-27 16:53:25] Building query from `...` arguments
+DEBUG [2023-03-27 16:53:25] query to be sent: list(nameIncludes = "david")
+SUCCESS [2023-03-27 16:53:26] Returned status code: 200
+```
+```{r, echo = FALSE}
+structure(list(email = c("david.old@example.com", "david.new@example.com"
+), handle = c("david.old", "david.new"), id = c("ent_U2gA6a41", "ent_AvA2sA2X"
+), name = c("David Old", "David New")), class = "data.frame", row.names = 1:2)
+```
+Errors and messages can be injected with `logger::log_errors()` and 
+`logger::log_messages()`.
+
 [^inst]: See `inst/scripts/template.R` for how these `auto_*.R` files are generated
+[logger]: https://daroczig.github.io/logger/index.html
