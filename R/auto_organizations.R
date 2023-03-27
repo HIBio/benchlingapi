@@ -28,5 +28,5 @@ get_organizations <- function(organization_id = NULL, ...) {
   if (!is.null(organization_id)) {
     endpoint <- glue::glue("organizations/{organization_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

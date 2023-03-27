@@ -28,5 +28,5 @@ get_features <- function(feature_id = NULL, ...) {
   if (!is.null(feature_id)) {
     endpoint <- glue::glue("features/{feature_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

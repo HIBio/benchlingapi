@@ -21,5 +21,5 @@ get_dropdowns <- function(dropdown_id = NULL, ...) {
   if (!is.null(dropdown_id)) {
     endpoint <- glue::glue("dropdowns/{dropdown_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

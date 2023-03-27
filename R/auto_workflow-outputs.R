@@ -36,5 +36,5 @@ get_workflow_outputs <- function(workflow_output_id = NULL, ...) {
   if (!is.null(workflow_output_id)) {
     endpoint <- glue::glue("workflow-outputs/{workflow_output_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

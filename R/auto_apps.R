@@ -31,5 +31,5 @@ get_apps <- function(app_id = NULL, ...) {
   if (!is.null(app_id)) {
     endpoint <- glue::glue("apps/{app_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

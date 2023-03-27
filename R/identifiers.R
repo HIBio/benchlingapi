@@ -45,10 +45,12 @@ get_schema_id_by_name <- function(schema) {
     } else {
       msg <- paste(
         paste(msg,
-              "  Possible matches: ",
-              sep = "\n"),
+          "  Possible matches: ",
+          sep = "\n"
+        ),
         paste(similar, collapse = "\n"),
-        sep = "\n")
+        sep = "\n"
+      )
 
       stop(msg)
     }

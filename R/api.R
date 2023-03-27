@@ -44,8 +44,8 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
     }
 
     if (!is.null(total_ps) &&
-        nrow(res) < as.integer(total_ps) &&
-        utils::hasName(contents, "nextToken")) {
+      nrow(res) < as.integer(total_ps) &&
+      utils::hasName(contents, "nextToken")) {
       if (!quiet) message("Pagination in process. Results available: ", headers[["result-count"]])
       nextToken <- contents$nextToken
       total_ps <- as.integer(total_ps)
@@ -64,12 +64,10 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
       if (!quiet) message("\rResult contains ", nrow(res), " rows", strrep(" ", 10))
     }
     res
-
   } else {
     # return json directly
     contents
   }
-
 }
 
 extract_named_endpoint <- function(d, ep) {
@@ -116,12 +114,13 @@ get_api_yaml <- function(org = get_org()) {
   yaml::read_yaml(text = yaml)
 }
 
-post_benchling <- function(endpoint, body = NULL, org = get_org(), f = c("POST", "PATCH"),...) {
+post_benchling <- function(endpoint, body = NULL, org = get_org(), f = c("POST", "PATCH"), ...) {
   stopifnot(!is.null(body))
   f <- match.arg(f)
   f <- switch(f,
-              POST = httr::POST,
-              PATCH = httr::PATCH)
+    POST = httr::POST,
+    PATCH = httr::PATCH
+  )
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- f(
     url = glue::glue("{url}/{endpoint}"),

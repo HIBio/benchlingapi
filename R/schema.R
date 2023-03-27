@@ -27,7 +27,7 @@ structure_or_id <- function(x) {
 #' ent_id <- get_custom_entities()$id[1]
 #' extract_entity_schema_definition(ent_id)
 #' get_custom_entities(ent_id) |>
-#'    extract_entity_schema_definition()
+#'   extract_entity_schema_definition()
 #' }
 extract_entity_schema_definition <- function(entity, quiet = FALSE) {
   entity_id <- structure_or_id(entity)
@@ -47,7 +47,7 @@ extract_entity_schema_definition <- function(entity, quiet = FALSE) {
 #' sch_id <- get_entity_schemas()$id[1]
 #' extract_schema_definition(sch_id)
 #' get_entity_schemas(sch_id) |>
-#'    extract_schema_definition()
+#'   extract_schema_definition()
 #' }
 extract_schema_definition <- function(schema_id) {
   schema_id <- structure_or_id(schema_id)
@@ -65,7 +65,7 @@ extract_schema_definition <- function(schema_id) {
 #' ent_id <- get_custom_entities()$id[1]
 #' extract_entity_fields(ent_id)
 #' get_custom_entities(ent_id) |>
-#'    extract_entity_fields()
+#'   extract_entity_fields()
 #' }
 extract_entity_fields <- function(entity_id) {
   entity_id <- structure_or_id(entity_id)
@@ -80,7 +80,7 @@ extract_entity_fields <- function(entity_id) {
       id = .data$value,
       class = .data$type
     ) |>
-  dplyr::arrange(match(name, schema$name))
+    dplyr::arrange(match(name, schema$name))
 }
 
 #' List custom entities
@@ -101,4 +101,3 @@ list_custom_entities <- function(type, print_fields = c("id", "name"), ...) {
   }
   invisible(entities)
 }
-

@@ -42,5 +42,5 @@ get_aa_sequences <- function(aa_sequence_id = NULL, ...) {
   if (!is.null(aa_sequence_id)) {
     endpoint <- glue::glue("aa-sequences/{aa_sequence_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

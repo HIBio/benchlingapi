@@ -20,6 +20,6 @@ Extract entity data fields
 ent_id <- get_custom_entities()$id[1]
 extract_entity_fields(ent_id)
 get_custom_entities(ent_id) |>
-   extract_entity_fields()
+  extract_entity_fields()
 }
 }

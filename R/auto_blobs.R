@@ -17,5 +17,5 @@ get_blobs <- function(blob_id = NULL, ...) {
   if (!is.null(blob_id)) {
     endpoint <- glue::glue("blobs/{blob_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

@@ -21,5 +21,5 @@ get_request_fulfillments <- function(request_fulfillment_id = NULL, ...) {
   if (!is.null(request_fulfillment_id)) {
     endpoint <- glue::glue("request-fulfillments/{request_fulfillment_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

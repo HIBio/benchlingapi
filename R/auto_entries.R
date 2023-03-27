@@ -38,5 +38,5 @@ get_entries <- function(entry_id = NULL, ...) {
   if (!is.null(entry_id)) {
     endpoint <- glue::glue("entries/{entry_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

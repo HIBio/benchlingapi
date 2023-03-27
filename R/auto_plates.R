@@ -1,13 +1,13 @@
 #' List plates
 #'
-#' Plates are a structured storage type, grids of wells that each function like
+#' Plates are a structured inventory type, grids of wells that each function like
 #' containers. Plates come in two types: a traditional "fixed" type, where the
 #' wells cannot move, and a "matrix" type. A matrix plate has similar
 #' functionality to a box, where the containers inside can be moved around and
 #' removed altogether.Plates are all associated with schemas, which define the
 #' type of the plate (e.g. "96 Well Plate") along with the fields that are
 #' tracked, the dimensions of the plate, and whether or not the plate is a matrix
-#' plate or a traditional well plate.Like all storage, every Plate has a barcode
+#' plate or a traditional well plate.Like all inventory, every Plate has a barcode
 #' that is unique across the registry.
 #'
 #' @param plate_id plates id
@@ -23,7 +23,7 @@
 #'    \item{modifiedAt}{Datetime, in RFC 3339 format. Supports the > and < operators. Time zone defaults to UTC. Restricts results to those modified in the specified range. e.g. > 2017-04-30.}
 #'    \item{name}{Name of a plate. Restricts results to those with the specified name.}
 #'    \item{nameIncludes}{Name substring of a plate. Restricts results to those with names that include the provided substring.}
-#'    \item{ancestorStorageId}{ID of a location. Restricts results to those located in the specified storage.}
+#'    \item{ancestorStorageId}{ID of a location. Restricts results to those located in the specified inventory.}
 #'    \item{storageContentsId}{ID of a batch, entity, or entity schema. Restricts results to those that hold containers with entities or batches associated with the specified ID.}
 #'    \item{storageContentsIds}{Comma-separated list of IDs of batches or entities. Restricts results to those that hold containers with at least one of the specified batches, entities, or batches of the specified entities.}
 #'    \item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived plates. Use "ANY_ARCHIVED" to filter for archived plates regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}
@@ -44,5 +44,5 @@ get_plates <- function(plate_id = NULL, ...) {
   if (!is.null(plate_id)) {
     endpoint <- glue::glue("plates/{plate_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

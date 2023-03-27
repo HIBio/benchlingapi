@@ -39,5 +39,5 @@ get_mixtures <- function(mixture_id = NULL, ...) {
   if (!is.null(mixture_id)) {
     endpoint <- glue::glue("mixtures/{mixture_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

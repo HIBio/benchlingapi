@@ -15,8 +15,8 @@ get_locations(location_id = NULL, ...)
 data from \code{locations} endpoint
 }
 \description{
-Manage locations objects.Like all storage, every Location has a barcode that is
-unique across the registry.
+Manage locations objects.Like all inventory, every Location has a barcode that
+is unique across the registry.
 }
 \details{
 Available query parameters:
@@ -29,7 +29,7 @@ Available query parameters:
 \item{modifiedAt}{Datetime, in RFC 3339 format. Supports the > and < operators. Time zone defaults to UTC. Restricts results to those modified in the specified range. e.g. > 2017-04-30.}
 \item{name}{Name of a location. Restricts results to those with the specified name.}
 \item{nameIncludes}{Name substring of a location. Restricts results to those with names that include the provided substring.}
-\item{ancestorStorageId}{ID of a plate, box, or location. Restricts results to those located in the specified storage.}
+\item{ancestorStorageId}{ID of a plate, box, or location. Restricts results to those located in the specified inventory.}
 \item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived locations. Use "ANY_ARCHIVED" to filter for archived locations regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}
 \item{ids}{Comma-separated list of ids. Matches all of the provided IDs, or returns a 400 error that includes a list of which IDs are invalid.}
 \item{barcodes}{Comma-separated list of barcodes. Matches all of the provided barcodes, or returns a 400 error that includes a list of which barcodes are invalid.}

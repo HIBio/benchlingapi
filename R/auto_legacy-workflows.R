@@ -14,5 +14,5 @@ get_legacy_workflows <- function(legacy_workflow_id = NULL, ...) {
   if (!is.null(legacy_workflow_id)) {
     endpoint <- glue::glue("legacy-workflows/{legacy_workflow_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

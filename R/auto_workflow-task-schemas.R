@@ -22,5 +22,5 @@ get_workflow_task_schemas <- function(schema_id = NULL, ...) {
   if (!is.null(schema_id)) {
     endpoint <- glue::glue("workflow-task-schemas/{schema_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

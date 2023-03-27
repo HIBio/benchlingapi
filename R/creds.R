@@ -56,4 +56,3 @@ get_token <- function() {
   }
   Sys.getenv("BENCHLING_TOKEN_INTERNAL")
 }
-

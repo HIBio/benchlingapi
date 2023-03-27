@@ -15,11 +15,11 @@ get_boxes(box_id = NULL, ...)
 data from \code{boxes} endpoint
 }
 \description{
-Boxes are a structured storage type, consisting of a grid of positions that can
-each hold one container. Unlike locations, there are a maximum number of
+Boxes are a structured inventory type, consisting of a grid of positions that
+can each hold one container. Unlike locations, there are a maximum number of
 containers that a box can hold (one per position).Boxes are all associated with
 schemas, which define the type of the box (e.g. "10x10 Cryo Box") along with
-the fields that are tracked and the dimensions of the box.Like all storage,
+the fields that are tracked and the dimensions of the box.Like all inventory,
 every Box has a barcode that is unique across the registry.
 }
 \details{
@@ -42,7 +42,7 @@ Available query parameters:
 \item{emptyContainers.gt}{Only return boxes that have greater-than the specified number of empty containers (containers without contents).}
 \item{emptyContainers.lte}{Only return boxes that have less-than or equal-to the specified number of empty containers (containers without contents).}
 \item{emptyContainers.lt}{Only return boxes that have less-than the specified number of empty containers (containers without contents).}
-\item{ancestorStorageId}{ID of a location. Restricts results to those located in the specified storage.}
+\item{ancestorStorageId}{ID of a location. Restricts results to those located in the specified inventory.}
 \item{storageContentsId}{ID of a batch, entity, or entity schema. Restricts results to those that hold containers with entities or batches associated with the specified ID.}
 \item{storageContentsIds}{Comma-separated list of IDs of batches or entities. Restricts results to those that hold containers with at least one of the specified batches, entities, or batches of the specified entities.}
 \item{archiveReason}{Archive reason. Restricts items to those with the specified archive reason. Use "NOT_ARCHIVED" to filter for unarchived boxes. Use "ANY_ARCHIVED" to filter for archived boxes regardless of reason. Use "ANY_ARCHIVED_OR_NOT_ARCHIVED" to return items for both archived and unarchived.}

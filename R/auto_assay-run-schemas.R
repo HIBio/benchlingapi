@@ -22,5 +22,5 @@ get_assay_run_schemas <- function(schema_id = NULL, ...) {
   if (!is.null(schema_id)) {
     endpoint <- glue::glue("assay-run-schemas/{schema_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }

@@ -14,7 +14,7 @@ get_{fun} <- function({ep_id} = NULL, ...) {{
   if (!is.null({ep_id})) {{
     endpoint <- glue::glue(\"{ep}/{{{ep_id}}}\")
   }}
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }}
 
 "

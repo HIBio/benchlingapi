@@ -24,5 +24,5 @@ get_registries <- function(registry_id = NULL, ...) {
   if (!is.null(registry_id)) {
     endpoint <- glue::glue("registries/{registry_id}")
   }
-  get_benchling(endpoint, query = ...)
+  get_benchling(endpoint, ...)
 }
