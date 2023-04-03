@@ -2,7 +2,8 @@ Package: benchlingapi
 Title: Connect To The Benchling API
 Version: 0.0.9
 Authors@R: c(
- person("Jonathan", "Carroll", email = "jonathan@hibio.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1404-5264"))
+ person("Jonathan", "Carroll", email = "jonathan@hibio.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1404-5264")),
+ person("Human Immunology Biosciences (HI·Bio)", role = c("cph", "fnd"))
  )
 Description: Wraps the benchling API for access in R.
 License: file LICENSE

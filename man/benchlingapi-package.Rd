@@ -19,5 +19,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Jonathan Carroll \email{jonathan@hibio.com} (\href{https://orcid.org/0000-0002-1404-5264}{ORCID})
 
+Other contributors:
+\itemize{
+  \item Human Immunology Biosciences (HI·Bio) [copyright holder, funder]
+}
+
 }
 \keyword{internal}
