@@ -1,0 +1,13 @@
+{
+    "nextToken": "",
+    "users": [
+        {
+            "email": "benchlingsupport@benchling.com",
+            "handle": "benchlingsupport",
+            "id": "ent_PRNF1HWM",
+            "isSuspended": false,
+            "name": "Benchling Support",
+            "passwordLastChangedAt": "2022-07-01T20:28:09.576004+00:00"
+        }
+    ]
+}

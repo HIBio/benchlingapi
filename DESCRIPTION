@@ -22,12 +22,16 @@ Imports:
     utils
 Suggests: 
     here,
+    httptest,
     knitr,
     purrr,
     rmarkdown,
     roxygen2,
     styler,
+    testthat (>= 3.0.0),
+    withr,
     yaml
 URL: https://github.com/HIBio/benchlingapi
 BugReports: https://github.com/HIBio/benchlingapi/issues
 VignetteBuilder: knitr
+Config/testthat/edition: 3
