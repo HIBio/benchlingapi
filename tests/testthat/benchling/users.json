@@ -1,0 +1,117 @@
+{
+    "nextToken": "",
+    "users": [
+        {
+            "email": "user02@company.com",
+            "handle": "user02",
+            "id": "ent_CKxJcHK8",
+            "isSuspended": false,
+            "name": "user02",
+            "passwordLastChangedAt": "2023-02-17T00:25:09.286057+00:00"
+        },
+        {
+            "email": "user11@company.com",
+            "handle": "user11",
+            "id": "ent_U6gU6b46",
+            "isSuspended": false,
+            "name": "FAKENAME KXYZ",
+            "passwordLastChangedAt": "2023-01-20T00:02:41.187515+00:00"
+        },
+        {
+            "email": "user03@company.com",
+            "handle": "user03",
+            "id": "ent_omGFghx8",
+            "isSuspended": false,
+            "name": "user03",
+            "passwordLastChangedAt": "2022-10-28T01:40:41.017130+00:00"
+        },
+        {
+            "email": "user08@company.com",
+            "handle": "user08",
+            "id": "ent_mQEzh06k",
+            "isSuspended": false,
+            "name": "user08",
+            "passwordLastChangedAt": "2022-10-20T22:20:13.716352+00:00"
+        },
+        {
+            "email": "user04@company.com",
+            "handle": "user04",
+            "id": "ent_NT6Ldc0j",
+            "isSuspended": false,
+            "name": "user04",
+            "passwordLastChangedAt": "2022-07-06T17:50:25.244262+00:00"
+        },
+        {
+            "email": "user07@company.com",
+            "handle": "user07",
+            "id": "ent_SPNdAvEd",
+            "isSuspended": false,
+            "name": "user07",
+            "passwordLastChangedAt": "2022-07-07T16:14:29.675626+00:00"
+        },
+        {
+            "email": "user09@company.com",
+            "handle": "user09",
+            "id": "ent_t0v9sKtv",
+            "isSuspended": false,
+            "name": "user09",
+            "passwordLastChangedAt": "2022-07-05T16:17:18.316343+00:00"
+        },
+        {
+            "email": "user10@company.com",
+            "handle": "user10",
+            "id": "ent_gmLDdRsS",
+            "isSuspended": false,
+            "name": "user10",
+            "passwordLastChangedAt": "2022-07-05T16:20:06.639335+00:00"
+        },
+        {
+            "email": "user06@company.com",
+            "handle": "user06",
+            "id": "ent_N7ARMuL4",
+            "isSuspended": false,
+            "name": "user06",
+            "passwordLastChangedAt": "2022-07-07T16:12:31.772372+00:00"
+        },
+        {
+            "email": "user12@company.com",
+            "handle": "user12",
+            "id": "ent_EvJ4sR2X",
+            "isSuspended": false,
+            "name": "FAKENAME LXYZ",
+            "passwordLastChangedAt": "2022-07-06T21:42:45.974428+00:00"
+        },
+        {
+            "email": "user01@company.com",
+            "handle": "user01",
+            "id": "ent_qbc9MiQn",
+            "isSuspended": false,
+            "name": "user01",
+            "passwordLastChangedAt": "2022-07-14T22:07:19.588443+00:00"
+        },
+        {
+            "email": "user13@company.com",
+            "handle": "user13",
+            "id": "ent_og7mNFIy",
+            "isSuspended": false,
+            "name": "user13",
+            "passwordLastChangedAt": "2022-07-11T17:55:07.038717+00:00"
+        },
+        {
+            "email": "user05@company.com",
+            "handle": "user05",
+            "id": "ent_1TxFsUW8",
+            "isSuspended": true,
+            "name": "user05",
+            "passwordLastChangedAt": "2022-07-05T17:08:37.853758+00:00"
+        },
+        {
+            "email": "benchlingsupport@benchling.com",
+            "handle": "benchlingsupport",
+            "id": "ent_PRNF1HWM",
+            "isSuspended": false,
+            "name": "Benchling Support",
+            "passwordLastChangedAt": "2022-07-01T20:28:09.576004+00:00"
+        }
+    ]
+}
