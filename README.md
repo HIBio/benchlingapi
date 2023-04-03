@@ -6,7 +6,14 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Connect to the benchling API via R.
+Wraps the Benchling API for access in R.
+
+##### This is an unofficial API wrapper package independent of the Benchling python SDK.
+
+##### This is pre-release software. No guarantees are provided.
+
+If you have suggestions or find a bug, let us know via the
+[Issues](https://github.com/HIBio/benchlingapi/issues/new/choose).
 
 ## Installation
 
@@ -119,7 +126,7 @@ benchlingapi::get_users
 #>   }
 #>   get_benchling(endpoint, ...)
 #> }
-#> <bytecode: 0x107e514f0>
+#> <bytecode: 0x12011e6c8>
 #> <environment: namespace:benchlingapi>
 ```
 
