@@ -5,7 +5,7 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
   if (length(query)) {
     logger::log_debug("Building query from `...` arguments")
     query <- as.list(stats::setNames(utils::URLencode(as.character(query)), names(query)))
-    logger::log_debug("query to be sent: ", query)
+    logger::log_debug("query to be sent: ", paste(names(query), query, sep = ":", collapse = ", "))
   }
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- httr::GET(
@@ -15,6 +15,7 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
   )
   if (!(sc <- httr::status_code(resp)) == 200L) {
     logger::log_error("** Request returned status ", sc)
+    logger::log_error("** Error: ", httr::content(resp)$error$message)
     return(invisible(resp))
   }
   logger::log_success("Returned status code: ", sc)
@@ -29,7 +30,7 @@ get_benchling <- function(endpoint, org = get_org(), json = FALSE, quiet = FALSE
 
   if (!json) {
     # convert from json
-    contents <- jsonlite::fromJSON(contents, flatten = TRUE)
+    contents <- jsonlite::fromJSON(contents, flatten = FALSE)
 
     res <- extract_named_endpoint(contents, ep)
 
