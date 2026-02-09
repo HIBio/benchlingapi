@@ -122,8 +122,8 @@ get_api_yaml <- function(org = get_org()) {
 
 post_benchling <- function(endpoint, body = NULL, org = get_org(), f = c("POST", "PATCH"), ...) {
   stopifnot(!is.null(body))
-  logger::log_debug(f, " ", org, " with endpoint: ", endpoint)
   f <- match.arg(f)
+  logger::log_debug(f, " ", org, " with endpoint: ", endpoint)
   f <- switch(f,
     POST = httr::POST,
     PATCH = httr::PATCH
@@ -131,7 +131,7 @@ post_benchling <- function(endpoint, body = NULL, org = get_org(), f = c("POST",
   url <- glue::glue("https://{org}.benchling.com/api/v2/")
   resp <- f(
     url = glue::glue("{url}/{endpoint}"),
-    body = jsonlite::toJSON(body, auto_unbox = TRUE),
+    body = body,
     encode = "json",
     httr::authenticate(get_token(), "")
   )
